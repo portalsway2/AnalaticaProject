@@ -1,0 +1,63 @@
+users:
+  type: rest
+  resource: Time\TrackerBundle\Controller\UsersController
+
+users:
+  type: rest
+  resource: Time\TrackerBundle\Controller\AgentController
+
+user:
+    type: rest
+    resource: Time\TrackerBundle\Controller\UserController
+
+
+information_show:
+  pattern:  /{id}/show
+  defaults: { _controller: TimeTrackerBundle:User:show, _format: json }
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+information_edit:
+  pattern:  /{id}/edit
+  resource: Time\TrackerBundle\Controller\UserController
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+regex_show:
+  pattern:  /{id}/show
+  defaults: { _controller: TimeTrackerBundle:Regex:show, _format: json }
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+regex_edit:
+  pattern:  /{id}/edit
+  resource: Time\TrackerBundle\Controller\RegexController
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+recuper:
+  type: rest
+  resource: Time\TrackerBundle\Controller\RecupererController
+
+envoyertoken:
+  type: rest
+  resource: Time\TrackerBundle\Controller\EnvoyerTokenController

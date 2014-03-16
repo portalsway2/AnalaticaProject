@@ -1,0 +1,9 @@
+Time\TrackerBundle\Entity\User:
+    getters:
+        username:
+            - NotBlank:
+        email:
+            - NotBlank:
+            - Email:
+        password:
+            - NotBlank:

@@ -1,0 +1,10 @@
+time_tracker:
+    type:   rest
+    resource: "@TimeTrackerBundle/Resources/config/routes.yml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+
+

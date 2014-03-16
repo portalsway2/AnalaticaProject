@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8" />
+        <title>{% block title %}WELCOME{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style type="text/css">
+
+            .deux
+            {
+                position: absolute;
+                top: 150px; left: 20%; width: 80%; height: 20%
+            }
+            .trois
+            {
+                position: absolute;
+                bottom: 10%; left: 20%; width: 80%; height: 50%
+            }
+
+            a {
+                color: #89BF04;
+                text-decoration: none;
+                outline: none;
+            }
+
+            #menu > li > a {
+                width: 150px;
+                display: block;
+                font-size: 17px;
+                color: #ffffff;
+                text-transform: uppercase;
+                font-weight: 400;
+                height: 55px;
+                line-height: 50px;
+                border-top: 1px solid #1f1f1f;
+                background:#89BF04;
+                text-align: center;
+                border-radius: 8px 40px 10px 40px;
+                -moz-border-radius: 30px 10px 40px 20px;
+                -webkit-border-radius: 10px 40px 40px 20px;
+                position: relative;
+
+            }
+
+            body {
+                background:0 0 repeat-x #000;
+                border: 0;
+                font: 14px Arial, Helvetica, sans-serif;
+                color: #ffffff;
+                line-height: 24px;
+                min-width: 980px;
+            }
+
+
+            ul {
+                padding:0;
+                margin:0;
+                list-style-type:none;
+            }
+
+            ul li a
+            {
+                display:block;
+                float:left;
+                width:100px;
+                line-height:50px; /*hauteur de l'image de fond*/
+                text-align:center;
+            }
+
+            #menu a span
+            {
+                display:block;
+                padding:5px 15px 4px 6px;
+                color:#000000;
+                float:none;
+            }
+
+            #menu a:hover span {
+                color:#FFF;
+
+            }
+            .style
+            {
+                position:relative;
+                border: 4px solid #89BF04;
+            }
+
+            .wrapper
+            {
+                overflow: hidden;
+                width:700px;
+                height:190px;
+            }
+
+        </style>
+    {% endblock %}
+</head>
+<body>
+   <div class="main">
+       <header>
+
+
+          <div class="wrapper">
+            <h1><a href="index.html" id="logo">BIENVENUE !!!</a></h1>
+          </div>
+
+          <nav>
+            <div class="deux">
+             <ul id="menu">
+                <li>
+                    <a href="index.html">
+                        <span>
+                                <cufontext>Homepage</cufontext>
+                            <ul>
+                                <li>jjj</li>
+                                <li>jjj</li>
+                                <li>jjj</li>
+                            </ul>
+                        </span>
+                    </a>
+                </li>
+                <li><a href="new">
+                        <span>
+                            <cufontext>Company</cufontext>
+                        </span>
+                    </a>
+                </li>
+                <li><a href="Solutions.html"><span>
+                                <cufontext>Solutions</cufontext>
+                            </cufon>
+                        </span>
+                    </a>
+                </li>
+                <li><a href="Services.html"><span>
+                                <cufontext>Services</cufontext>
+                            </cufon>
+                        </span>
+                    </a>
+                </li>
+                <li class="last"><a href="Contacts.html"><span>
+                                <cufontext>Contacts</cufontext>
+                            </cufon>
+                        </span>
+                    </a>
+                </li>
+             </ul>
+            </div>
+            <div class="style" style="border: 8px coral solid lightskyblue;"></div>
+         </nav>
+       </header>
+    </div>
+
+ </div>
+
+    <div class="trois">
+
+        {% block menu %}{% endblock %}
+        {% block body %}
+        {% endblock %}
+        {% block javascripts %}
+        {% endblock %}
+        {% block other %}{% endblock %}
+    </div>
+
+
+
+    </body>
+</html>
