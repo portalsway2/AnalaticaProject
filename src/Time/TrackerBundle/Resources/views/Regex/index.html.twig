@@ -5,13 +5,13 @@
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Regex</th>
-                <th>Version</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Regex</th>
+            <th>Version</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
@@ -21,25 +21,25 @@
                 <td>{{ entity.version }}</td>
                 <td>{{ entity.name }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('regex_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('regex_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('regex_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('regex_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('regex_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
-    {% endblock %}
+{% endblock %}

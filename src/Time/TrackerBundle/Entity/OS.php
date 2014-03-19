@@ -46,7 +46,7 @@ class OS
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,14 +62,14 @@ class OS
     public function setIdUserAgent($idUserAgent)
     {
         $this->idUserAgent = $idUserAgent;
-    
+
         return $this;
     }
 
     /**
      * Get idUserAgent
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdUserAgent()
     {
@@ -85,14 +85,14 @@ class OS
     public function setSystem($system)
     {
         $this->system = $system;
-    
+
         return $this;
     }
 
     /**
      * Get system
      *
-     * @return string 
+     * @return string
      */
     public function getSystem()
     {
@@ -108,7 +108,7 @@ class OS
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
 

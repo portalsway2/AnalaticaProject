@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RegexType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -17,10 +17,9 @@ class RegexType extends AbstractType
         $builder
             ->add('regex')
             ->add('version')
-            ->add('name')
-        ;
+            ->add('name');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

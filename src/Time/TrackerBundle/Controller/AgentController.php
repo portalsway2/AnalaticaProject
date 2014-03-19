@@ -253,9 +253,5 @@ class AgentController extends Controller
                 return $newListOS;
             }
         }
-
     }
-
-
-
 }

@@ -35,6 +35,7 @@ class RegexController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new Regex entity.
      *
@@ -58,17 +59,17 @@ class RegexController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
     /**
-    * Creates a form to create a Regex entity.
-    *
-    * @param Regex $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to create a Regex entity.
+     *
+     * @param Regex $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createCreateForm(Regex $entity)
     {
         $form = $this->createForm(new RegexType(), $entity, array(
@@ -91,11 +92,11 @@ class RegexController extends Controller
     public function newAction()
     {
         $entity = new Regex();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -119,7 +120,7 @@ class RegexController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -145,19 +146,19 @@ class RegexController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-    * Creates a form to edit a Regex entity.
-    *
-    * @param Regex $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Regex entity.
+     *
+     * @param Regex $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Regex $entity)
     {
         $form = $this->createForm(new RegexType(), $entity, array(
@@ -169,6 +170,7 @@ class RegexController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Regex entity.
      *
@@ -197,11 +199,12 @@ class RegexController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Regex entity.
      *
@@ -241,7 +244,6 @@ class RegexController extends Controller
             ->setAction($this->generateUrl('regex_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

@@ -17,19 +17,19 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations;
 
 
-class EnvoyerTokenController extends Controller{
+class EnvoyerTokenController extends Controller
+{
 
     public function postEnvoyerTokenAction(Request $request)
     {
 
-            $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-            $user = $em->getRepository('TimeTrackerBundle:User')->findALL();
+        $user = $em->getRepository('TimeTrackerBundle:User')->findALL();
 
-            return $user;
+        return $user;
 
     }
-
 
 
     private function EnvoyerToken()

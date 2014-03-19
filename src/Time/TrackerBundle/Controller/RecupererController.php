@@ -16,7 +16,8 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations;
 
-class RecupererController extends Controller{
+class RecupererController extends Controller
+{
 
 
     public function postRecupererAction(Request $request)
@@ -24,28 +25,27 @@ class RecupererController extends Controller{
         $urlparam = $request->server->getHeaders();
         $token = $urlparam["TOKEN"];
         $navigateur = $this->FindNavigateur();
-        $systeme=$this->FindOS();
+        $systeme = $this->FindOS();
         $user = $this->FindToken($token);
-        $envoyer =$this->EnvoyerToken();
+        $envoyer = $this->EnvoyerToken();
 
-       if($user)
-       {
-        return (array(
+        if ($user) {
+            return (array(
 
-            "navigateur" => $navigateur,
-            "systeme" => $systeme,
-            "envoyer"=>$envoyer,
+                "navigateur" => $navigateur,
+                "systeme" => $systeme,
+                "envoyer" => $envoyer,
 
-        ));
+            ));
 
-       }else{
-           return (array(
+        } else {
+            return (array(
 
-               "navigateur" => null,
-               "systeme"=> null,
+                "navigateur" => null,
+                "systeme" => null,
 
-           ));
-       }
+            ));
+        }
 
     }
 
@@ -78,11 +78,11 @@ class RecupererController extends Controller{
     private function FindOS()
     {
 
-            $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-            $systeme = $em->getRepository('TimeTrackerBundle:OS')->findAll();
+        $systeme = $em->getRepository('TimeTrackerBundle:OS')->findAll();
 
-            return $systeme;
+        return $systeme;
 
     }
 
