@@ -22,6 +22,7 @@ class RecupererController extends Controller
 
     public function postRecupererAction(Request $request)
     {
+
         $urlparam = $request->server->getHeaders();
         $token = $urlparam["TOKEN"];
         $navigateur = $this->FindNavigateur();
