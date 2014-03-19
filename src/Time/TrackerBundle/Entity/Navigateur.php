@@ -46,7 +46,7 @@ class Navigateur
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,14 +62,14 @@ class Navigateur
     public function setIdUserAgent($idUserAgent)
     {
         $this->idUserAgent = $idUserAgent;
-    
+
         return $this;
     }
 
     /**
      * Get idUserAgent
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdUserAgent()
     {
@@ -85,14 +85,14 @@ class Navigateur
     public function setNavigateur($navigateur)
     {
         $this->navigateur = $navigateur;
-    
+
         return $this;
     }
 
     /**
      * Get navigateur
      *
-     * @return string 
+     * @return string
      */
     public function getNavigateur()
     {
@@ -108,7 +108,7 @@ class Navigateur
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
 

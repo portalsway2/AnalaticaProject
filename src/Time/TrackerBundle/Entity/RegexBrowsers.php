@@ -46,7 +46,7 @@ class RegexBrowsers
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,14 +62,14 @@ class RegexBrowsers
     public function setRegexbrowsers($regexbrowsers)
     {
         $this->regexbrowsers = $regexbrowsers;
-    
+
         return $this;
     }
 
     /**
      * Get regexbrowsers
      *
-     * @return string 
+     * @return string
      */
     public function getRegexbrowsers()
     {
@@ -85,14 +85,14 @@ class RegexBrowsers
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -108,14 +108,14 @@ class RegexBrowsers
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
 
     /**
      * Get version
      *
-     * @return string 
+     * @return string
      */
     public function getVersion()
     {

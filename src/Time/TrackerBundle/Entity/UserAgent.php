@@ -46,7 +46,7 @@ class UserAgent
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,14 +62,14 @@ class UserAgent
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
-    
+
         return $this;
     }
 
     /**
      * Get idUser
      *
-     * @return float 
+     * @return float
      */
     public function getIdUser()
     {
@@ -85,14 +85,14 @@ class UserAgent
     public function setUserAgent($userAgent)
     {
         $this->userAgent = $userAgent;
-    
+
         return $this;
     }
 
     /**
      * Get userAgent
      *
-     * @return string 
+     * @return string
      */
     public function getUserAgent()
     {
@@ -108,14 +108,14 @@ class UserAgent
     public function setToken($token)
     {
         $this->token = $token;
-    
+
         return $this;
     }
 
     /**
      * Get token
      *
-     * @return string 
+     * @return string
      */
     public function getToken()
     {

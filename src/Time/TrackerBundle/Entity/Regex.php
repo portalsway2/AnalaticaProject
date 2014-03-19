@@ -46,7 +46,7 @@ class Regex
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,14 +62,14 @@ class Regex
     public function setRegex($regex)
     {
         $this->regex = $regex;
-    
+
         return $this;
     }
 
     /**
      * Get regex
      *
-     * @return string 
+     * @return string
      */
     public function getRegex()
     {
@@ -85,14 +85,14 @@ class Regex
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
 
     /**
      * Get version
      *
-     * @return string 
+     * @return string
      */
     public function getVersion()
     {
@@ -108,14 +108,14 @@ class Regex
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
