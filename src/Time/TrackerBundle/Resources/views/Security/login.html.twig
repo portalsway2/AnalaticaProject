@@ -1,24 +1,125 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+<style>
+    .ribbon:after, .ribbon:before {
+        margin-top: 0.5em;
+        content: "";
+        float: left;
+        border: 1.5em solid #808080;
+    }
+
+    .ribbon:after {
+        border-right-color: transparent;
+    }
+
+    .ribbon:before {
+        border-left-color: transparent;
+    }
+
+    .ribbon a:link, .ribbon a:visited {
+        color: lightgoldenrodyellow;
+        text-decoration: none;
+        float: left;
+        height: 3.5em;
+        overflow: hidden;
+    }
+
+    .ribbon span {
+        background: skyblue;
+        display: inline-block;
+        line-height: 3em;
+        padding: 0 1em;
+        margin-top: 0.5em;
+        position: relative;
+
+        -webkit-transition: background-color 0.2s, margin-top 0.2s; /* Saf3.2+, Chrome */
+        -moz-transition: background-color 0.2s, margin-top 0.2s; /* FF4+ */
+        -ms-transition: background-color 0.2s, margin-top 0.2s; /* IE10 */
+        -o-transition: background-color 0.2s, margin-top 0.2s; /* Opera 10.5+ */
+        transition: background-color 0.2s, margin-top 0.2s;
+    }
+
+    .ribbon a:hover span {
+        background: #000000;
+        margin-top: 0;
+    }
+
+    .ribbon span:before {
+        content: "";
+        position: absolute;
+        top: 3em;
+        left: 0;
+        border-right: 0.5em solid #9B8651;
+        border-bottom: 0.5em solid #fff;
+    }
+
+    .ribbon span:after {
+        content: "";
+        position: absolute;
+        top: 3em;
+        right: 0;
+        border-left: 0.5em solid darkgray;
+        border-bottom: 0.5em solid #fff;
+    }
+
+    .un {
+        position: absolute;
+        bottom: 0%;
+        left: 30%;
+        width: 90%;
+        height: 90%
+    }
+
+    .trois {
+        position: absolute;
+        bottom: 0%;
+        left: 30%;
+        width: 90%;
+        height: 70%
+    }
+</style>
+
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-{% if error %}
-    <div>{{ error|trans }}</div>
-{% endif %}
+    {% if error %}
+        <div>{{ error|trans }}</div>
+    {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+    <div class="un">
+        <div class='ribbon'>
+            <a href="http://analatica/home"><span>Home</span></a>
+            <a href='register'><span>Register</span></a>
+            <a href='login'><span>Authentification</span></a>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+        </div>
+    </div>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    <div class="trois">
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <ul>
+
+                <p><input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/></p>
+
+                <p><label for="username">{{ 'login'|trans }}</label></p>
+
+
+                <p><input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
+                </p>
+
+                <p><label for="password">{{ 'password'|trans }}</label></p>
+
+                <p><input type="password" id="password" name="_password" required="required"/></p>
+
+                <p><input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                    <label for="remember_me">{{ 'remember_me'|trans }}</label></p>
+
+                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
+            </ul>
+        </form>
+
+    </div>
+
+
 {% endblock fos_user_content %}

@@ -31,8 +31,6 @@ use Time\TrackerBundle\Entity\UserAgent;
 use Time\TrackerBundle\Entity\ListOS;
 
 
-
-
 class AgentController extends Controller
 
 {
@@ -75,7 +73,7 @@ class AgentController extends Controller
             $UserAgent->setIdUser($user->getId());
             $UserAgent->setUserAgent($urlparam['AGENT']);
             $UserAgent->setToken($token);
-
+            $UserAgent->setDate(new \DateTime());
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($UserAgent);
             $em->flush();
@@ -121,6 +119,11 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $userAgent
+     * @return array
+     */
+
     private function ConverterOS($userAgent)
     {
         $em = $this->getDoctrine()->getManager();
@@ -153,7 +156,10 @@ class AgentController extends Controller
 
     }
 
-
+    /**
+     * @param $userAgent
+     * @return array
+     */
     private function ConverterBrowsers($userAgent)
     {
 
@@ -186,6 +192,10 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $token
+     * @return mixed
+     */
     private function FindToken($token)
     {
 
@@ -199,6 +209,11 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $name
+     * @param $version
+     * @return ListNavigateur
+     */
     private function VerifierNavigateur($name, $version)
     {
 
@@ -208,12 +223,11 @@ class AgentController extends Controller
             $ListNavigateur = $em->getRepository('TimeTrackerBundle:ListNavigateur')->findBy(array("name" => $name,
                 "version" => $version,));
             if ($ListNavigateur) {
-                $ListNavigateur[0]->setCount($ListNavigateur[0]->getCount()+1);
+                $ListNavigateur[0]->setCount($ListNavigateur[0]->getCount() + 1);
                 $em->flush();
                 return $ListNavigateur[0];
-            }else
-            {
-                $newListNavigateur=new ListNavigateur();
+            } else {
+                $newListNavigateur = new ListNavigateur();
                 $newListNavigateur->setName($name);
                 $newListNavigateur->setVersion($version);
                 $newListNavigateur->setCount(1);
@@ -227,6 +241,11 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $name
+     * @param $version
+     * @return ListOS
+     */
     private function VerifierOS($name, $version)
     {
 
@@ -238,12 +257,11 @@ class AgentController extends Controller
 
 
             if ($ListOS) {
-                $ListOS[0]->setCount($ListOS[0]->getCount()+1);
+                $ListOS[0]->setCount($ListOS[0]->getCount() + 1);
                 $em->flush();
                 return $ListOS[0];
-            }else
-            {
-                $newListOS=new ListOS();
+            } else {
+                $newListOS = new ListOS();
                 $newListOS->setName($name);
                 $newListOS->setVersion($version);
                 $newListOS->setCount(1);

@@ -2,57 +2,20 @@
 
 {% block body -%}
 
-    <body>
-    <div class="main">
-        <!--==============================header=================================-->
-        <header>
-            <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
-
-            <div class="form-search">
-                <form id="form-search" method="post">
-                    <input type="text" value="Type here..." onBlur="if(this.value=='') this.value='Type here...'"
-                           onFocus="if(this.value =='Type here...' ) this.value=''"/>
-                    <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button"></a>
-                </form>
-            </div>
-            <div class="clear"></div>
-            <nav class="box-shadow">
-                <div>
-                    <ul class="menu">
-                        <li class="home-page"><a href="index.html"><span></span></a></li>
-                        <li class="current"><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="clients.html">Clients</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
-                    </ul>
-                    <div class="social-icons">
-                        <span>Follow us:</span>
-                        <a href="#" class="icon-3"></a>
-                        <a href="#" class="icon-2"></a>
-                        <a href="#" class="icon-1"></a>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </nav>
-        </header>
-    </div>
-    </body>
-
     <div class="trois">
 
-    <h1>User edit</h1>
+        <h1>User edit</h1>
 
-    {{ form(edit_form) }}
+        {{ form(edit_form) }}
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('user') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+        <ul class="record_actions">
+            <li>
+                <a href="{{ path('user') }}">
+                    Back to the list
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
 
     </div>
 {% endblock %}

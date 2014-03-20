@@ -35,24 +35,29 @@ regex_edit:
   requirements: { id: \d+ }
   methods:   [Get]
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+affiche_os:
+  pattern:  /os
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
 
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+affiche_navigateur:
+  pattern:  /navigateur
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
 
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+
+profile_home:
+  pattern:  /home
+  resource: Time\TrackerBundle\Controller\PageController
+  methods:   [Get]
+
+firefox_firefox:
+  pattern:  /firefox
+  resource: Time\TrackerBundle\Controller\FirefoxController
+  methods:   [Get]
+
 
 recuper:
   type: rest
