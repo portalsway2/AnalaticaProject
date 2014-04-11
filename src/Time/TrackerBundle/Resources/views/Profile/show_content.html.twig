@@ -1,17 +1,24 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% block body -%}
 
+
+
     <div class="trois">
         <div class="fos_user_user_show">
             <p>{{ 'Name'|trans }}: {{ user.username }}</p>
 
+            <p>{{ 'Name Canonical'|trans }}: {{ user.usernamecanonical }}</p>
+
             <p>{{ 'Email'|trans }}: {{ user.email }}</p>
+
+            <p>{{ 'Email Canonical'|trans }}: {{ user.emailcanonical }}</p>
 
             <p>{{ 'First Name'|trans }}: {{ user.firstname }}</p>
 
             <p>{{ 'Last Name'|trans }}: {{ user.lastname }}</p>
 
             <p>{{ 'Token'|trans }}: {{ user.token }}</p>
+
 
         </div>
     </div>

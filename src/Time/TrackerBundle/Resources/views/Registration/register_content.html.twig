@@ -2,13 +2,9 @@
 
 {% block body %}
 
-    {% image "bundles/timetracker/image/download.jpg" %}
-    <img src="{{ asset_url }}"/>
-    {% endimage %}
-
     <div class="trois">
-        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"
-              class="fos_user_registration_register">
+
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
             {{ form_widget(form) }}
 
             <div>
@@ -16,4 +12,5 @@
             </div>
         </form>
     </div>
+
 {% endblock %}

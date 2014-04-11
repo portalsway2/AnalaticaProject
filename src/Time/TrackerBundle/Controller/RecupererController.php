@@ -28,14 +28,14 @@ class RecupererController extends Controller
         $navigateur = $this->FindNavigateur();
         $systeme = $this->FindOS();
         $user = $this->FindToken($token);
-        $envoyer = $this->EnvoyerToken();
+
 
         if ($user) {
             return (array(
 
                 "navigateur" => $navigateur,
                 "systeme" => $systeme,
-                "envoyer" => $envoyer,
+
 
             ));
 
@@ -53,26 +53,26 @@ class RecupererController extends Controller
     private function FindToken($token)
     {
 
-        {
+
             $em = $this->getDoctrine()->getManager();
 
             $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array('token' => $token));
 
             return $user[0];
-        }
+
 
     }
 
     private function FindNavigateur()
     {
 
-        {
+
             $em = $this->getDoctrine()->getManager();
 
             $navigateur = $em->getRepository('TimeTrackerBundle:Navigateur')->findAll();
 
             return $navigateur;
-        }
+
 
     }
 
@@ -87,15 +87,4 @@ class RecupererController extends Controller
 
     }
 
-    private function EnvoyerToken()
-    {
-
-        $em = $this->getDoctrine()->getManager();
-
-        $envoyer = $em->getRepository('TimeTrackerBundle:Token')->findAll();
-
-        return $envoyer;
-
-    }
-
-} 
+}

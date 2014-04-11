@@ -32,13 +32,36 @@ class LoadUserData implements FixtureInterface{
         $user->setEnabled(true);
         $user->setLocked(false);
         $user->setToken("usertoken");
-
+        $user->setEmailCanonical(true);
+        $user->setForfait(true);
+        $user->setLastName(true);
+        $user->setFirstName(true);
+        $user->setPassword(true);
+        $user->setRoles(true);
 
 
         $manager->persist($user);
         $manager->flush();
 
+        $user=new User();
+        $user->setUsername('admin1');
+        $user->setEmail('admin1@gmail.com');
+        $user->setPlainPassword("admin1");
+        $user->setEnabled(true);
+        $user->setLocked(false);
+        $user->setToken("usertoken1");
+        $user->setEmailCanonical(true);
+        $user->setForfait(true);
+        $user->setLastName(true);
+        $user->setFirstName(true);
+        $user->setPassword(true);
+        $user->setRoles(true);
 
+
+
+
+        $manager->persist($user);
+        $manager->flush();
 
 
     }

@@ -42,17 +42,39 @@ class User extends BaseUser
      */
     private $last_name;
 
-
-    
-
-
-
-    public function __construct()
+    /**
+     * @param int $forfait
+     */
+    public function setForfait($forfait)
     {
-        parent::__construct();
-        // your own logic
+        $this->forfait = $forfait;
     }
 
+    /**
+     * @return int
+     */
+    public function getForfait()
+    {
+        return $this->forfait;
+    }
+
+    /**
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\Forfait")
+     * @@ORM\JoinColumn
+     */
+    private $forfait;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set token
@@ -83,7 +105,7 @@ class User extends BaseUser
      * @param string $first_name
      * @return First_Name
      */
-    public function setFirst_Name($first_name)
+    public function setFirstName($first_name)
     {
         $this->first_name = $first_name;
 
@@ -95,7 +117,7 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getFirst_Name()
+    public function getFirstName()
     {
         return $this->first_name;
     }
@@ -107,7 +129,7 @@ class User extends BaseUser
      * @param string $last_name
      * @return Last_Name
      */
-    public function setLast_Name($last_name)
+    public function setLastName($last_name)
     {
         $this->last_name = $last_name;
 
@@ -119,45 +141,12 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getLast_Name()
+    public function getLastName()
     {
         return $this->last_name;
 
     }
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set first_name
-     *
-     * @param string $firstName
-     * @return User
-     */
-    public function setFirstName($firstName)
-    {
-        $this->first_name = $firstName;
-    
-        return $this;
-    }
-
-    /**
-     * Get first_name
-     *
-     * @return string 
-     */
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
 
 
 }

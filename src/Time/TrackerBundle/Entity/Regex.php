@@ -121,4 +121,5 @@ class Regex
     {
         return $this->name;
     }
+
 }

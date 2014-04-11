@@ -22,6 +22,29 @@ class ListOS
     private $id;
 
     /**
+     * @param int $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\User")
+     * @@ORM\JoinColumn
+     */
+    private $idUser;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)

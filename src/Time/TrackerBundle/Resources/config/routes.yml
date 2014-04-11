@@ -35,8 +35,6 @@ regex_edit:
   requirements: { id: \d+ }
   methods:   [Get]
 
-
-
 affiche_os:
   pattern:  /os
   resource: Time\TrackerBundle\Controller\AfficheController
@@ -47,15 +45,36 @@ affiche_navigateur:
   resource: Time\TrackerBundle\Controller\AfficheController
   methods:   [Get]
 
+affiche_device:
+  pattern:  /device
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
+
+affiche_userAgent:
+  pattern:  /userAgent
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
+affiche_forafait:
+  pattern:  /forfait
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
 
 profile_home:
   pattern:  /home
   resource: Time\TrackerBundle\Controller\PageController
   methods:   [Get]
 
-firefox_firefox:
-  pattern:  /firefox
-  resource: Time\TrackerBundle\Controller\FirefoxController
+erreur:
+  pattern:  /erreur
+  resource: Time\TrackerBundle\Controller\ErreurController
+  methods:   [Get]
+
+dashboard:
+  pattern:  /dashboard
+  resource: Time\TrackerBundle\Controller\DashboardController
   methods:   [Get]
 
 

@@ -23,8 +23,8 @@ class Navigateur
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_user_agent", type="integer")
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\UserAgent")
+     * @@ORM\JoinColumn
      */
     private $idUserAgent;
 
@@ -41,6 +41,7 @@ class Navigateur
      * @ORM\Column(name="version", type="string", length=255)
      */
     private $version;
+
 
 
     /**

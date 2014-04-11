@@ -23,10 +23,26 @@ class OS
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_user_agent", type="integer")
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\UserAgent")
+     * @@ORM\JoinColumn
      */
     private $idUserAgent;
+
+    /**
+     * @param int $idUserAgent
+     */
+    public function setIdUserAgent($idUserAgent)
+    {
+        $this->idUserAgent = $idUserAgent;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUserAgent()
+    {
+        return $this->idUserAgent;
+    }
 
     /**
      * @var string
@@ -53,28 +69,7 @@ class OS
         return $this->id;
     }
 
-    /**
-     * Set idUserAgent
-     *
-     * @param integer $idUserAgent
-     * @return OS
-     */
-    public function setIdUserAgent($idUserAgent)
-    {
-        $this->idUserAgent = $idUserAgent;
 
-        return $this;
-    }
-
-    /**
-     * Get idUserAgent
-     *
-     * @return integer
-     */
-    public function getIdUserAgent()
-    {
-        return $this->idUserAgent;
-    }
 
     /**
      * Set system
