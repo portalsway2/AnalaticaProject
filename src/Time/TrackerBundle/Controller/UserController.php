@@ -158,6 +158,7 @@ class UserController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
+
     private function createEditForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(

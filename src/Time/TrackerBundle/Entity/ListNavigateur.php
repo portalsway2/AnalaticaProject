@@ -26,7 +26,33 @@ class ListNavigateur
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
+
+
     private $name;
+
+
+    /**
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\User")
+     * @@ORM\JoinColumn
+     */
+    private $idUser;
+
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
 
     /**
      * @var string

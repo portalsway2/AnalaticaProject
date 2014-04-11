@@ -35,24 +35,48 @@ regex_edit:
   requirements: { id: \d+ }
   methods:   [Get]
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+affiche_os:
+  pattern:  /os
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+affiche_navigateur:
+  pattern:  /navigateur
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+affiche_device:
+  pattern:  /device
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
 
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
 
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+affiche_userAgent:
+  pattern:  /userAgent
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
+affiche_forafait:
+  pattern:  /forfait
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
+
+profile_home:
+  pattern:  /home
+  resource: Time\TrackerBundle\Controller\PageController
+  methods:   [Get]
+
+erreur:
+  pattern:  /erreur
+  resource: Time\TrackerBundle\Controller\ErreurController
+  methods:   [Get]
+
+dashboard:
+  pattern:  /dashboard
+  resource: Time\TrackerBundle\Controller\DashboardController
+  methods:   [Get]
+
 
 recuper:
   type: rest

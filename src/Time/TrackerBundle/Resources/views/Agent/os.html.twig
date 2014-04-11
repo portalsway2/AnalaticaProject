@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+{% block javascripts %}
+    {{  parent() }}
+<script type="text/javascript">
+    $(function () {
+        var listOs={{ listOs|json_encode|raw }};
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'OS market shares at a specific website'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: listOs
+            }]
+        });
+    });
+
+
+</script>
+{% endblock %}
+{% block body -%}
+
+    <div class="un">
+    <!-- Table goes in the document BODY -->
+    <table class="hovertable">
+        <tr>
+            <th>Operating System</th><th>Version</th><th>Number</th>
+        </tr>
+        <tbody>
+        {% for entity in entities %}
+            <tr onmouseover="this.style.backgroundColor='lightblue';" onmouseout="this.style.backgroundColor='white';">
+                <td>{{ entity.name}}</td>
+                <td>{{ entity.version }}
+                <td>{{ entity.count}}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+        <div class="cinq">
+        <div id="container" style="width: 350px; height: 400px; top:400px;  "></div>
+        </div>
+    </div>
+{% endblock %}
+
+

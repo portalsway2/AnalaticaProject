@@ -1,61 +1,47 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>User</h1>
 
-    <table class="record_properties">
-        <tbody>
+    <div class="trois">
+        <h1>User</h1>
+        <table class="record_properties">
+            <tbody>
             <tr>
-                <th>Username</th>
+                <th>name</th>
                 <td>{{ entity.username }}</td>
             </tr>
-            <tr>
-                <th>Usernamecanonical</th>
-                <td>{{ entity.usernameCanonical }}</td>
-            </tr>
+
             <tr>
                 <th>Email</th>
                 <td>{{ entity.email }}</td>
             </tr>
-            <tr>
-                <th>Emailcanonical</th>
-                <td>{{ entity.emailCanonical }}</td>
-            </tr>
+
             <tr>
                 <th>Enabled</th>
                 <td>{{ entity.enabled }}</td>
             </tr>
-            <tr>
-                <th>Salt</th>
-                <td>{{ entity.salt }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ entity.password }}</td>
-            </tr>
+
             <tr>
                 <th>Lastlogin</th>
                 <td>{{ entity.lastLogin|date('Y-m-d H:i:s') }}</td>
             </tr>
 
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+
+            </tbody>
+        </table>
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('user') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('user_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+            <li>
+                <a href="{{ path('user') }}">
+                    Back to the list
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('user_edit', { 'id': entity.id }) }}">
+                    Edit
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
 {% endblock %}

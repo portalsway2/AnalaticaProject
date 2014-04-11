@@ -21,10 +21,11 @@ class UserAgent
      */
     private $id;
 
+
     /**
-     * @var float
-     *
-     * @ORM\Column(name="id_user", type="decimal")
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\User")
+     * @@ORM\JoinColumn
      */
     private $idUser;
 
@@ -42,6 +43,64 @@ class UserAgent
      */
     private $token;
 
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="count", type="integer")
+     */
+    private $count;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=255)
+     */
+    private $ip;
+
+
+    /**
+     * @param string $ip
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+
+
+    /**
+     * @param int $count
+     */
+    public function setCount($count)
+    {
+        $this->count = $count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+
 
     /**
      * Get id
@@ -53,28 +112,6 @@ class UserAgent
         return $this->id;
     }
 
-    /**
-     * Set idUser
-     *
-     * @param float $idUser
-     * @return UserAgent
-     */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return float
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
 
     /**
      * Set userAgent
@@ -121,4 +158,48 @@ class UserAgent
     {
         return $this->token;
     }
+
+
+    /**
+     * Set date
+     *
+     * @param date $date
+     * @return UserAgent
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return date
+     */
+    public function getDate()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+
+
+
 }

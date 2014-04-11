@@ -22,14 +22,15 @@ use FOS\RestBundle\View\View;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Symfony\Component\Validator\Constraints\Null;
 use Time\TrackerBundle\Entity\ListNavigateur;
+use Time\TrackerBundle\Entity\ListDevice;
 use Time\TrackerBundle\Entity\Navigateur;
 use Time\TrackerBundle\Entity\OS;
+use Time\TrackerBundle\Entity\Device;
 use Time\TrackerBundle\Entity\Session;
 use Time\TrackerBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Time\TrackerBundle\Entity\UserAgent;
 use Time\TrackerBundle\Entity\ListOS;
-
 
 
 
@@ -56,14 +57,18 @@ class AgentController extends Controller
 
         $urlparam = $request->server->getHeaders();
         $token = $urlparam["TOKEN"];
+        $ip = $urlparam["IP"];
         $resultat = $this->ConverterBrowsers($urlparam['AGENT']);
         $result = $this->ConverterOS($urlparam['AGENT']);
+        $mobile= $this->ConverterMobile($urlparam['AGENT']);
+
 
         // TODO tester l'existance de l'utilisateur
 
         $user = $this->FindToken($token);
-        $ListNavigateur = $this->VerifierNavigateur($resultat['navigateur'], $resultat['version']);
-        $ListOS = $this->VerifierOS($result['systeme'], $result['version']);
+        $ListNavigateur = $this->VerifierNavigateur($resultat['navigateur'], $resultat['version'],$user);
+        $ListOS = $this->VerifierOS($result['systeme'], $result['version'],$user);
+        $ListDevice =$this->VerifierDevice($mobile['name'],$mobile['version'], $user);
 
 
         if ($user) {
@@ -72,10 +77,12 @@ class AgentController extends Controller
             // Enregistrer User Agent
 
             $UserAgent = new UserAgent();
-            $UserAgent->setIdUser($user->getId());
+            $UserAgent->setIdUser($user);
             $UserAgent->setUserAgent($urlparam['AGENT']);
             $UserAgent->setToken($token);
-
+            $UserAgent->setCount(1);
+            $UserAgent->setIp($urlparam["IP"]);
+            $UserAgent->setDate(new \DateTime());
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($UserAgent);
             $em->flush();
@@ -83,7 +90,7 @@ class AgentController extends Controller
             // Enregistrer Systeme d'exploitation
 
             $OS = new OS();
-            $OS->setIdUserAgent($UserAgent->getId());
+            $OS->setIdUserAgent($UserAgent);
             $OS->setSystem($result['systeme']);
             $OS->setVersion($result['version']);
 
@@ -91,10 +98,22 @@ class AgentController extends Controller
             $em->persist($OS);
             $em->flush();
 
+
+            // Enregistrer Device
+
+            $Device = new Device();
+            $Device->setIdUserAgent($UserAgent);
+            $Device->setName($mobile['name']);
+            $Device->setVersion($mobile['version']);
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($Device);
+            $em->flush();
+
             // Enregistrer Navigateur
 
             $Navigateur = new Navigateur();
-            $Navigateur->setIdUserAgent($UserAgent->getId());
+            $Navigateur->setIdUserAgent($UserAgent);
             $Navigateur->setNavigateur($resultat['navigateur']);
             $Navigateur->setVersion($resultat['version']);
 
@@ -106,9 +125,11 @@ class AgentController extends Controller
 
             return (array(
 
-                "user" => $user,
+                "user"=>$user->getUserName(),
+                "ip"=>$ip,
                 "result" => $result,
                 "resultat" => $resultat,
+                "mobile" =>$mobile,
 
             ));
         } else {
@@ -116,10 +137,16 @@ class AgentController extends Controller
 
                 "result" => null,
                 "resultat" => null,
+                "mobile" =>null,
             ));
         }
 
     }
+
+    /**
+     * @param $userAgent
+     * @return array
+     */
 
     private function ConverterOS($userAgent)
     {
@@ -153,7 +180,10 @@ class AgentController extends Controller
 
     }
 
-
+    /**
+     * @param $userAgent
+     * @return array
+     */
     private function ConverterBrowsers($userAgent)
     {
 
@@ -186,6 +216,48 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $userAgent
+     * @return array
+     */
+    private function ConverterMobile($userAgent)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('TimeTrackerBundle:RegexMobile')->findAll();
+
+        $convert = "false";
+        $name = "null";
+        $version="null";
+
+
+        foreach ($entities as $entiy) {
+
+            if (preg_match($entiy->getRegex(), $userAgent, $mot)) {
+                $convert = "true";
+                $name= $mot[0];
+                $version = $mot[1];
+            }
+
+        }
+
+        return array(
+
+            "convert" => $convert,
+            "name"=>  $name,
+            "version" => $version,
+
+
+        );
+
+    }
+
+
+    /**
+     * @param $token
+     * @return mixed
+     */
     private function FindToken($token)
     {
 
@@ -199,23 +271,31 @@ class AgentController extends Controller
 
     }
 
-    private function VerifierNavigateur($name, $version)
+
+    /**
+     * @param $name
+     * @param $version
+     * @param $idUser
+     * @return ListNavigateur
+     */
+    private function VerifierNavigateur($name, $version,$idUser)
     {
 
         {
             $em = $this->getDoctrine()->getManager();
 
             $ListNavigateur = $em->getRepository('TimeTrackerBundle:ListNavigateur')->findBy(array("name" => $name,
-                "version" => $version,));
+                "version" => $version,"idUser"=>$idUser));
+
             if ($ListNavigateur) {
-                $ListNavigateur[0]->setCount($ListNavigateur[0]->getCount()+1);
+                $ListNavigateur[0]->setCount($ListNavigateur[0]->getCount() + 1);
                 $em->flush();
                 return $ListNavigateur[0];
-            }else
-            {
-                $newListNavigateur=new ListNavigateur();
+            } else {
+                $newListNavigateur = new ListNavigateur();
                 $newListNavigateur->setName($name);
                 $newListNavigateur->setVersion($version);
+                $newListNavigateur->setIdUser($idUser);
                 $newListNavigateur->setCount(1);
 
                 $em->persist($newListNavigateur);
@@ -227,25 +307,31 @@ class AgentController extends Controller
 
     }
 
-    private function VerifierOS($name, $version)
+    /**
+     * @param $name
+     * @param $version
+     * @param $idUser
+     * @return ListOS
+     */
+    private function VerifierOS($name, $version,$idUser)
     {
 
         {
             $em = $this->getDoctrine()->getManager();
 
             $ListOS = $em->getRepository('TimeTrackerBundle:ListOS')->findBy(array("name" => $name,
-                "version" => $version,));
+                "version" => $version,"idUser"=>$idUser));
 
 
             if ($ListOS) {
                 $ListOS[0]->setCount($ListOS[0]->getCount()+1);
                 $em->flush();
                 return $ListOS[0];
-            }else
-            {
-                $newListOS=new ListOS();
+            } else {
+                $newListOS = new ListOS();
                 $newListOS->setName($name);
                 $newListOS->setVersion($version);
+                $newListOS->setIdUser($idUser);
                 $newListOS->setCount(1);
 
                 $em->persist($newListOS);
@@ -254,4 +340,40 @@ class AgentController extends Controller
             }
         }
     }
+
+    /**
+     * @param $name
+     * @param $version
+     * @param $idUser
+     * @return ListDevice
+     */
+    private function VerifierDevice($name, $version,$idUser)
+    {
+
+        {
+            $em = $this->getDoctrine()->getManager();
+
+            $ListDevice = $em->getRepository('TimeTrackerBundle:ListDevice')->findBy(array("name" => $name,
+                "version" => $version,"idUser"=>$idUser));
+
+
+            if ($ListDevice) {
+                $ListDevice[0]->setCount($ListDevice[0]->getCount()+1);
+                $em->flush();
+                return $ListDevice[0];
+            } else {
+                $newListDevice = new ListDevice();
+                $newListDevice->setName($name);
+                $newListDevice->setVersion($version);
+                $newListDevice->setIdUser($idUser);
+                $newListDevice->setCount(1);
+
+                $em->persist($newListDevice);
+                $em->flush();
+                return $newListDevice;
+            }
+        }
+    }
+
+
 }
