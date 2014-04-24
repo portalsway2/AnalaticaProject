@@ -30,25 +30,35 @@ class PageController extends Controller
     public function homeAction()
     {
 
-        $user=$this->container->get('security.context')->isGranted('ROLE_USER');
-        if($this->container->get('security.context')->isGranted('ROLE_USER'))
-        {
+        $user = $this->container->get('security.context')->isGranted('ROLE_USER');
+        if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
 
             return $this->render('TimeTrackerBundle:Dashboard:dashboard.html.twig');
 
 
-        }
-
-        else
-        {
+        } else {
             return $this->render('TimeTrackerBundle:FirstPage:home.html.twig');
-
 
 
         }
     }
 
 
+    /**
+     * @Route("/base", name="base")
+     * @Method("GET")
+     * @Template("Resources:views:base.html.twig")
+     */
+    public function baseAction()
+    {
 
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('TimeTrackerBundle:User')->findALL();
+
+        return $entities;
+
+
+    }
 
 }

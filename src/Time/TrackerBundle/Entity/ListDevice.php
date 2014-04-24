@@ -69,7 +69,7 @@ class ListDevice
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -85,14 +85,14 @@ class ListDevice
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -108,14 +108,14 @@ class ListDevice
     public function setVersion($version)
     {
         $this->version = $version;
-    
+
         return $this;
     }
 
     /**
      * Get version
      *
-     * @return string 
+     * @return string
      */
     public function getVersion()
     {
@@ -131,14 +131,14 @@ class ListDevice
     public function setCount($count)
     {
         $this->count = $count;
-    
+
         return $this;
     }
 
     /**
      * Get count
      *
-     * @return integer 
+     * @return integer
      */
     public function getCount()
     {

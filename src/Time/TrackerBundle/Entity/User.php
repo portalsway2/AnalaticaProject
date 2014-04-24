@@ -4,6 +4,7 @@ namespace Time\TrackerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+
 /**
  * User
  *
@@ -19,7 +20,7 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected  $id;
+    protected $id;
 
     /**
      * @var string
@@ -43,27 +44,28 @@ class User extends BaseUser
     private $last_name;
 
     /**
-     * @param int $forfait
+     * @param int $idforfait
      */
-    public function setForfait($forfait)
+    public function setIdforfait($idforfait)
     {
-        $this->forfait = $forfait;
+        $this->idforfait = $idforfait;
     }
 
     /**
      * @return int
      */
-    public function getForfait()
+    public function getIdforfait()
     {
-        return $this->forfait;
+        return $this->idforfait;
     }
+
 
     /**
      * @var integer
      * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\Forfait")
      * @@ORM\JoinColumn
      */
-    private $forfait;
+    private $idforfait;
 
 
     /**
@@ -146,7 +148,6 @@ class User extends BaseUser
         return $this->last_name;
 
     }
-
 
 
 }

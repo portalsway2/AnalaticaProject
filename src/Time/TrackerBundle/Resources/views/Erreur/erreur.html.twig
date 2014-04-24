@@ -1,149 +1,437 @@
-
 {% block stylesheets %}
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='//dmypbau5frl9g.cloudfront.net/assets/shared/vendor_jquery-e5125491036ed10b246eaee8e94934d2.js'><\/script>")</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='//dmypbau5frl9g.cloudfront.net/assets/shared/vendor_jquery-e5125491036ed10b246eaee8e94934d2.js'><\/script>")</script>
 
 
-<script>
-    //function to fix height of iframe!
-    var calcHeight = function() {
-        var headerDimensions = $('#header-bar').height();
-        $('#preview-frame').height($(window).height() - headerDimensions);
-    }
+    <script>
+        //function to fix height of iframe!
+        var calcHeight = function () {
+            var headerDimensions = $('#header-bar').height();
+            $('#preview-frame').height($(window).height() - headerDimensions);
+        }
 
-    $(document).ready(function() {
-        calcHeight();
-        $('#header-bar a.close').mouseover(function() {
-            $('#header-bar a.close').addClass('activated');
-        }).mouseout(function() {
-            $('#header-bar a.close').removeClass('activated');
+        $(document).ready(function () {
+            calcHeight();
+            $('#header-bar a.close').mouseover(function () {
+                $('#header-bar a.close').addClass('activated');
+            }).mouseout(function () {
+                $('#header-bar a.close').removeClass('activated');
+            });
         });
-    });
 
-    $(window).resize(function() {
-        calcHeight();
-    }).load(function() {
-        calcHeight();
-    });
-</script>
+        $(window).resize(function () {
+            calcHeight();
+        }).load(function () {
+            calcHeight();
+        });
+    </script>
 
-<script src="//dmypbau5frl9g.cloudfront.net/assets/full_screen_preview/full_screen_preview-f54e852657a7075d12599e708f141d1a.js" type="text/javascript"></script>
+    <script src="//dmypbau5frl9g.cloudfront.net/assets/full_screen_preview/full_screen_preview-f54e852657a7075d12599e708f141d1a.js"
+            type="text/javascript"></script>
 
-<meta content="ThemeForest" name="WT.site" />
-<meta content="dts3_off;pfm_off;sc_off" name="WT.flip" />
+    <meta content="ThemeForest" name="WT.site"/>
+    <meta content="dts3_off;pfm_off;sc_off" name="WT.flip"/>
 
-<meta content="" name="WT.si_n" />
-<meta content="" name="WT.si_x" />
-<meta content="" name="WT.si_cs" />
-
-
+    <meta content="" name="WT.si_n"/>
+    <meta content="" name="WT.si_x"/>
+    <meta content="" name="WT.si_cs"/>
 
 
-<script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-11834194-7']);
-    _gaq.push(['_trackPageLoadTime']);
-    _gaq.push(['_setDomainName', 'themeforest.net']);
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
-
-    _gaq.push(['b._setAccount', 'UA-11834194-36']);
-    _gaq.push(['b._trackPageLoadTime']);
-    _gaq.push(['b._trackPageview']);
 
 
-    (function() {
-        var ga = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        marketplace.nonCriticalScripts.push( ga );
-    })();
-</script>
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-11834194-7']);
+        _gaq.push(['_trackPageLoadTime']);
+        _gaq.push(['_setDomainName', 'themeforest.net']);
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
 
-<script type="text/javascript">
-    var google_conversion_id = 1065398951;
-    var google_conversion_label = "u-J6CI3SqQMQp-WC_AM";
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    marketplace.nonCriticalScripts.push("//www.googleadservices.com/pagead/conversion.js");
-</script>
-<noscript>
-    <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065398951/?value=0&amp;label=u-J6CI3SqQMQp-WC_AM&amp;guid=ON&amp;script=0"/>
-    </div>
-</noscript>
+        _gaq.push(['b._setAccount', 'UA-11834194-36']);
+        _gaq.push(['b._trackPageLoadTime']);
+        _gaq.push(['b._trackPageview']);
 
-<!-- START OF SmartSource Data Collector TAG v10.4.12 -->
-<!-- Copyright (c) 2012 Webtrends Inc.  All rights reserved. -->
-<script>
-    window.webtrendsAsyncInit=function(){
-        window.dcs=new Webtrends.dcs().init({
-            dcsid:"dcsbkb9azvz5bdcyrezh0wose_5r8l"
-            ,domain:"statse.webtrendslive.com"
-            ,timezone:10
-            ,offsite:true
-            ,download:true
-            ,downloadtypes:"xls,doc,pdf,txt,csv,zip,docx,xlsx,rar,gzip"
-            ,onsitedoms:"themeforest.net"
-            ,plugins:{
-                hm:{src:"//s.webtrends.com/js/webtrends.hm.js"}
-            }
-        }).track();
 
-    };
-    (function(){
-        var s=document.createElement("script"); s.async=true; s.src="//dmypbau5frl9g.cloudfront.net/assets/shared/vendor_webtrends-b4fcbcc02524cc097ffbc457710190aa.js";
-        var s2=document.getElementsByTagName("script")[0]; s2.parentNode.insertBefore(s,s2);
-    }());
-</script>
-<noscript>
-    <img alt="dcsimg" id="dcsimg" width="1" height="1"
-         src="//statse.webtrendslive.com/dcsbkb9azvz5bdcyrezh0wose_5r8l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.2.0&amp;dcssip=themeforest.net"/>
-</noscript>
-<!-- END OF SmartSource Data Collector TAG v10.4.12 -->
+        (function () {
+            var ga = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            marketplace.nonCriticalScripts.push(ga);
+        })();
+    </script>
 
-<script type="text/javascript">
-    (function() {
-        window._pa = window._pa || {};
-        var pa = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/51d3b6169ce2967fea00000d.js";
-        marketplace.nonCriticalScripts.push( pa );
-    })();
-</script>
+    <script type="text/javascript">
+        var google_conversion_id = 1065398951;
+        var google_conversion_label = "u-J6CI3SqQMQp-WC_AM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        marketplace.nonCriticalScripts.push("//www.googleadservices.com/pagead/conversion.js");
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt=""
+                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1065398951/?value=0&amp;label=u-J6CI3SqQMQp-WC_AM&amp;guid=ON&amp;script=0"/>
+        </div>
+    </noscript>
 
-<script type="text/javascript">
-    var $mcGoal = {'settings':{'uuid':'01a7104df9f31fd41e34ccbed','dc':'us1'}};
-    (function() {
-        var sp = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
-        marketplace.nonCriticalScripts.push( sp );
-    })();
-</script>
+    <!-- START OF SmartSource Data Collector TAG v10.4.12 -->
+    <!-- Copyright (c) 2012 Webtrends Inc.  All rights reserved. -->
+    <script>
+        window.webtrendsAsyncInit = function () {
+            window.dcs = new Webtrends.dcs().init({
+                dcsid: "dcsbkb9azvz5bdcyrezh0wose_5r8l", domain: "statse.webtrendslive.com", timezone: 10, offsite: true, download: true, downloadtypes: "xls,doc,pdf,txt,csv,zip,docx,xlsx,rar,gzip", onsitedoms: "themeforest.net", plugins: {
+                    hm: {src: "//s.webtrends.com/js/webtrends.hm.js"}
+                }
+            }).track();
+
+        };
+        (function () {
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "//dmypbau5frl9g.cloudfront.net/assets/shared/vendor_webtrends-b4fcbcc02524cc097ffbc457710190aa.js";
+            var s2 = document.getElementsByTagName("script")[0];
+            s2.parentNode.insertBefore(s, s2);
+        }());
+    </script>
+    <noscript>
+        <img alt="dcsimg" id="dcsimg" width="1" height="1"
+             src="//statse.webtrendslive.com/dcsbkb9azvz5bdcyrezh0wose_5r8l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.2.0&amp;dcssip=themeforest.net"/>
+    </noscript>
+    <!-- END OF SmartSource Data Collector TAG v10.4.12 -->
+
+    <script type="text/javascript">
+        (function () {
+            window._pa = window._pa || {};
+            var pa = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/51d3b6169ce2967fea00000d.js";
+            marketplace.nonCriticalScripts.push(pa);
+        })();
+    </script>
+
+    <script type="text/javascript">
+        var $mcGoal = {'settings': {'uuid': '01a7104df9f31fd41e34ccbed', 'dc': 'us1'}};
+        (function () {
+            var sp = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+            marketplace.nonCriticalScripts.push(sp);
+        })();
+    </script>
 {% endblock %}
 {% block body %}
 
 
     <html lang="en" class="no-js">
     <head>
-        <meta charset="utf-8">
-        <link rel="dns-prefetch" href="//d2mdw063ttlqtq.cloudfront.net" />
-        <link rel="dns-prefetch" href="//statse.webtrendslive.com" />
-        <link rel="dns-prefetch" href="//jwpsrv.com" />
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="//d2mdw063ttlqtq.cloudfront.net"/>
+    <link rel="dns-prefetch" href="//statse.webtrendslive.com"/>
+    <link rel="dns-prefetch" href="//jwpsrv.com"/>
 
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-5.newrelic.com","errorBeacon":"jserror.newrelic.com","licenseKey":"fcf8d519de","applicationID":"13909,2324476,716468","transactionName":"dA4NFkNbVV1URBcMRVIMTAREWFVuQlVKAFRZPhMQVEJQVEY=","queueTime":9,"applicationTime":42,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-361.min.js"}</script>
-        <script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQcGQldQAQMJ"};window.NREUM||(NREUM={}),__nr_require=function a(b,c,d){function e(f){if(!c[f]){var g=c[f]={exports:{}};b[f][0].call(g.exports,function(a){var c=b[f][1][a];return e(c?c:a)},g,g.exports,a,b,c,d)}return c[f].exports}for(var f=0;f<d.length;f++)e(d[f]);return e}({1:[function(a,b){function c(a,b,c){c||(c={});for(var d=f[a],e=d&&d.length||0,h=c[g]||(c[g]={}),i=0;e>i;i++)d[i].apply(h,b);return h}function d(a,b){var c=f[a]||(f[a]=[]);c.push(b)}function e(a){return delete a[g]}var f={},g="nr@context";b.exports={on:d,emit:c,clear:e}},{}],2:[function(a){function b(a,b,e,g,i){return h?h-=1:c("err",[i||new UncaughtException(a,b,e)]),"function"==typeof f?f.apply(this,d(arguments)):!1}function UncaughtException(a,b,c){this.message=a||"Uncaught error with no additional information",this.sourceURL=b,this.line=c}var c=a("handle"),d=a("lodash._slice"),e=a("../../../contextual-ee"),f=window.onerror,g=!1,h=0;a("loader").features.push("err"),window.onerror=b;try{throw new Error}catch(i){"stack"in i&&(a("../../wrap-timer"),a("../../wrap-raf"),"addEventListener"in window&&a("../../wrap-events"),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&a("../../wrap-xhr"),g=!0)}e.on("fn-start",function(){g&&(h+=1)}),e.on("fn-err",function(a,b,d){g&&(this.thrown=!0,c("err",[d,(new Date).getTime()]))}),e.on("fn-end",function(){g&&!this.thrown&&h>0&&(h-=1)})},{"../../../contextual-ee":1,"../../wrap-events":3,"../../wrap-raf":4,"../../wrap-timer":5,"../../wrap-xhr":6,handle:"4O2Y62",loader:"YLUGVp","lodash._slice":14}],3:[function(a){function b(a){d.inPlace(a,["addEventListener","removeEventListener"],"-",c)}function c(a){return a[1]}var d=a("../wrap-function"),e=(a("lodash._slice"),a("../contextual-ee"));if(b(window),"getPrototypeOf"in Object){for(var f=document;f&&!f.hasOwnProperty("addEventListener");)f=Object.getPrototypeOf(f);f&&b(f);for(var g=XMLHttpRequest.prototype;g&&!g.hasOwnProperty("addEventListener");)g=Object.getPrototypeOf(g);g&&b(g)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&b(XMLHttpRequest.prototype);e.on("addEventListener-start",function(a){if(a[1]){var b=a[1];"function"==typeof b?this.wrapped=b["nr@wrapped"]?a[1]=b["nr@wrapped"]:b["nr@wrapped"]=a[1]=d(b,"fn-"):"function"==typeof b.handleEvent&&d.inPlace(b,["handleEvent"],"fn-")}}),e.on("removeEventListener-start",function(a){var b=this.wrapped;b&&(a[1]=b)})},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],4:[function(a){var b=(a("lodash._slice"),a("../wrap-function")),c=a("../contextual-ee");b.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),c.on("raf-start",function(a){a[0]=b(a[0],"fn-")})},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],5:[function(a){function b(a){var b=a[0];"string"==typeof b&&(b=new Function(b)),a[0]=c(b,"fn-")}var c=(a("lodash._slice"),a("../wrap-function")),d=a("../contextual-ee");c.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),d.on("setTimer-start",b)},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],6:[function(a){function b(){c.inPlace(this,f,"fn-")}var c=a("../wrap-function"),d=a("../contextual-ee"),e=window.XMLHttpRequest,f=["onload","onerror","onabort","onloadstart","onloadend","onprogress","onreadystatechange","ontimeout"];window.XMLHttpRequest=function(a){var f=new e(a);return d.emit("new-xhr",[],f),c.inPlace(f,["addEventListener","removeEventListener"],"-",function(a,b){return b}),f.addEventListener("readystatechange",b,!1),f},window.XMLHttpRequest.prototype=e.prototype},{"../contextual-ee":1,"../wrap-function":15}],7:[function(a){function b(a){if("string"==typeof a&&a.length)return a.length;if("object"!=typeof a)return void 0;if("undefined"!=typeof ArrayBuffer&&a instanceof ArrayBuffer&&a.byteLength)return a.byteLength;if("undefined"!=typeof Blob&&a instanceof Blob&&a.size)return a.size;if("undefined"!=typeof FormData&&a instanceof FormData)return void 0;try{return JSON.stringify(a).length}catch(b){return void 0}}function c(a){var c=this.params,d=this.metrics;if(!this.ended){this.ended=!0;for(var e=0;k>e;e++)a.removeEventListener(j[e],this.listener,!1);if(!c.aborted){if(d.duration=(new Date).getTime()-this.startTime,4===a.readyState){c.status=a.status;var g=a.responseType,h="arraybuffer"===g||"blob"===g||"json"===g?a.response:a.responseText,i=b(h);if(i&&(d.rxSize=i),this.sameOrigin){var l=a.getResponseHeader("X-NewRelic-App-Data");l&&(c.cat=l.split(", ").pop())}}else c.status=0;d.cbTime=this.cbTime,f("xhr",[c,d])}}}function d(a,b){var c=g(b),d=a.params;d.host=c.hostname+":"+c.port,d.pathname=c.pathname,a.sameOrigin=c.sameOrigin}function e(a,b){return b}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){a("loader").features.push("xhr");var f=a("handle"),g=a("./parse-url.js"),h=a("../../../wrap-function"),i=a("../../../contextual-ee"),j=["load","error","abort","timeout"],k=j.length,l=a("../../../loader/id");a("../../wrap-events"),a("../../wrap-xhr"),i.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=c,this.ended=!1,this.xhrGuids={}}),h.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",e),i.on("open-xhr-start",function(a){this.params={method:a[0]},d(this,a[1]),this.metrics={}}),i.on("open-xhr-end",function(a,b){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&b.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),i.on("send-xhr-start",function(a,c){var d=this.metrics,e=a[0],f=this;if(d&&e){var g=b(e);g&&(d.txSize=g)}this.startTime=(new Date).getTime(),this.listener=function(a){try{"abort"===a.type&&(f.params.aborted=!0),("load"!==a.type||f.called===f.totalCbs&&(f.onloadCalled||"function"!=typeof c.onload))&&f.end(c)}catch(b){}};for(var h=0;k>h;h++)c.addEventListener(j[h],this.listener,!1)}),i.on("xhr-cb-time",function(a,b,c){this.cbTime+=a,b?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof c.onload||this.end(c)}),i.on("xhr-load-added",function(a,b){var c=""+l(a)+!!b;this.xhrGuids&&!this.xhrGuids[c]&&(this.xhrGuids[c]=!0,this.totalCbs+=1)}),i.on("xhr-load-removed",function(a,b){var c=""+l(a)+!!b;this.xhrGuids&&this.xhrGuids[c]&&(delete this.xhrGuids[c],this.totalCbs-=1)}),i.on("addEventListener-end",function(a,b){b instanceof XMLHttpRequest&&"load"===a[0]&&i.emit("xhr-load-added",[a[1],a[2]],b)}),i.on("removeEventListener-end",function(a,b){b instanceof XMLHttpRequest&&"load"===a[0]&&i.emit("xhr-load-removed",[a[1],a[2]],b)}),i.on("fn-start",function(a,b,c){b instanceof XMLHttpRequest&&("onload"===c&&(this.onload=!0),("load"===(a[0]&&a[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),i.on("fn-end",function(a,b){this.xhrCbStart&&i.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,b],b)})}},{"../../../contextual-ee":1,"../../../loader/id":11,"../../../wrap-function":15,"../../wrap-events":3,"../../wrap-xhr":6,"./parse-url.js":8,handle:"4O2Y62",loader:"YLUGVp"}],8:[function(a,b){b.exports=function(a){var b=document.createElement("a"),c=window.location,d={};b.href=a,d.port=b.port;var e=b.href.split("://");return!d.port&&e[1]&&(d.port=e[1].split("/")[0].split(":")[1]),d.port&&"0"!==d.port||(d.port="https"===e[0]?"443":"80"),d.hostname=b.hostname||c.hostname,d.pathname=b.pathname,"/"!==d.pathname.charAt(0)&&(d.pathname="/"+d.pathname),d.sameOrigin=!b.hostname||b.hostname===document.domain&&b.port===c.port&&b.protocol===c.protocol,d}},{}],handle:[function(a,b){b.exports=a("4O2Y62")},{}],"4O2Y62":[function(a,b){function c(a,b){var c=d[a];return c?c.apply(this,b):(e[a]||(e[a]=[]),void e[a].push(b))}var d={},e={};b.exports=c,c.queues=e,c.handlers=d},{}],11:[function(a,b){function c(a){if(!a||"object"!=typeof a&&"function"!=typeof a)return-1;if(a===window)return 0;if(e.call(a,"__nr"))return a.__nr;try{return Object.defineProperty(a,"__nr",{value:d,writable:!0,enumerable:!1}),d}catch(b){return a.__nr=d,d}finally{d+=1}}var d=1,e=Object.prototype.hasOwnProperty;b.exports=c},{}],loader:[function(a,b){b.exports=a("YLUGVp")},{}],YLUGVp:[function(a,b){function c(){var a=m.info=NREUM.info;if(a&&a.agent&&a.licenseKey&&a.applicationID){m.proto="https"===l.split(":")[0]||a.sslForHttp?"https://":"http://",g("mark",["onload",f()]);var b=i.createElement("script");b.src=m.proto+a.agent,i.body.appendChild(b)}}function d(){"complete"===i.readyState&&e()}function e(){g("mark",["domContent",f()])}function f(){return(new Date).getTime()}var g=a("handle"),h=window,i=h.document,j="addEventListener",k="attachEvent",l=(""+location).split("?")[0],m=b.exports={offset:f(),origin:l,features:[]};i[j]?(i[j]("DOMContentLoaded",e,!1),h[j]("load",c,!1)):(i[k]("onreadystatechange",d),h[k]("onload",c)),g("mark",["firstbyte",f()])},{handle:"4O2Y62"}],14:[function(a,b){function c(a,b,c){b||(b=0),"undefined"==typeof c&&(c=a?a.length:0);for(var d=-1,e=c-b||0,f=Array(0>e?0:e);++d<e;)f[d]=a[b+d];return f}b.exports=c},{}],15:[function(a,b){function c(a,b,c,d){function nrWrapper(){var g,h=f(arguments),i=this,j=c&&c(h,i)||{};try{e.emit(b+"start",[h,i,d],j)}catch(k){}try{return g=a.apply(i,h)}catch(l){throw e.emit(b+"err",[h,i,l],j),l}finally{try{e.emit(b+"end",[h,i,g],j)}catch(k){}}}return a&&"function"==typeof a&&a.apply&&!a._wrapped?(b||(b=""),nrWrapper._wrapped=!0,nrWrapper):a}function d(a,b,d,e){d||(d="");var f,g,h,i="-"===d.charAt(0);for(h=0;h<b.length;h++)g=b[h],f=a[g],f&&"function"==typeof f&&f.apply&&!f._wrapped&&(a[g]=c(f,i?g+d:d,e,g,a))}var e=a("../contextual-ee"),f=a("lodash._slice");b.exports=c,c.inPlace=d},{"../contextual-ee":1,"lodash._slice":14}]},{},["YLUGVp",7,2]);</script>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <script type="text/javascript">window.NREUM || (NREUM = {});
+        NREUM.info = {"beacon": "beacon-5.newrelic.com", "errorBeacon": "jserror.newrelic.com", "licenseKey": "fcf8d519de", "applicationID": "13909,2324476,716468", "transactionName": "dA4NFkNbVV1URBcMRVIMTAREWFVuQlVKAFRZPhMQVEJQVEY=", "queueTime": 9, "applicationTime": 42, "ttGuid": "", "agentToken": null, "agent": "js-agent.newrelic.com/nr-361.min.js"}</script>
+    <script type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = {xpid: "VQcGQldQAQMJ"};
+    window.NREUM || (NREUM = {}), __nr_require = function a(b, c, d) {
+        function e(f) {
+            if (!c[f]) {
+                var g = c[f] = {exports: {}};
+                b[f][0].call(g.exports, function (a) {
+                    var c = b[f][1][a];
+                    return e(c ? c : a)
+                }, g, g.exports, a, b, c, d)
+            }
+            return c[f].exports
+        }
 
-        <title>UFO 404 - Animated 404 Page Preview - ThemeForest</title>
+        for (var f = 0; f < d.length; f++)e(d[f]);
+        return e
+    }({1: [function (a, b) {
+        function c(a, b, c) {
+            c || (c = {});
+            for (var d = f[a], e = d && d.length || 0, h = c[g] || (c[g] = {}), i = 0; e > i; i++)d[i].apply(h, b);
+            return h
+        }
 
-        <meta name="description" content="&amp;lt;p&amp;gt;
+        function d(a, b) {
+            var c = f[a] || (f[a] = []);
+            c.push(b)
+        }
+
+        function e(a) {
+            return delete a[g]
+        }
+
+        var f = {}, g = "nr@context";
+        b.exports = {on: d, emit: c, clear: e}
+    }, {}], 2: [function (a) {
+        function b(a, b, e, g, i) {
+            return h ? h -= 1 : c("err", [i || new UncaughtException(a, b, e)]), "function" == typeof f ? f.apply(this, d(arguments)) : !1
+        }
+
+        function UncaughtException(a, b, c) {
+            this.message = a || "Uncaught error with no additional information", this.sourceURL = b, this.line = c
+        }
+
+        var c = a("handle"), d = a("lodash._slice"), e = a("../../../contextual-ee"), f = window.onerror, g = !1, h = 0;
+        a("loader").features.push("err"), window.onerror = b;
+        try {
+            throw new Error
+        } catch (i) {
+            "stack"in i && (a("../../wrap-timer"), a("../../wrap-raf"), "addEventListener"in window && a("../../wrap-events"), window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && a("../../wrap-xhr"), g = !0)
+        }
+        e.on("fn-start", function () {
+            g && (h += 1)
+        }), e.on("fn-err", function (a, b, d) {
+            g && (this.thrown = !0, c("err", [d, (new Date).getTime()]))
+        }), e.on("fn-end", function () {
+            g && !this.thrown && h > 0 && (h -= 1)
+        })
+    }, {"../../../contextual-ee": 1, "../../wrap-events": 3, "../../wrap-raf": 4, "../../wrap-timer": 5, "../../wrap-xhr": 6, handle: "4O2Y62", loader: "YLUGVp", "lodash._slice": 14}], 3: [function (a) {
+        function b(a) {
+            d.inPlace(a, ["addEventListener", "removeEventListener"], "-", c)
+        }
+
+        function c(a) {
+            return a[1]
+        }
+
+        var d = a("../wrap-function"), e = (a("lodash._slice"), a("../contextual-ee"));
+        if (b(window), "getPrototypeOf"in Object) {
+            for (var f = document; f && !f.hasOwnProperty("addEventListener");)f = Object.getPrototypeOf(f);
+            f && b(f);
+            for (var g = XMLHttpRequest.prototype; g && !g.hasOwnProperty("addEventListener");)g = Object.getPrototypeOf(g);
+            g && b(g)
+        } else XMLHttpRequest.prototype.hasOwnProperty("addEventListener") && b(XMLHttpRequest.prototype);
+        e.on("addEventListener-start", function (a) {
+            if (a[1]) {
+                var b = a[1];
+                "function" == typeof b ? this.wrapped = b["nr@wrapped"] ? a[1] = b["nr@wrapped"] : b["nr@wrapped"] = a[1] = d(b, "fn-") : "function" == typeof b.handleEvent && d.inPlace(b, ["handleEvent"], "fn-")
+            }
+        }), e.on("removeEventListener-start", function (a) {
+            var b = this.wrapped;
+            b && (a[1] = b)
+        })
+    }, {"../contextual-ee": 1, "../wrap-function": 15, "lodash._slice": 14}], 4: [function (a) {
+        var b = (a("lodash._slice"), a("../wrap-function")), c = a("../contextual-ee");
+        b.inPlace(window, ["requestAnimationFrame", "mozRequestAnimationFrame", "webkitRequestAnimationFrame", "msRequestAnimationFrame"], "raf-"), c.on("raf-start", function (a) {
+            a[0] = b(a[0], "fn-")
+        })
+    }, {"../contextual-ee": 1, "../wrap-function": 15, "lodash._slice": 14}], 5: [function (a) {
+        function b(a) {
+            var b = a[0];
+            "string" == typeof b && (b = new Function(b)), a[0] = c(b, "fn-")
+        }
+
+        var c = (a("lodash._slice"), a("../wrap-function")), d = a("../contextual-ee");
+        c.inPlace(window, ["setTimeout", "setInterval", "setImmediate"], "setTimer-"), d.on("setTimer-start", b)
+    }, {"../contextual-ee": 1, "../wrap-function": 15, "lodash._slice": 14}], 6: [function (a) {
+        function b() {
+            c.inPlace(this, f, "fn-")
+        }
+
+        var c = a("../wrap-function"), d = a("../contextual-ee"), e = window.XMLHttpRequest, f = ["onload", "onerror", "onabort", "onloadstart", "onloadend", "onprogress", "onreadystatechange", "ontimeout"];
+        window.XMLHttpRequest = function (a) {
+            var f = new e(a);
+            return d.emit("new-xhr", [], f), c.inPlace(f, ["addEventListener", "removeEventListener"], "-", function (a, b) {
+                return b
+            }), f.addEventListener("readystatechange", b, !1), f
+        }, window.XMLHttpRequest.prototype = e.prototype
+    }, {"../contextual-ee": 1, "../wrap-function": 15}], 7: [function (a) {
+        function b(a) {
+            if ("string" == typeof a && a.length)return a.length;
+            if ("object" != typeof a)return void 0;
+            if ("undefined" != typeof ArrayBuffer && a instanceof ArrayBuffer && a.byteLength)return a.byteLength;
+            if ("undefined" != typeof Blob && a instanceof Blob && a.size)return a.size;
+            if ("undefined" != typeof FormData && a instanceof FormData)return void 0;
+            try {
+                return JSON.stringify(a).length
+            } catch (b) {
+                return void 0
+            }
+        }
+
+        function c(a) {
+            var c = this.params, d = this.metrics;
+            if (!this.ended) {
+                this.ended = !0;
+                for (var e = 0; k > e; e++)a.removeEventListener(j[e], this.listener, !1);
+                if (!c.aborted) {
+                    if (d.duration = (new Date).getTime() - this.startTime, 4 === a.readyState) {
+                        c.status = a.status;
+                        var g = a.responseType, h = "arraybuffer" === g || "blob" === g || "json" === g ? a.response : a.responseText, i = b(h);
+                        if (i && (d.rxSize = i), this.sameOrigin) {
+                            var l = a.getResponseHeader("X-NewRelic-App-Data");
+                            l && (c.cat = l.split(", ").pop())
+                        }
+                    } else c.status = 0;
+                    d.cbTime = this.cbTime, f("xhr", [c, d])
+                }
+            }
+        }
+
+        function d(a, b) {
+            var c = g(b), d = a.params;
+            d.host = c.hostname + ":" + c.port, d.pathname = c.pathname, a.sameOrigin = c.sameOrigin
+        }
+
+        function e(a, b) {
+            return b
+        }
+
+        if (window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && !/CriOS/.test(navigator.userAgent)) {
+            a("loader").features.push("xhr");
+            var f = a("handle"), g = a("./parse-url.js"), h = a("../../../wrap-function"), i = a("../../../contextual-ee"), j = ["load", "error", "abort", "timeout"], k = j.length, l = a("../../../loader/id");
+            a("../../wrap-events"), a("../../wrap-xhr"), i.on("new-xhr", function () {
+                this.totalCbs = 0, this.called = 0, this.cbTime = 0, this.end = c, this.ended = !1, this.xhrGuids = {}
+            }), h.inPlace(XMLHttpRequest.prototype, ["open", "send"], "-xhr-", e), i.on("open-xhr-start", function (a) {
+                this.params = {method: a[0]}, d(this, a[1]), this.metrics = {}
+            }), i.on("open-xhr-end", function (a, b) {
+                "loader_config"in NREUM && "xpid"in NREUM.loader_config && this.sameOrigin && b.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid)
+            }), i.on("send-xhr-start", function (a, c) {
+                var d = this.metrics, e = a[0], f = this;
+                if (d && e) {
+                    var g = b(e);
+                    g && (d.txSize = g)
+                }
+                this.startTime = (new Date).getTime(), this.listener = function (a) {
+                    try {
+                        "abort" === a.type && (f.params.aborted = !0), ("load" !== a.type || f.called === f.totalCbs && (f.onloadCalled || "function" != typeof c.onload)) && f.end(c)
+                    } catch (b) {
+                    }
+                };
+                for (var h = 0; k > h; h++)c.addEventListener(j[h], this.listener, !1)
+            }), i.on("xhr-cb-time", function (a, b, c) {
+                this.cbTime += a, b ? this.onloadCalled = !0 : this.called += 1, this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof c.onload || this.end(c)
+            }), i.on("xhr-load-added", function (a, b) {
+                var c = "" + l(a) + !!b;
+                this.xhrGuids && !this.xhrGuids[c] && (this.xhrGuids[c] = !0, this.totalCbs += 1)
+            }), i.on("xhr-load-removed", function (a, b) {
+                var c = "" + l(a) + !!b;
+                this.xhrGuids && this.xhrGuids[c] && (delete this.xhrGuids[c], this.totalCbs -= 1)
+            }), i.on("addEventListener-end", function (a, b) {
+                b instanceof XMLHttpRequest && "load" === a[0] && i.emit("xhr-load-added", [a[1], a[2]], b)
+            }), i.on("removeEventListener-end", function (a, b) {
+                b instanceof XMLHttpRequest && "load" === a[0] && i.emit("xhr-load-removed", [a[1], a[2]], b)
+            }), i.on("fn-start", function (a, b, c) {
+                b instanceof XMLHttpRequest && ("onload" === c && (this.onload = !0), ("load" === (a[0] && a[0].type) || this.onload) && (this.xhrCbStart = (new Date).getTime()))
+            }), i.on("fn-end", function (a, b) {
+                this.xhrCbStart && i.emit("xhr-cb-time", [(new Date).getTime() - this.xhrCbStart, this.onload, b], b)
+            })
+        }
+    }, {"../../../contextual-ee": 1, "../../../loader/id": 11, "../../../wrap-function": 15, "../../wrap-events": 3, "../../wrap-xhr": 6, "./parse-url.js": 8, handle: "4O2Y62", loader: "YLUGVp"}], 8: [function (a, b) {
+        b.exports = function (a) {
+            var b = document.createElement("a"), c = window.location, d = {};
+            b.href = a, d.port = b.port;
+            var e = b.href.split("://");
+            return!d.port && e[1] && (d.port = e[1].split("/")[0].split(":")[1]), d.port && "0" !== d.port || (d.port = "https" === e[0] ? "443" : "80"), d.hostname = b.hostname || c.hostname, d.pathname = b.pathname, "/" !== d.pathname.charAt(0) && (d.pathname = "/" + d.pathname), d.sameOrigin = !b.hostname || b.hostname === document.domain && b.port === c.port && b.protocol === c.protocol, d
+        }
+    }, {}], handle: [function (a, b) {
+        b.exports = a("4O2Y62")
+    }, {}], "4O2Y62": [function (a, b) {
+        function c(a, b) {
+            var c = d[a];
+            return c ? c.apply(this, b) : (e[a] || (e[a] = []), void e[a].push(b))
+        }
+
+        var d = {}, e = {};
+        b.exports = c, c.queues = e, c.handlers = d
+    }, {}], 11: [function (a, b) {
+        function c(a) {
+            if (!a || "object" != typeof a && "function" != typeof a)return-1;
+            if (a === window)return 0;
+            if (e.call(a, "__nr"))return a.__nr;
+            try {
+                return Object.defineProperty(a, "__nr", {value: d, writable: !0, enumerable: !1}), d
+            } catch (b) {
+                return a.__nr = d, d
+            } finally {
+                d += 1
+            }
+        }
+
+        var d = 1, e = Object.prototype.hasOwnProperty;
+        b.exports = c
+    }, {}], loader: [function (a, b) {
+        b.exports = a("YLUGVp")
+    }, {}], YLUGVp: [function (a, b) {
+        function c() {
+            var a = m.info = NREUM.info;
+            if (a && a.agent && a.licenseKey && a.applicationID) {
+                m.proto = "https" === l.split(":")[0] || a.sslForHttp ? "https://" : "http://", g("mark", ["onload", f()]);
+                var b = i.createElement("script");
+                b.src = m.proto + a.agent, i.body.appendChild(b)
+            }
+        }
+
+        function d() {
+            "complete" === i.readyState && e()
+        }
+
+        function e() {
+            g("mark", ["domContent", f()])
+        }
+
+        function f() {
+            return(new Date).getTime()
+        }
+
+        var g = a("handle"), h = window, i = h.document, j = "addEventListener", k = "attachEvent", l = ("" + location).split("?")[0], m = b.exports = {offset: f(), origin: l, features: []};
+        i[j] ? (i[j]("DOMContentLoaded", e, !1), h[j]("load", c, !1)) : (i[k]("onreadystatechange", d), h[k]("onload", c)), g("mark", ["firstbyte", f()])
+    }, {handle: "4O2Y62"}], 14: [function (a, b) {
+        function c(a, b, c) {
+            b || (b = 0), "undefined" == typeof c && (c = a ? a.length : 0);
+            for (var d = -1, e = c - b || 0, f = Array(0 > e ? 0 : e); ++d < e;)f[d] = a[b + d];
+            return f
+        }
+
+        b.exports = c
+    }, {}], 15: [function (a, b) {
+        function c(a, b, c, d) {
+            function nrWrapper() {
+                var g, h = f(arguments), i = this, j = c && c(h, i) || {};
+                try {
+                    e.emit(b + "start", [h, i, d], j)
+                } catch (k) {
+                }
+                try {
+                    return g = a.apply(i, h)
+                } catch (l) {
+                    throw e.emit(b + "err", [h, i, l], j), l
+                } finally {
+                    try {
+                        e.emit(b + "end", [h, i, g], j)
+                    } catch (k) {
+                    }
+                }
+            }
+
+            return a && "function" == typeof a && a.apply && !a._wrapped ? (b || (b = ""), nrWrapper._wrapped = !0, nrWrapper) : a
+        }
+
+        function d(a, b, d, e) {
+            d || (d = "");
+            var f, g, h, i = "-" === d.charAt(0);
+            for (h = 0; h < b.length; h++)g = b[h], f = a[g], f && "function" == typeof f && f.apply && !f._wrapped && (a[g] = c(f, i ? g + d : d, e, g, a))
+        }
+
+        var e = a("../contextual-ee"), f = a("lodash._slice");
+        b.exports = c, c.inPlace = d
+    }, {"../contextual-ee": 1, "lodash._slice": 14}]}, {}, ["YLUGVp", 7, 2]);</script>
+
+    <title>UFO 404 - Animated 404 Page Preview - ThemeForest</title>
+
+    <meta name="description" content="&amp;lt;p&amp;gt;
 	If you enjoy this item, Don&amp;amp;#39;t forget to rate &amp;lt;img alt=&amp;quot;&amp;quot; src=&amp;qu...">
 
-        <meta name="robots" content="noindex, follow" />
+    <meta name="robots" content="noindex, follow"/>
 
-        <link href="//dmypbau5frl9g.cloudfront.net/assets/full_screen_preview/full_screen_preview-cd084db678a82d4084197309ff315d94.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="//dmypbau5frl9g.cloudfront.net/assets/full_screen_preview/full_screen_preview-cd084db678a82d4084197309ff315d94.css"
+          media="screen" rel="stylesheet" type="text/css"/>
 
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png" />
-        <link rel="apple-touch-icon-precomposed" href="/icons/themeforest.net/apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="/icons/themeforest.net/apple-touch-icon-144x144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="/icons/themeforest.net/apple-touch-icon-114x114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="/icons/themeforest.net/apple-touch-icon-72x72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/icons/themeforest.net/apple-touch-icon-precomposed.png"/>
 
 
     </head>
@@ -151,15 +439,16 @@
     <body>
     <div id="header-bar">
 
-        <div class="close-header"> </div>
+        <div class="close-header"></div>
 
         <p class="meta-data">
-           <a class="purchase" href='http://analatica' > HOME</a>
+            <a class="purchase" href='http://analatica'> HOME</a>
         </p>
 
 
     </div>
-    <iframe id="preview-frame" src="http://amindiary.com/demo/ufo404/" name="preview-frame" frameborder="0" noresize="noresize">
+    <iframe id="preview-frame" src="http://amindiary.com/demo/ufo404/" name="preview-frame" frameborder="0"
+            noresize="noresize">
     </iframe>
 
     <script>

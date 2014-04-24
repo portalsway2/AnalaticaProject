@@ -7,8 +7,6 @@ use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-
-
 class RegistrationFormType extends BaseType
 {
 
@@ -22,14 +20,12 @@ class RegistrationFormType extends BaseType
             ->remove('username')
             ->remove('plainPassword')
             ->remove('last_name')
-            ->remove('first_name')
-            ->remove('roles');
+            ->remove('first_name');
         $builder
             ->add('email', 'email', array('label' => 'Email', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'User name', 'translation_domain' => 'FOSUserBundle'))
             ->add('first_name', null, array('label' => 'First name', 'translation_domain' => 'FOSUserBundle'))
             ->add('last_name', null, array('label' => 'Last name', 'translation_domain' => 'FOSUserBundle'))
-            ->add('roles', null, array('label' => 'Roles', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'options' => array('translation_domain' => 'FOSUserBundle'),
@@ -39,12 +35,14 @@ class RegistrationFormType extends BaseType
             ));
 
     }
+
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Time\TrackerBundle\Entity\User'
         ));
     }
+
     public function getName()
     {
         return 'time_tracker_registration';

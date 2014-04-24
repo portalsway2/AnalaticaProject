@@ -1,25 +1,46 @@
 {% trans_default_domain 'FOSUserBundle' %}
+
 {% block body -%}
 
 
+    <article>
+        <h1>Profile</h1>
 
-    <div class="trois">
-        <div class="fos_user_user_show">
-            <p>{{ 'Name'|trans }}: {{ user.username }}</p>
+        <form>
+            <ul>
+                <li>
+                    <label for="name">{{ 'Name'|trans }}:</label>
+                    {{ user.username }}
+                </li>
+                <li>
+                    <label for="email">{{ 'Name Canonical'|trans }}:</label>
+                    {{ user.usernamecanonical }}
+                </li>
+                <li>
+                    <label for="car">{{ 'Email'|trans }}:</label>
+                    {{ user.email }}
+                <li>
+                    <label>{{ 'Email Canonical'|trans }}:</label>
+                    {{ user.emailcanonical }}
+                </li>
+                <li>
+                    <label>{{ 'First Name'|trans }}</label>
+                    {{ user.firstname }}
+                </li>
+                <li>
+                    <label>{{ 'Last Name'|trans }}:</label>
+                    {{ user.lastname }}
+                </li>
+                <li>
+                    <label>{{ 'Token'|trans }}:</label>
+                    {{ user.token }}
+                </li>
+            </ul>
 
-            <p>{{ 'Name Canonical'|trans }}: {{ user.usernamecanonical }}</p>
+        </form>
+    </article>
+    <footer>
+        <p>A little freebie made with <strong>♥</strong> by the nice folks over at </p>
+    </footer>
 
-            <p>{{ 'Email'|trans }}: {{ user.email }}</p>
-
-            <p>{{ 'Email Canonical'|trans }}: {{ user.emailcanonical }}</p>
-
-            <p>{{ 'First Name'|trans }}: {{ user.firstname }}</p>
-
-            <p>{{ 'Last Name'|trans }}: {{ user.lastname }}</p>
-
-            <p>{{ 'Token'|trans }}: {{ user.token }}</p>
-
-
-        </div>
-    </div>
 {% endblock %}

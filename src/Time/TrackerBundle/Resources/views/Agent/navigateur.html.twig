@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block javascripts %}
-    {{  parent() }}
+    {{ parent() }}
     <script type="text/javascript">
         $(function () {
-            var listOs={{ listNavigateur|json_encode|raw }};
+            var listOs ={{ listNavigateur|json_encode|raw }};
             $('#container').highcharts({
                 chart: {
                     plotBackgroundColor: null,
@@ -29,11 +29,13 @@
                         }
                     }
                 },
-                series: [{
-                    type: 'pie',
-                    name: 'Browser share',
-                    data: listOs
-                }]
+                series: [
+                    {
+                        type: 'pie',
+                        name: 'Browser share',
+                        data: listOs
+                    }
+                ]
             });
         });
 
@@ -43,23 +45,28 @@
 {% block body -%}
 
     <div class="un">
-    <!-- Table goes in the document BODY -->
-    <table class="hovertable">
-        <tr >
-            <th>Browser</th> <th>Version</th><th>Number</th><th>Logo</th></tr>
-        </tr>
-        <tbody>
-        {% for entity in entities %}
-            <tr onmouseover="this.style.backgroundColor='lightblue';" onmouseout="this.style.backgroundColor='white';">
-                <td>{{ entity.name}}</td>
-                <td>{{ entity.version }}
-                <td>{{ entity.count}}</td>
+        <!-- Table goes in the document BODY -->
+        <table class="hovertable">
+            <tr>
+                <th>Browser</th>
+                <th>Version</th>
+                <th>Number</th>
+                <th>Logo</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </tr>
+            <tbody>
+            {% for entity in entities %}
+                <tr onmouseover="this.style.backgroundColor='lightblue';"
+                    onmouseout="this.style.backgroundColor='white';">
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.version }}
+                    <td>{{ entity.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
         <div class="cinq">
-            <div id="container" style= "width: 800px; height: 400px; top:400px;  "></div>
+            <div id="container" style="width: 800px; height: 400px; top:400px;  "></div>
         </div>
     </div>
 

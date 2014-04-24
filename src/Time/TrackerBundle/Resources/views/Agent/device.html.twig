@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block javascripts %}
-    {{  parent() }}
+    {{ parent() }}
     <script type="text/javascript">
         $(function () {
-            var listDevice={{ listDevice|json_encode|raw }};
+            var listDevice ={{ listDevice|json_encode|raw }};
             $('#container').highcharts({
                 chart: {
                     plotBackgroundColor: null,
@@ -28,11 +28,13 @@
                         }
                     }
                 },
-                series: [{
-                    type: 'pie',
-                    name: 'Browser share',
-                    data: listDevice
-                }]
+                series: [
+                    {
+                        type: 'pie',
+                        name: 'Browser share',
+                        data: listDevice
+                    }
+                ]
             });
         });
 
@@ -45,14 +47,17 @@
         <!-- Table goes in the document BODY -->
         <table class="hovertable">
             <tr>
-                <th>Device</th><th>Version</th><th>Number</th>
+                <th>Device</th>
+                <th>Version</th>
+                <th>Number</th>
             </tr>
             <tbody>
             {% for entity in entities %}
-                <tr onmouseover="this.style.backgroundColor='lightblue';" onmouseout="this.style.backgroundColor='white';">
-                    <td>{{ entity.name}}</td>
+                <tr onmouseover="this.style.backgroundColor='lightblue';"
+                    onmouseout="this.style.backgroundColor='white';">
+                    <td>{{ entity.name }}</td>
                     <td>{{ entity.version }}
-                    <td>{{ entity.count}}</td>
+                    <td>{{ entity.count }}</td>
                 </tr>
             {% endfor %}
 

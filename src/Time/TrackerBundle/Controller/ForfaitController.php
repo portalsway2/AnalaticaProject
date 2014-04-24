@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: portalsway3
- * Date: 4/3/14
- * Time: 6:21 PM
+ * Date: 4/5/14
+ * Time: 3:41 PM
  */
 
 namespace Time\TrackerBundle\Controller;
@@ -16,20 +16,27 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Time\TrackerBundle\Entity\User;
 use Time\TrackerBundle\Form\UserType;
 
+
 /**
- * Class DashboardController
+ * Class ForfaitContoller
  * @package Time\TrackerBundle\Controller
  */
-class DashboardController extends Controller
+class ForfaitController extends Controller
 {
 
     /**
-     * @Route("/dashboard", name="dashboard")
+     * @Route("{id}", name="forfait")
      * @Method("GET")
-     * @Template("TimeTrackerBundle:Dashboard:dashboard.html.twig")
+     * @Template("TimeTrackerBundle:Agent:forfait.html.twig")
      */
-    public function dashboardAction()
+    public function ForfaitAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
 
+        $entities = $em->getRepository('TimeTrackerBundle:Forfait')->findALL();
+
+        return array('entities' => $entities);
     }
-} 
+
+
+}
