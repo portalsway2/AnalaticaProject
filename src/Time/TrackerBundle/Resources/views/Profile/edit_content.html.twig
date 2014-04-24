@@ -2,13 +2,54 @@
 
 {% block body %}
 
-<div class="trois">
+    <style>
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
-</form>
-</div>
+        .left {
+            float: left;
+            padding: 50px;
+        }
+
+        form {
+            width: 220px;
+            margin: 0px auto;
+            text-align: left;
+            line-height: 2.7em;
+        }
+
+        label {
+            float: left;
+            width: 300px;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        textarea {
+            border: 1px solid #c7c7c7;
+            outline: 5px solid rgba(0, 0, 0, 0.1);
+            padding: 4px 10px;
+        }
+
+
+    </style>
+
+    <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" charset="utf-8">
+    </script>
+
+    <article>
+        <h1>Edit Profile</h1>
+        <ul>
+            <form style="line-height:2.7em" action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }}
+                  method="POST" class="fos_user_profile_edit">
+                {{ form_widget(form) }}
+                <div class="left">
+                    <input type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
+                </div>
+            </form>
+        </ul>
+    </article>
+    <footer>
+    </footer>
+
 {% endblock %}

@@ -56,9 +56,9 @@ affiche_userAgent:
   resource: Time\TrackerBundle\Controller\AfficheController
   methods:   [Get]
 
-affiche_forafait:
+forfait_forfait:
   pattern:  /forfait
-  resource: Time\TrackerBundle\Controller\AfficheController
+  resource: Time\TrackerBundle\Controller\ForfaitController
   methods:   [Get]
 
 
@@ -75,6 +75,16 @@ erreur:
 dashboard:
   pattern:  /dashboard
   resource: Time\TrackerBundle\Controller\DashboardController
+  methods:   [Get]
+
+affiche_statistique:
+  pattern:  /statistique
+  resource: Time\TrackerBundle\Controller\AfficheController
+  methods:   [Get]
+
+affiche_useragent:
+  pattern:  /useragent
+  resource: Time\TrackerBundle\Controller\AfficheController
   methods:   [Get]
 
 

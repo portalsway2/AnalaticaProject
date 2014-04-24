@@ -1,36 +1,207 @@
-
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block fos_user_content %}
-    {% if error %}
-        <div>{{ error|trans }}</div>
-    {% endif %}
+{% block body %}
+    {% block fos_user_content %}
+        {% if error %}
+            <div>{{ error|trans }}</div>
+        {% endif %}
 
 
-    <div class="trois">
+        <style>
+            /* remove codrops styles and reset the whole thing */
 
-        <form action="{{ path("fos_user_security_check") }}" method="post">
-            <ul>
+            /** The wrapper that will contain our two forms **/
+            #wrapper {
+                width: 60%;
+                right: 0px;
+                min-height: 560px;
+                margin: 0px auto;
+                width: 500px;
+                position: relative;
+            }
 
-                <p><input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/></p>
+            /**** general text styling ****/
 
-                <p><label for="username">{{ 'login'|trans }}</label></p>
+            #wrapper h1 {
+                font-size: 48px;
+                color: rgb(6, 106, 117);
+                padding: 2px 0 10px 0;
+                font-family: 'FranchiseRegular', 'Arial Narrow', Arial, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                padding-bottom: 30px;
+            }
+
+            /** For the moment only webkit supports the background-clip:text; */
+            #wrapper h1 {
+                background: -webkit-repeating-linear-gradient(-45deg, rgb(18, 83, 93), rgb(18, 83, 93) 20px, rgb(64, 111, 118) 20px, rgb(64, 111, 118) 40px, rgb(18, 83, 93) 40px);
+                -webkit-text-fill-color: transparent;
+
+            }
+
+            #wrapper h1:after {
+                content: ' ';
+                display: block;
+                width: 100%;
+                height: 2px;
+                margin-top: 10px;
+                background: -moz-linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53%, rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+                background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(147, 184, 189, 0)), color-stop(20%, rgba(147, 184, 189, 0.8)), color-stop(53%, rgba(147, 184, 189, 1)), color-stop(79%, rgba(147, 184, 189, 0.8)), color-stop(100%, rgba(147, 184, 189, 0)));
+                background: -webkit-linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53%, rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+                background: -o-linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53%, rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+                background: -ms-linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53%, rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+                background: linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53%, rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+            }
+
+            #wrapper p {
+                margin-bottom: 15px;
+            }
+
+            #wrapper p:first-child {
+                margin: 0px;
+            }
+
+            #wrapper label {
+                color: rgb(64, 92, 96);
+                position: relative;
+            }
+
+            input {
+                outline: none;
+            }
+
+            /* all the input except submit and checkbox */
+            #wrapper input:not([type="checkbox"]) {
+                width: 92%;
+                margin-top: 4px;
+                padding: 10px 5px 10px 32px;
+                border: 1px solid rgb(178, 178, 178);
+                -webkit-appearance: textfield;
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+                -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+                box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+                -webkit-transition: all 0.2s linear;
+                -moz-transition: all 0.2s linear;
+                -o-transition: all 0.2s linear;
+                transition: all 0.2s linear;
+            }
+
+            /*styling both submit buttons */
+            #wrapper p.button input {
+                width: 30%;
+                cursor: pointer;
+                background: rgb(61, 157, 179);
+                padding: 8px 5px;
+                font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+                color: #fff;
+                font-size: 24px;
+                border: 1px solid rgb(28, 108, 122);
+                margin-bottom: 10px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, -webkit-transition : all 0.2 s linear;
+                -moz-transition: all 0.2s linear;
+                -o-transition: all 0.2s linear;
+                transition: all 0.2s linear;
+            }
+
+            #wrapper p.button input:hover {
+                background: rgb(74, 179, 198);
+            }
+
+            #wrapper p.button input:active,
+            #wrapper p.button input:focus {
+                background: rgb(40, 137, 154);
+                position: relative;
+                top: 1px;
+                border: 1px solid rgb(12, 76, 87);
+                -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+                -moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+                box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+            }
+
+            p.login.button,
+            p.signin.button {
+                text-align: right;
+                margin: 3px 0;
+            }
+
+            /* styling the checkbox "keep me logged in"*/
+            .keeplogin {
+                margin-top: -5px;
+            }
+
+            .keeplogin label {
+                display: inline-block;
+                font-size: 12px;
+                font-style: italic;
+            }
+
+            #login {
+                position: absolute;
+                top: 0px;
+                width: 88%;
+                padding: 18px 6% 60px 6%;
+                margin: 0 0 35px 0;
+                background: rgb(247, 247, 247);
+                border: 1px solid rgba(147, 184, 189, 0.8);
+                -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+                -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+                box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+                -webkit-box-shadow: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
 
 
-                <p><input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
-                </p>
+        </style>
 
-                <p><label for="password">{{ 'password'|trans }}</label></p>
+        <div class="container">
 
-                <p><input type="password" id="password" name="_password" required="required"/></p>
+            <section>
+                <div id="container_demo">
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
 
-                <p><input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-                    <label for="remember_me">{{ 'remember_me'|trans }}</label></p>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
 
-                <input type="submit" id="_submit" name="_submit" value="{{ 'connect'|trans }}"/>
-            </ul>
-        </form>
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                <h1>Login</h1>
 
-    </div>
+                                <p><input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/></p>
 
-{% endblock fos_user_content %}
+                                <p>
+                                    <label for="username" class="uname"> Your username </label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}"
+                                           required="required"/>
+
+                                <p>
+                                    <label for="password" class="youpasswd"> Your password </label>
+                                    <input type="password" id="password" name="_password" required="required"/>
+                                </p>
+
+                                <p class="keeplogin">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                                    <label for="remember_me">{{ 'remember_me'|trans }}</label></p>
+                                </p>
+                                <p class="login button">
+                                    <input type="submit" id="_submit" name="_submit" value="{{ 'connect'|trans }}"/>
+                                </p>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    {% endblock fos_user_content %}
+{% endblock %}

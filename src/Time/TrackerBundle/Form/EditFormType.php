@@ -13,7 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 
-class EditFormType  extends BaseType {
+class EditFormType extends BaseType
+{
 
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -22,11 +23,10 @@ class EditFormType  extends BaseType {
         $builder
             ->remove('email')
             ->remove('username')
-            ->remove('plainPassword')
-            ->remove('token');
+            ->remove('plainPassword');
+
         $builder
             ->add('email', 'email', array('label' => 'Email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('token', 'token', array('label' => 'dnbhj', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'User name', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',

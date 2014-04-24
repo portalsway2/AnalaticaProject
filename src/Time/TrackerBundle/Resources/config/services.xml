@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
     <services>
@@ -11,6 +11,18 @@
             <tag name="form.type" alias="time_tracker_registration"/>
             <argument>%fos_user.model.user.class%</argument>
         </service>
+
+        <service id="time_tracker.change_password.form.type"
+                 class="Time\TrackerBundle\Form\ChangePasswordFormType">
+            <tag name="form.type" alias="time_tracker_change_password"/>
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+
+        <service id="time_tracker.profile.form.type" class="Time\TrackerBundle\Form\ProfileFormType">
+            <tag name="form.type" alias="time_tracker_profile"/>
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+
 
     </services>
 

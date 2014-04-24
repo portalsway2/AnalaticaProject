@@ -44,6 +44,29 @@ class Forfait
     private $nbruseragent;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * @param float $nbruseragent
      */
     public function setNbruseragent($nbruseragent)
@@ -79,7 +102,7 @@ class Forfait
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

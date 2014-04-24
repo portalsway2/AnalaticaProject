@@ -13,21 +13,6 @@
 
     <style>
 
-    @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
-
-    @font-face {
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('PT Sans'), local('PTSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v6/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
-    }
-
-    @font-face {
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 700;
-        src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v6/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
-    }
 
     html, body {
         background: #ffffff;
@@ -387,7 +372,6 @@
         height: 70%
     }
 
-
     .six {
         position: absolute;
         bottom: 90%;
@@ -403,6 +387,7 @@
         width: 50%;
         height: 110%
     }
+
     table {
         font-family: verdana, arial, sans-serif;
         font-size: 15px;
@@ -430,7 +415,6 @@
         border-color: #000000;
     }
 
-
     .content {
         min-height: 100%;
         position: relative;
@@ -438,19 +422,114 @@
         z-index: 0;
     }
 
-
     .top_block {
         width: 100%;
         display: block;
     }
 
-
     .block_1 {
         width: 100%;
-        height: 130px;
+        height: 150px;
         background-color: #242424;
     }
 
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    blockquote, q {
+        quotes: none;
+    }
+
+    blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+    :focus {
+        outline: 0;
+    }
+
+    ins {
+        text-decoration: none;
+    }
+
+    del {
+        text-decoration: line-through;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    body {
+        font-size: 90%;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        color: #8c8a8b;
+        text-align: center;
+        line-height: 1.7em;
+    }
+
+    a:link, a:visited, strong {
+        color: #e15d46;
+    }
+
+    h1 {
+        font-size: 5em;
+        font-family: 'Engagement', cursive;
+        line-height: 1.89em;
+        text-shadow: 1px 1px 0px #fff, 2px 2px 0px rgba(0, 0, 0, 0.1), 3px 3px 0px #fff, 4px 4px 0px rgba(0, 0, 0, 0.1), 5px 5px 0px #fff;
+    }
+
+    h2 {
+        font-size: 4em;
+        text-align: left;
+        font-family: 'Engagement', cursive;
+        line-height: 2em;
+        text-shadow: 3px 1px 0px #fff, 2px 2px 0px rgba(0, 0, 0, 0.1), 3px 3px 0px #fff, 4px 4px 10px rgba(0, 0, 0, 0.1), 5px 5px 14px #fff;
+    }
+
+    .left {
+        float: left;
+    }
+
+    form {
+        width: 450px;
+        margin: 0px auto;
+        text-align: left;
+    }
+
+    p {
+        padding: 26px 0px;
+        border-top: 1px dotted #c7c7c7;
+    }
+
+    li {
+        padding: 26px 0px;
+        border-top: 1px dotted #c7c7c7;
+        min-height: 27px;
+    }
+
+    label {
+        float: left;
+        width: 200px;
+    }
 
     </style>
 
@@ -458,36 +537,48 @@
 
 {% block menu %}
 
+    <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" charset="utf-8">
+    </script>
 
     <div class="content">
         <div class="top_block block_1">
-            <div class="content">
-            </div>
+            <h2>
+                ANALATICA
+            </h2>
         </div>
     </div>
 
+    <div id='cssmenu'>
+        <ul>
+            <li class='active'><a href='http://analatica'><span class="glyphicon glyphicon-home">Home</span></a></li>
+            <li class='has-sub'><a href='#'><span class="glyphicon glyphicon-user">User</span></a>
+                <ul>
+                    <li><a href='http://analatica/profile'><span>profile</span></a></li>
+                    <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a>
+                    </li>
+                    <li><a href='http://analatica/profile/edit'><span>edit profile</span></a></li>
+                </ul>
+            </li>
+            <li class='has-sub'><a href='#'><span class="glyphicon glyphicon-stats">Analyze</span></a>
+                <ul>
+                    <li><a href='http://analatica/os'><span>Operating System</span></a></li>
+                    <li><a href='http://analatica/device'><span>Device</span></a></li>
+                    <li class='last'><a href='http://analatica/navigateur'><span>Browsers</span></a></li>
+                    <li class='last'><a href='http://analatica/useragent'><span>User Agent</span></a></li>
+                </ul>
 
-        <div id='cssmenu'>
-            <ul>
-                <li class='active'><a href='http://analatica'><span class="glyphicon glyphicon-home">Home</span></a></li>
-                <li><a href='http://analatica/os'><span class="glyphicon glyphicon-stats">Operating System</span></a></li>
-                <li><a href='http://analatica/device'><span  class="glyphicon glyphicon-stats">Device</span></a></li>
-                <li class='last'><a href='http://analatica/navigateur'><span  class="glyphicon glyphicon-stats">Browsers</span></a></li>
-                <li class='has-sub' ><a href='#'><span class="glyphicon glyphicon-user">User</span></a>
-                    <ul>
-                        <li><a href='http://analatica/profile'><span>profile</span></a></li>
-                        <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a></li>
-                        <li><a href='http://analatica/profile/#'><span>edit profile</span></a></li>
-                        <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+            <li><a href='http://analatica/forfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
+
+            <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
+        </ul>
+
+    </div>
 
 {% endblock %}
 
-
 {% block body %}
+
 
 {% endblock %}
 

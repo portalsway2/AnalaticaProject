@@ -35,6 +35,7 @@ class UserController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new User entity.
      *
@@ -58,17 +59,17 @@ class UserController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
     /**
-    * Creates a form to create a User entity.
-    *
-    * @param User $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to create a User entity.
+     *
+     * @param User $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createCreateForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(
@@ -91,11 +92,11 @@ class UserController extends Controller
     public function newAction()
     {
         $entity = new User();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -119,7 +120,7 @@ class UserController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -127,37 +128,37 @@ class UserController extends Controller
     /**
      * Displays a form to edit an existing User entity.
      *
-     * @Route("/{id}/edit", name="user_edit")
+     * @Route("/edit", name="user_edit")
      * @Method("GET")
      * @Template()
      */
-    public function editAction($id)
+    public function editAction()
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('TimeTrackerBundle:User')->find($id);
+        $entity = $user = $this->container->get('security.context')->getToken()->getUser();
+
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm();
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-    * Creates a form to edit a User entity.
-    *
-    * @param User $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a User entity.
+     *
+     * @param User $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
 
     private function createEditForm(User $entity)
     {
@@ -170,6 +171,7 @@ class UserController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing User entity.
      *
@@ -198,11 +200,12 @@ class UserController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a User entity.
      *
@@ -230,7 +233,6 @@ class UserController extends Controller
     }
 
 
-
     /**
      * Creates a form to delete a User entity by id.
      *
@@ -244,12 +246,8 @@ class UserController extends Controller
             ->setAction($this->generateUrl('user_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
-
-
-
 
 
 }

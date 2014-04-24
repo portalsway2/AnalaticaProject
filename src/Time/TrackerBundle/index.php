@@ -9,6 +9,7 @@
 namespace Time\TrackerBundle;
 
 
-class index {
+class index
+{
 
 } 
