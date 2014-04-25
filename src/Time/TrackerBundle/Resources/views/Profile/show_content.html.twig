@@ -3,35 +3,138 @@
 {% block body -%}
 
 
+    <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+    <style>
+
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after, q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        :focus {
+            outline: 0;
+        }
+
+        ins {
+            text-decoration: none;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            font-size: 90%;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            color: #8c8a8b;
+            line-height: 1.7em;
+        }
+
+        a:link, a:visited, strong {
+            color: #e15d46;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 7em;
+            font-family: 'Engagement', cursive;
+            line-height: 1.89em;
+            text-shadow: 1px 1px 0px #fff, 2px 2px 0px rgba(0, 0, 0, 0.1), 3px 3px 0px #fff, 4px 4px 0px rgba(0, 0, 0, 0.1), 5px 5px 0px #fff;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        form {
+            width: 450px;
+            margin: 0px auto;
+            text-align: left;
+        }
+
+        p {
+            padding: 26px 0px;
+            border-top: 1px dotted #c7c7c7;
+        }
+
+        label {
+            float: left;
+            width: 200px;
+        }
+
+
+    </style>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" charset="utf-8">
+
+    </script>
+
     <article>
         <h1>Profile</h1>
-
         <form>
             <ul>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label for="name">{{ 'Name'|trans }}:</label>
                     {{ user.username }}
                 </li>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label for="email">{{ 'Name Canonical'|trans }}:</label>
                     {{ user.usernamecanonical }}
                 </li>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label for="car">{{ 'Email'|trans }}:</label>
                     {{ user.email }}
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label>{{ 'Email Canonical'|trans }}:</label>
                     {{ user.emailcanonical }}
                 </li>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label>{{ 'First Name'|trans }}</label>
                     {{ user.firstname }}
                 </li>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label>{{ 'Last Name'|trans }}:</label>
                     {{ user.lastname }}
                 </li>
-                <li>
+                <li style="padding:26px 0px;border-top:1px dotted #c7c7c7;min-height:27px;">
                     <label>{{ 'Token'|trans }}:</label>
                     {{ user.token }}
                 </li>

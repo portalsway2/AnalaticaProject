@@ -25,11 +25,11 @@ class ForfaitController extends Controller
 {
 
     /**
-     * @Route("{id}", name="forfait")
+     * @Route("forfait", name="forfait")
      * @Method("GET")
      * @Template("TimeTrackerBundle:Agent:forfait.html.twig")
      */
-    public function ForfaitAction($id)
+    public function ForfaitAction()
     {
         $em = $this->getDoctrine()->getManager();
 

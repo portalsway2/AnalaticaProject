@@ -12,336 +12,115 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <style>
-
-
-    html, body {
-        background: #ffffff;
-    }
-
-    #cssmenu {
-        background: #85ccd9;
-        margin: 0;
-        width: 100%;
-        padding: 0;
-        line-height: 1;
-        display: block;
-        position: relative;
-        font-family: 'PT Sans', sans-serif;
-    }
-
-    #cssmenu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: block;
-    }
-
-    #cssmenu ul:after {
-        content: ' ';
-        display: block;
-        font-size: 0;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-    }
-
-    #cssmenu ul li {
-        margin: 0;
-        padding: 0;
-        display: block;
-        position: relative;
-    }
-
-    #cssmenu ul li a {
-        text-decoration: none;
-        display: block;
-        margin: 5px;
-        -webkit-transition: color .2s ease;
-        -moz-transition: color .2s ease;
-        -ms-transition: color .2s ease;
-        -o-transition: color .2s ease;
-        transition: color .2s ease;
-    }
-
-    #cssmenu ul li ul {
-        position: absolute;
-        left: -9999px;
-        top: auto;
-    }
-
-    #cssmenu ul li ul li {
-        max-height: 0;
-        position: absolute;
-        -webkit-transition: max-height 0.4s ease-out;
-        -moz-transition: max-height 0.4s ease-out;
-        -ms-transition: max-height 0.4s ease-out;
-        -o-transition: max-height 0.4s ease-out;
-        transition: max-height 0.4s ease-out;
-        background: #ffffff;
-    }
-
-    #cssmenu ul li ul li.has-sub:after {
-        display: block;
-        position: absolute;
-        content: '';
-        height: 10px;
-        width: 100%;
-        border-radius: 5px;
-        background: #000000;
-        z-index: 1;
-        top: 13px;
-        right: 15px;
-    }
-
-    #cssmenu ul li ul li.has-sub:before {
-        display: block;
-        position: absolute;
-        content: '';
-        height: 0;
-        width: 100%;
-        border: 3px solid transparent;
-        border-left-color: #ffffff;
-        z-index: 2;
-        top: 15px;
-        right: 15px;
-    }
-
-    #cssmenu ul li ul li a {
-        font-size: 14px;
-        font-weight: 400;
-        text-transform: none;
-        color: #000000;
-        letter-spacing: 1px;
-        display: block;
-        width: 100%;
-        padding: 10px 10px 10px 10px;
-    }
-
-    #cssmenu ul li ul li:hover > a,
-    #cssmenu ul li ul li.active > a {
-        color: #4cb6ea;
-    }
-
-    #cssmenu ul li ul li:hover:after,
-    #cssmenu ul li ul li.active:after {
-        background: #4cb6ea;
-    }
-
-    #cssmenu ul li ul li:hover > ul {
-        left: 170px;
-        top: 0;
-    }
-
-    #cssmenu ul li ul li:hover > ul > li {
-        max-height: 72px;
-        position: relative;
-    }
-
-    #cssmenu > ul > li {
-        float: left;
-    }
-
-    #cssmenu > ul > li:after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 0;
-        top: 0;
-        z-index: 0;
-        background: #ffffff;
-        -webkit-transition: height .2s;
-        -moz-transition: height .2s;
-        -ms-transition: height .2s;
-        -o-transition: height .2s;
-        transition: height .2s;
-    }
-
-    #cssmenu > ul > li.has-sub > a {
-        padding-right: 40px;
-    }
-
-    #cssmenu > ul > li.has-sub > a:after {
-        display: block;
-        content: '';
-        background: #ffffff;
-        height: 12px;
-        width: 12px;
-        position: absolute;
-        border-radius: 13px;
-        right: 14px;
-        top: 16px;
-    }
-
-    #cssmenu > ul > li.has-sub > a:before {
-        display: block;
-        content: '';
-        border: 4px solid transparent;
-        border-top-color: #4cb6ea;
-        z-index: 2;
-        height: 0;
-        width: 0;
-        position: absolute;
-        right: 16px;
-        top: 21px;
-    }
-
-    #cssmenu > ul > li > a {
-        color: #ffffff;
-        padding: 15px 20px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-size: 14px;
-        z-index: 2;
-        position: relative;
-    }
-
-    #cssmenu > ul > li:hover:after,
-    #cssmenu > ul > li.active:after {
-        height: 100%;
-    }
-
-    #cssmenu > ul > li:hover > a,
-    #cssmenu > ul > li.active > a {
-        color: #000000;
-    }
-
-    #cssmenu > ul > li:hover > a:after,
-    #cssmenu > ul > li.active > a:after {
-        background: #000000;
-    }
-
-    #cssmenu > ul > li:hover > a:before,
-    #cssmenu > ul > li.active > a:before {
-        border-top-color: #ffffff;
-    }
-
-    #cssmenu > ul > li:hover > ul {
-        left: 10;
-    }
-
-    #cssmenu > ul > li:hover > ul > li {
-        max-height: 72px;
-        position: relative;
-    }
-
-    #cssmenu #menu-button {
-        display: none;
-    }
-
-    @media all and (max-width: 100%), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 100%), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 100%), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 100%), only screen and (min-device-pixel-ratio: 2) and (max-width: 100%), only screen and (min-resolution: 192dpi) and (max-width: 100%), only screen and (min-resolution: 2dppx) and (max-width: 100%) {
-        #cssmenu > ul {
-            max-height: 0;
-            overflow: hidden;
-            -webkit-transition: max-height 0.35s ease-out;
-            -moz-transition: max-height 0.35s ease-out;
-            -ms-transition: max-height 0.35s ease-out;
-            -o-transition: max-height 0.35s ease-out;
-            transition: max-height 0.35s ease-out;
-        }
-
-        #cssmenu > ul.open {
-            max-height: 1000px;
-            border-top: 1px solid rgba(110, 110, 110, 0.25);
-        }
-
-        #cssmenu ul {
+        #navigation {
+            /*conteneur du menu*/
+            padding: 0;
+            clear: both;
             width: 100%;
+            height: 51px;
+            background: #333;
+            border: solid 1px #666;
         }
 
-        #cssmenu ul > li {
+        ul.nav-main li {
+            /*règles générales des items de liste */
+            list-style: none;
+            margin: 0;
+            border-right: solid 1px #666;
+        }
+
+        ul.nav-main {
+            /*règles des items principaux*/
+            position: relative;
+            z-index: 597;
+        }
+
+        ul.nav-main li:hover > ul {
+            /*apparition des sous-listes au survol de l'item principal ul*/
+            visibility: visible;
+        }
+
+        ul.nav-main li:hover {
+            /*design des items de liste au survol*/
+            position: relative;
+            z-index: 599;
+            cursor: pointer;
+            background: #666;
+        }
+
+        ul.nav-main li {
+            /*positionnement, dimensions, couleurs et textes des items de liste*/
+            float: left;
+            display: block;
+            height: 51px;
+            color: #999;
+            font: 14px Arial, Helvetica, sans-serif;
+        }
+
+        ul.nav-main li a {
+            /*positionnement, dimensions, couleurs et textes des items de liste intégrant une redirection url*/
+            display: block;
+            padding: 16px 16px 0 16px;
+            height: 35px;
+            color: #999;
+            font: 14px Arial, Helvetica, sans-serif;
+            text-decoration: none;
+        }
+
+        ul.nav-main li a:hover {
+            /* couleurs des items de liste au survol*/
+            color: #D6D6D6;
+        }
+
+        ul.nav-main *.list {
+            /*décalage entre chaque items principaux*/
+            padding-right: 22px;
+        }
+
+        ul.nav-sub {
+            /*règles de la liste ul de sous menus*/
+            visibility: hidden;
+            position: absolute;
+            padding: 10px;
+            top: 51px;
+            left: -2px;
+            z-index: 598;
+            background: #333;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        ul.nav-sub li {
+            /* regles des items de liste sous menu */
+            list-style: none;
+            display: block;
+            padding: 0;
+            height: 27px;
             float: none;
-        }
-
-        #cssmenu ul li a {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 12px 20px;
-        }
-
-        #cssmenu ul > li:after {
-            display: none;
-        }
-
-        #cssmenu ul li.has-sub > a:after,
-        #cssmenu ul li.has-sub > a:before,
-        #cssmenu ul li ul li.has-sub:after,
-        #cssmenu ul li ul li.has-sub:before {
-            display: none;
-        }
-
-        #cssmenu ul li ul,
-        #cssmenu ul li ul li ul,
-        #cssmenu ul li ul li:hover > ul {
-            left: 10;
-            position: relative;
-        }
-
-        #cssmenu ul li ul li,
-        #cssmenu ul li:hover > ul > li {
-            max-height: 999px;
-            position: relative;
+            width: 145px;
+            border-bottom: 1px solid #5a5a5a;
+            border-right: none;
             background: none;
         }
 
-        #cssmenu ul li ul li a {
-            padding: 8px 20px 8px 35px;
-            color: #ffffff;
-            width: 100%;
-        }
-
-        #cssmenu ul li ul ul li a {
-            padding: 8px 20px 8px 50px;
-        }
-
-        #cssmenu ul li ul li:hover > a {
-            color: #000000;
-        }
-
-        #cssmenu #menu-button {
+        ul.nav-sub li a {
+            /* règles des items de liste de sous menus intégrant une redirection url */
+            list-style: none;
             display: block;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 15px 20px;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: #ffffff;
-            cursor: pointer;
+            padding: 6px 5px 6px 5px;
+            height: 15px;
+            float: none;
+            width: 145px;
+            background: none;
+            font: 12px Arial, Helvetica, sans-serif;
         }
+    </style>
 
-        #cssmenu #menu-button:after {
-            display: block;
-            content: '';
+    <style>
+
+        .deux {
             position: absolute;
-            height: 3px;
-            width: 100%;
-            border-top: 2px solid #ffffff;
-            border-bottom: 2px solid #ffffff;
-            right: 20px;
-            top: 16px;
-        }
-
-        #cssmenu #menu-button:before {
-            display: block;
-            content: '';
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            border-top: 2px solid #ffffff;
-            right: 20px;
-            top: 26px;
-        }
-    }
-
-    .deux {
-        position: absolute;
         bottom: 0%;
         left: 5%;
         width: 85%;
@@ -433,103 +212,6 @@
         background-color: #242424;
     }
 
-    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent;
-    }
-
-    body {
-        line-height: 1;
-    }
-
-    ol, ul {
-        list-style: none;
-    }
-
-    blockquote, q {
-        quotes: none;
-    }
-
-    blockquote:before, blockquote:after, q:before, q:after {
-        content: '';
-        content: none;
-    }
-
-    :focus {
-        outline: 0;
-    }
-
-    ins {
-        text-decoration: none;
-    }
-
-    del {
-        text-decoration: line-through;
-    }
-
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-
-    body {
-        font-size: 90%;
-        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        color: #8c8a8b;
-        text-align: center;
-        line-height: 1.7em;
-    }
-
-    a:link, a:visited, strong {
-        color: #e15d46;
-    }
-
-    h1 {
-        font-size: 5em;
-        font-family: 'Engagement', cursive;
-        line-height: 1.89em;
-        text-shadow: 1px 1px 0px #fff, 2px 2px 0px rgba(0, 0, 0, 0.1), 3px 3px 0px #fff, 4px 4px 0px rgba(0, 0, 0, 0.1), 5px 5px 0px #fff;
-    }
-
-    h2 {
-        font-size: 4em;
-        text-align: left;
-        font-family: 'Engagement', cursive;
-        line-height: 2em;
-        text-shadow: 3px 1px 0px #fff, 2px 2px 0px rgba(0, 0, 0, 0.1), 3px 3px 0px #fff, 4px 4px 10px rgba(0, 0, 0, 0.1), 5px 5px 14px #fff;
-    }
-
-    .left {
-        float: left;
-    }
-
-    form {
-        width: 450px;
-        margin: 0px auto;
-        text-align: left;
-    }
-
-    p {
-        padding: 26px 0px;
-        border-top: 1px dotted #c7c7c7;
-    }
-
-    li {
-        padding: 26px 0px;
-        border-top: 1px dotted #c7c7c7;
-        min-height: 27px;
-    }
-
-    label {
-        float: left;
-        width: 200px;
-    }
 
     </style>
 
@@ -537,43 +219,39 @@
 
 {% block menu %}
 
-    <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" charset="utf-8">
-    </script>
 
     <div class="content">
-        <div class="top_block block_1">
-            <h2>
-                ANALATICA
-            </h2>
-        </div>
+        <div class="top_block block_1"></div>
     </div>
 
-    <div id='cssmenu'>
-        <ul>
-            <li class='active'><a href='http://analatica'><span class="glyphicon glyphicon-home">Home</span></a></li>
-            <li class='has-sub'><a href='#'><span class="glyphicon glyphicon-user">User</span></a>
-                <ul>
-                    <li><a href='http://analatica/profile'><span>profile</span></a></li>
-                    <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a>
-                    </li>
-                    <li><a href='http://analatica/profile/edit'><span>edit profile</span></a></li>
-                </ul>
-            </li>
-            <li class='has-sub'><a href='#'><span class="glyphicon glyphicon-stats">Analyze</span></a>
-                <ul>
-                    <li><a href='http://analatica/os'><span>Operating System</span></a></li>
-                    <li><a href='http://analatica/device'><span>Device</span></a></li>
+
+    <ul id="navigation" class="nav-main">
+        <li><a href='http://analatica'><span class="glyphicon glyphicon-home">Home</span></a></li>
+
+
+        <li><a href='#'><span class="glyphicon glyphicon-stats">Analyze</span></a>
+            <ul class="nav-sub">
+                <li><a href='http://analatica/os'><span>Operating System</span></a></li>
+                <li><a href='http://analatica/device'><span>Device</span></a></li>
                     <li class='last'><a href='http://analatica/navigateur'><span>Browsers</span></a></li>
                     <li class='last'><a href='http://analatica/useragent'><span>User Agent</span></a></li>
-                </ul>
+            </ul>
+        </li>
 
-            <li><a href='http://analatica/forfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
-
+        <li><a href='http://analatica/forfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
+        <li class="list"><a href='#'><span class="glyphicon glyphicon-user">User</span></a>
+            <ul class="nav-sub">
+                <li><a href='http://analatica/profile'><span>profile</span></a></li>
+                <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a>
+                </li>
+                <li><a href='http://analatica/profile/edit'><span>edit profile</span></a></li>
+            </ul>
+        </li>
+        <ul style="float:right;">
             <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
         </ul>
+    </ul>
 
-    </div>
 
 {% endblock %}
 

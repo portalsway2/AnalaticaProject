@@ -131,7 +131,7 @@
         {% for forfait in entities %}
             <div class="pricing-table">
                 <div class="pricing-table-header">
-                    <h2>Personal Site</h2>
+                    <h3>Personal Site</h3>
 
                     <h3>$ {{ forfait.price }}/month</h3>
                 </div>
@@ -150,7 +150,7 @@
                     <p><strong>24/7 Unlimited</strong> Support</p>
                 </div>
                 <div class="pricing-table-sign-up">
-                    <p><a href=""> Registration </a></p>
+                    <p><a href="{{ path('forfait' ,{'id':forfait.id) }}"> Registration </a></p>
                 </div>
             </div>
 
