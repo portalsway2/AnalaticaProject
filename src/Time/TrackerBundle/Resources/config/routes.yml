@@ -6,6 +6,11 @@ users:
   type: rest
   resource: Time\TrackerBundle\Controller\AgentController
 
+userss:
+  type: rest
+  resource: Time\TrackerBundle\Controller\AfficheController
+
+
 user:
     type: rest
     resource: Time\TrackerBundle\Controller\UserController
@@ -95,3 +100,4 @@ recuper:
 envoyertoken:
   type: rest
   resource: Time\TrackerBundle\Controller\EnvoyerTokenController
+

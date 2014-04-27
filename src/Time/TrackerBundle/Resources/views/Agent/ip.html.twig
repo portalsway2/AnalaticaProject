@@ -2,24 +2,6 @@
 
 {% block body -%}
 
-    <div class="un">
 
-        <!-- Table goes in the document BODY -->
-        <table class="hovertable">
-            <tr>
-                <th>ip</th>
-            </tr>
-            <tbody>
-            {% for entity in entities %}
-                <tr onmouseover="this.style.backgroundColor='lightblue';"
-                    onmouseout="this.style.backgroundColor='white';">
-                    <td>{{ entity.ip }}</td>
-
-                </tr>
-            {% endfor %}
-            </tbody>
-
-        </table>
-    </div>
 
 {% endblock %}
