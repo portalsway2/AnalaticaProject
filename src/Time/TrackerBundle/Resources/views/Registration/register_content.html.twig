@@ -1,16 +1,107 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block body %}
+    <style>
+        /*
+* simple Signup Form
+* Created by Oussama Afellad
+* www.premiumfreebies.eu
+* 29/08/2011
+*/
+
+        body, input, textarea {
+            font: 14px/24px Helvetica, Arial, sans-serif;
+            color: #666;
+        }
+
+        input {
+            width: 60%
+        }
+
+        form {
+            margin: 30px 0 0 0
+        }
+
+        input, textarea {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #C9C9C9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset, -5px -5px 0 0 #F5F5F6, 5px 5px 0 0 #F5F5F6, 5px 0 0 0 #F5F5F6, 0 5px 0 0 #F5F5F6, 5px -5px 0 0 #F5F5F6, -5px 5px 0 0 #F5F5F6;
+            color: #545658;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 2px 2px 2px 2px;
+        }
+
+        #submit {
+            border: 1px solid #B7D6DF;
+            border-radius: 2px 2px 2px 2px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #437182;
+            cursor: pointer;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            height: auto;
+            padding: 6px 10px;
+            text-shadow: 0 1px 0 #FFFFFF;
+            width: auto;
+        }
+
+        #signup-form {
+            width: 410px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background: #fff;
+            padding: 80px;
+            border: 10px solid #f2f2f2;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: rgb(6, 106, 117);
+            padding: 2px 0 10px 0;
+            font-family: 'FranchiseRegular', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .left {
+            float: left;
+            padding: 30px;
+        }
+
+
+    </style>
 
     <div class="trois">
+
+    </div>
+
+
+    <!--BEGIN #signup-form -->
+    <div id="signup-form">
+
+        <!--BEGIN #subscribe-inner -->
+
+        <h1> Registration </h1>
+
 
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"
               class="fos_user_registration_register">
             {{ form_widget(form) }}
 
-            <div>
-                <input type="submit" value="{{ 'registration'|trans }}"/>
-            </div>
+            <p class="left">
+                <input id="submit" type="submit" value="{{ 'registration'|trans }}"/>
+            </p>
         </form>
     </div>
 

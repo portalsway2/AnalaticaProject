@@ -12,8 +12,7 @@
             <argument>%fos_user.model.user.class%</argument>
         </service>
 
-        <service id="time_tracker.change_password.form.type"
-                 class="Time\TrackerBundle\Form\ChangePasswordFormType">
+        <service id="time_tracker.change_password.form.type" class="Time\TrackerBundle\Form\ChangePasswordFormType">
             <tag name="form.type" alias="time_tracker_change_password"/>
             <argument>%fos_user.model.user.class%</argument>
         </service>

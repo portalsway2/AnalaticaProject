@@ -37,7 +37,6 @@ class AgentController extends Controller
 
 {
 
-
     /**
      *
      * Post user Agent
@@ -48,9 +47,11 @@ class AgentController extends Controller
      *     400 = "Returned when the form has errors"
      *   }
      * )
+     *
      * @param Request $request
      * @return array
      */
+
     public function postAgentAction(Request $request)
     {
 

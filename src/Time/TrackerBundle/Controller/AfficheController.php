@@ -14,7 +14,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Time\TrackerBundle\Entity\User;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Time\TrackerBundle\Form\UserType;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Util\Codes;
+use FOS\RestBundle\Controller\Annotations;
+
+
+use Time\TrackerBundle\Entity\Session;
 
 /**
  * Class AfficheController
@@ -24,6 +32,16 @@ class AfficheController extends Controller
 {
 
     /**
+     *
+     * Post user Affiche
+     * @ApiDoc(
+     *   resource = true,
+     *   statusCodes = {
+     *     204 = "Returned when successful",
+     *     400 = "Returned when the form has errors"
+     *   }
+     * )
+     *
      * @param Request $request
      * @return array
      */

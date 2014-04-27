@@ -17,16 +17,17 @@
             padding: 0;
             clear: both;
             width: 100%;
-            height: 51px;
-            background: #333;
-            border: solid 1px #666;
+            height: 53px;
+            background: steelblue;
+            border: solid 1px steelblue;
+            top: -5px;
         }
 
         ul.nav-main li {
             /*règles générales des items de liste */
             list-style: none;
             margin: 0;
-            border-right: solid 1px #666;
+            border-right: solid 1px #000000;
         }
 
         ul.nav-main {
@@ -45,7 +46,7 @@
             position: relative;
             z-index: 599;
             cursor: pointer;
-            background: #666;
+            background: lightsteelblue;
         }
 
         ul.nav-main li {
@@ -53,7 +54,7 @@
             float: left;
             display: block;
             height: 51px;
-            color: #999;
+            color: lightsteelblue;
             font: 14px Arial, Helvetica, sans-serif;
         }
 
@@ -62,14 +63,14 @@
             display: block;
             padding: 16px 16px 0 16px;
             height: 35px;
-            color: #999;
+            color: #000000;
             font: 14px Arial, Helvetica, sans-serif;
             text-decoration: none;
         }
 
         ul.nav-main li a:hover {
             /* couleurs des items de liste au survol*/
-            color: #D6D6D6;
+            color: dodgerblue;
         }
 
         ul.nav-main *.list {
@@ -85,7 +86,7 @@
             top: 51px;
             left: -2px;
             z-index: 598;
-            background: #333;
+            background: lightsteelblue;
             border-right: 1px solid #000;
             border-bottom: 1px solid #000;
             border-left: 1px solid #000;
@@ -96,7 +97,7 @@
             list-style: none;
             display: block;
             padding: 0;
-            height: 27px;
+            height: 32px;
             float: none;
             width: 145px;
             border-bottom: 1px solid #5a5a5a;
@@ -109,7 +110,7 @@
             list-style: none;
             display: block;
             padding: 6px 5px 6px 5px;
-            height: 15px;
+            height: 20px;
             float: none;
             width: 145px;
             background: none;
@@ -121,7 +122,7 @@
 
         .deux {
             position: absolute;
-        bottom: 0%;
+            bottom: 0%;
         left: 5%;
         width: 85%;
         height: 80%
@@ -201,16 +202,16 @@
         z-index: 0;
     }
 
-    .top_block {
-        width: 100%;
-        display: block;
-    }
-
-    .block_1 {
-        width: 100%;
-        height: 150px;
-        background-color: #242424;
-    }
+        #header {
+            box-shadow: 0 0 3px 0 #ccc inset;
+            height: 130px;
+            margin: 0 auto 5px;
+            overflow: hidden;
+            padding: 0;
+            text-align: center;
+            min-width: 1080px;
+            background: #f5f5f5;
+        }
 
 
     </style>
@@ -220,14 +221,17 @@
 {% block menu %}
 
 
-    <div class="content">
-        <div class="top_block block_1"></div>
+
+    <div id="header">
+        <div class="text"></a>
+            <div id="top_links">
+            </div>
+        </div>
     </div>
 
 
     <ul id="navigation" class="nav-main">
         <li><a href='http://analatica'><span class="glyphicon glyphicon-home">Home</span></a></li>
-
 
         <li><a href='#'><span class="glyphicon glyphicon-stats">Analyze</span></a>
             <ul class="nav-sub">
@@ -239,19 +243,22 @@
         </li>
 
         <li><a href='http://analatica/forfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
-        <li class="list"><a href='#'><span class="glyphicon glyphicon-user">User</span></a>
-            <ul class="nav-sub">
-                <li><a href='http://analatica/profile'><span>profile</span></a></li>
-                <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a>
-                </li>
-                <li><a href='http://analatica/profile/edit'><span>edit profile</span></a></li>
-            </ul>
-        </li>
+        <li><a href='http://analatica/api/doc/'><span class="glyphicon glyphicon-transfer">Api</span></a></li>
+
         <ul style="float:right;">
-            <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
+            <li class="list"><a href='#'><span class="glyphicon glyphicon-user">{{ dump(app.user.username) }}</span></a>
+                <ul class="nav-sub">
+                    <li><a href='http://analatica/profile'><span class="glyphicon glyphicon-eye-open">profile</span></a>
+                    </li>
+                    <li><a href='http://analatica/profile/change-password'><span class="glyphicon glyphicon-cog">change password</span></a>
+                    </li>
+                    <li><a href='http://analatica/profile/edit'><span
+                                    class="glyphicon glyphicon-edit">edit profile</span></a></li>
+                    <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
+                </ul>
+            </li>
         </ul>
     </ul>
-
 
 {% endblock %}
 
