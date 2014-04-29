@@ -123,84 +123,89 @@
         .deux {
             position: absolute;
             bottom: 0%;
-        left: 5%;
-        width: 85%;
-        height: 80%
-    }
+            left: 5%;
+            width: 85%;
+            height: 80%
+        }
 
-    .un {
-        position: absolute;
-        bottom: 0%;
-        left: 8%;
-        width: 90%;
-        height: 40%
-    }
+        .un {
+            position: absolute;
+            bottom: 0%;
+            left: 8%;
+            width: 90%;
+            height: 40%
+        }
 
-    .trois {
-        position: absolute;
-        bottom: 10%;
-        left: 20%;
-        width: 20%;
-        height: 50%
-    }
+        .trois {
+            position: absolute;
+            bottom: 10%;
+            left: 20%;
+            width: 20%;
+            height: 50%
+        }
 
-    .user {
-        position: absolute;
-        bottom: 0%;
-        left: 90%;
-        width: 0%;
-        height: 70%
-    }
+        .user {
+            position: absolute;
+            bottom: 0%;
+            left: 90%;
+            width: 0%;
+            height: 70%
+        }
 
-    .six {
-        position: absolute;
-        bottom: 90%;
-        left: 7%;
-        width: 90%;
-        height: 40%
-    }
+        .six {
+            position: absolute;
+            bottom: 90%;
+            left: 7%;
+            width: 90%;
+            height: 40%
+        }
 
-    .cinq {
-        position: absolute;
-        bottom: 0%;
-        left: 35%;
-        width: 50%;
-        height: 110%
-    }
+        .cinq {
+            position: absolute;
+            bottom: 0%;
+            left: 35%;
+            width: 50%;
+            height: 110%
+        }
 
-    table {
-        font-family: verdana, arial, sans-serif;
-        font-size: 15px;
-        color: #333333;
+        table {
+            font-family: verdana, arial, sans-serif;
+            font-size: 17px;
+            border-width: 3px;
 
-    }
+        }
 
-    table.hovertable th {
-        background-color: #ffffff;
-        border-width: 1px;
-        padding: 10px;
-        border-style: solid;
-        border-color: #000000;
+        table.hovertable th {
+            background-color: #ffffff;
+            border-width: 3px;
+            padding: 10px;
+            border-style: inherit;
+            border-color: #000000;
 
-    }
+        }
 
-    table.hovertable tr {
-        background-color: #ffffff;
-    }
+        table.hovertable tr {
+            background-color: #ffffff;
+            border-width: 3px;
 
-    table.hovertable td {
-        border-width: 1px;
-        padding: 10px;
-        border-style: solid;
-        border-color: #000000;
-    }
+        }
 
-    .content {
-        min-height: 100%;
-        position: relative;
-        overflow: auto;
-        z-index: 0;
-    }
+        table.hovertable td {
+            border-width: 3px;
+            padding: 10px;
+            border-style: inherit;
+            border-color: #000000;
+            text-align: center;
+
+        }
+
+        .img {
+            position: absolute;
+            bottom: 0%;
+            left: 70%;
+            width: 30%;
+            height: 105%
+        }
 
         #header {
             box-shadow: 0 0 3px 0 #ccc inset;
@@ -210,7 +215,7 @@
             padding: 0;
             text-align: center;
             min-width: 1080px;
-            background: #f5f5f5;
+            background: white;
         }
 
 
@@ -223,10 +228,15 @@
 
 
     <div id="header">
-        <div class="text"></a>
+        <div class="img"></a>
+            {% image "bundles/timetracker/image/images.jpg" %}
+            <img src="{{ asset_url }}"/>
+            {% endimage %}
             <div id="top_links">
+
             </div>
         </div>
+
     </div>
 
 
@@ -235,18 +245,18 @@
 
         <li><a href='#'><span class="glyphicon glyphicon-stats">Analyze</span></a>
             <ul class="nav-sub">
-                <li><a href='http://analatica/os'><span>Operating System</span></a></li>
-                <li><a href='http://analatica/device'><span>Device</span></a></li>
-                    <li class='last'><a href='http://analatica/navigateur'><span>Browsers</span></a></li>
-                    <li class='last'><a href='http://analatica/useragent'><span>User Agent</span></a></li>
+                <li><a href='http://analatica/showOS'><span>Operating System</span></a></li>
+                <li><a href='http://analatica/showDevice'><span>Device</span></a></li>
+                <li class='last'><a href='http://analatica/showBrowsers'><span>Browsers</span></a></li>
+                <li class='last'><a href='http://analatica/useragent'><span>User Agent</span></a></li>
             </ul>
         </li>
 
-        <li><a href='http://analatica/forfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
+        <li><a href='http://analatica/showForfait'><span class="glyphicon glyphicon-usd">fixed price</span></a></li>
         <li><a href='http://analatica/api/doc/'><span class="glyphicon glyphicon-transfer">Api</span></a></li>
 
-        <ul style="float:right;">
-            <li class="list"><a href='#'><span class="glyphicon glyphicon-user">{{ dump(app.user.username) }}</span></a>
+        <ul style=" position: absolute;left: 80%;height: 90%;">
+            <li class="list"><a href='#'><span class="glyphicon glyphicon-user">{{ app.user.username }}</span></a>
                 <ul class="nav-sub">
                     <li><a href='http://analatica/profile'><span class="glyphicon glyphicon-eye-open">profile</span></a>
                     </li>
@@ -254,9 +264,9 @@
                     </li>
                     <li><a href='http://analatica/profile/edit'><span
                                     class="glyphicon glyphicon-edit">edit profile</span></a></li>
-                    <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
                 </ul>
             </li>
+            <li><a href='http://analatica/logout'><span class="glyphicon glyphicon-off">logout</span></a></li>
         </ul>
     </ul>
 

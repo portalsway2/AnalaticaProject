@@ -47,13 +47,13 @@
         <!-- Table goes in the document BODY -->
         <table class="hovertable">
             <tr>
-                <th>Device</th>
-                <th>Version</th>
-                <th>Number</th>
+                <th style="background: darkgray;">Device</th>
+                <th style="background: darkgray;">Version</th>
+                <th style="background: darkgray;">Number</th>
             </tr>
             <tbody>
             {% for entity in entities %}
-                <tr onmouseover="this.style.backgroundColor='lightblue';"
+                <tr onmouseover="this.style.backgroundColor=' lightgrey';"
                     onmouseout="this.style.backgroundColor='white';">
                     <td>{{ entity.name }}</td>
                     <td>{{ entity.version }}
