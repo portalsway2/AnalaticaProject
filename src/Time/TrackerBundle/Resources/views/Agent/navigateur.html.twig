@@ -48,15 +48,15 @@
         <!-- Table goes in the document BODY -->
         <table class="hovertable">
             <tr>
-                <th>Browser</th>
-                <th>Version</th>
-                <th>Number</th>
-                <th>Logo</th>
+                <th style="background: darkgray;">Browser</th>
+                <th style="background: darkgray;">Version</th>
+                <th style="background: darkgray;">Number</th>
+                <th style="background: darkgray;">Logo</th>
             </tr>
             </tr>
             <tbody>
             {% for entity in entities %}
-                <tr onmouseover="this.style.backgroundColor='lightblue';"
+                <tr onmouseover="this.style.backgroundColor=' lightgrey';"
                     onmouseout="this.style.backgroundColor='white';">
                     <td>{{ entity.name }}</td>
                     <td>{{ entity.version }}

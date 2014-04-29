@@ -10,62 +10,51 @@ userss:
   type: rest
   resource: Time\TrackerBundle\Controller\AfficheController
 
+usersss:
+  type: rest
+  resource: Time\TrackerBundle\Controller\EnvoyerTokenController
 
 user:
     type: rest
     resource: Time\TrackerBundle\Controller\UserController
 
 
-information_show:
-  pattern:  /{id}/show
-  defaults: { _controller: TimeTrackerBundle:User:show, _format: json }
+affiche_showOS:
+  pattern:  /showOS
+  defaults: { _controller: TimeTrackerBundle:Affiche:os, _format: json }
   requirements: { id: \d+ }
   methods:   [Get]
 
-information_edit:
-  pattern:  /{id}/edit
-  resource: Time\TrackerBundle\Controller\UserController
+affiche_showBrowsers:
+  pattern:  /showBrowsers
+  defaults: { _controller: TimeTrackerBundle:Affiche:navigateur, _format: json }
   requirements: { id: \d+ }
   methods:   [Get]
 
-regex_show:
-  pattern:  /{id}/show
-  defaults: { _controller: TimeTrackerBundle:Regex:show, _format: json }
+affiche_showDevice:
+  pattern:  /showDevice
+  defaults: { _controller: TimeTrackerBundle:Affiche:device, _format: json }
   requirements: { id: \d+ }
   methods:   [Get]
 
-regex_edit:
-  pattern:  /{id}/edit
-  resource: Time\TrackerBundle\Controller\RegexController
+
+information_showForfait:
+  pattern:  /showForfait
+  defaults: { _controller: TimeTrackerBundle:Forfait:Forfait, _format: json }
   requirements: { id: \d+ }
   methods:   [Get]
 
-affiche_os:
-  pattern:  /os
+
+
+affiche_statistique:
+  pattern:  /statistique
   resource: Time\TrackerBundle\Controller\AfficheController
   methods:   [Get]
 
-affiche_navigateur:
-  pattern:  /navigateur
+affiche_useragent:
+  pattern:  /useragent
   resource: Time\TrackerBundle\Controller\AfficheController
   methods:   [Get]
-
-affiche_device:
-  pattern:  /device
-  resource: Time\TrackerBundle\Controller\AfficheController
-  methods:   [Get]
-
-
-affiche_userAgent:
-  pattern:  /userAgent
-  resource: Time\TrackerBundle\Controller\AfficheController
-  methods:   [Get]
-
-forfait_forfait:
-  pattern:  /forfait
-  resource: Time\TrackerBundle\Controller\ForfaitController
-  methods:   [Get]
-
 
 profile_home:
   pattern:  /home
@@ -82,15 +71,6 @@ dashboard:
   resource: Time\TrackerBundle\Controller\DashboardController
   methods:   [Get]
 
-affiche_statistique:
-  pattern:  /statistique
-  resource: Time\TrackerBundle\Controller\AfficheController
-  methods:   [Get]
-
-affiche_useragent:
-  pattern:  /useragent
-  resource: Time\TrackerBundle\Controller\AfficheController
-  methods:   [Get]
 
 
 recuper:
@@ -100,4 +80,35 @@ recuper:
 envoyertoken:
   type: rest
   resource: Time\TrackerBundle\Controller\EnvoyerTokenController
+
+
+
+
+
+
+regex_show:
+  pattern:  /{id}/show
+  defaults: { _controller: TimeTrackerBundle:Regex:show, _format: json }
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+regex_edit:
+  pattern:  /{id}/edit
+  resource: Time\TrackerBundle\Controller\RegexController
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+
+
+information_show:
+  pattern:  /{id}/show
+  defaults: { _controller: TimeTrackerBundle:User:show, _format: json }
+  requirements: { id: \d+ }
+  methods:   [Get]
+
+information_edit:
+  pattern:  /{id}/edit
+  resource: Time\TrackerBundle\Controller\UserController
+  requirements: { id: \d+ }
+  methods:   [Get]
 

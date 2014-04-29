@@ -20,27 +20,63 @@ use FOS\RestBundle\Controller\Annotations;
 class EnvoyerTokenController extends Controller
 {
 
-    public function postEnvoyerTokenAction(Request $request)
+    /**
+     * Get token Envoyer
+     * @ApiDoc(
+     *   description = "Gets a token for a given id",
+     *  requirements={
+     *      {
+     *          "name"="lll",
+     *          "dataType"="string",
+     *          "description"=" return token"
+     *      }
+     *  },
+     *  parameters={
+     *      {"name"="token", "dataType"="string", "required"=true, "description"="category token"}
+     *  }
+     * )
+     */
+
+
+    public function getEnvoyerTokenAction($id)
     {
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager($id);
 
-        $user = $em->getRepository('TimeTrackerBundle:User')->findALL();
+        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("id" => $id));
 
-        return $user;
+        return ($user);
 
     }
 
 
-    private function EnvoyerToken()
+    /**
+     * Get user Profile
+     * @ApiDoc(
+     *   description = "Get profile ",
+     *  requirements={
+     *      {
+     *          "name"="profile",
+     *          "dataType"="string",
+     *          "description"=" return token"
+     *      }
+     *  },
+     *  parameters={
+     *      {"name"="token", "dataType"="string", "required"=true, "description"="category token"}
+     *  }
+     * )
+     */
+
+    public function getProfileAction($id)
     {
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager($id);
 
-        $envoyer = $em->getRepository('TimeTrackerBundle:Token')->findAll();
+        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("id" => $id));
 
-        return $envoyer;
+        return ($user);
 
     }
 
-} 
+
+}

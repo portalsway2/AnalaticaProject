@@ -125,13 +125,21 @@
 
         #header {
             box-shadow: 0 0 3px 0 #ccc inset;
-            height: 120px;
+            height: 150px;
             margin: 0 auto 5px;
             overflow: hidden;
             padding: 0;
             text-align: center;
-            min-width: 1080px;
-            background: #f5f5f5;
+            min-width: 180px;
+            background: #ffffff;
+        }
+
+        .img {
+            position: absolute;
+            bottom: 0%;
+            left: 70%;
+            width: 30%;
+            height: 105%
         }
 
 
@@ -142,10 +150,14 @@
 {% block body -%}
 
     <div id="header">
-        <div class="text"></a>
+        <div class="img"></a>
+            {% image "bundles/timetracker/image/images.jpg" %}
+            <img src="{{ asset_url }}"/>
+            {% endimage %}
             <div id="top_links">
             </div>
         </div>
+
     </div>
 
     <div class="contentt"></div>

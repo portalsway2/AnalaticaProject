@@ -110,4 +110,4 @@ fos_rest:
     disable_csrf_role: ROLE_API
 
 nelmio_api_doc:
-    name: Page API
+    name:  API documentation

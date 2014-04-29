@@ -40,6 +40,7 @@ class AgentController extends Controller
     /**
      *
      * Post user Agent
+     *
      * @ApiDoc(
      *   resource = true,
      *   statusCodes = {
