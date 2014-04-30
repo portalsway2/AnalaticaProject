@@ -41,10 +41,18 @@ affiche_showDevice:
 information_showForfait:
   pattern:  /showForfait
   defaults: { _controller: TimeTrackerBundle:Forfait:Forfait, _format: json }
+  methods:   [Get]
+
+Save_forfait:
+  pattern:  /Save_forfait/{id}
+  defaults: { _controller: TimeTrackerBundle:Forfait:Save_forfait, _format: json }
   requirements: { id: \d+ }
   methods:   [Get]
 
-
+forfait_choiceforfait:
+  pattern:  /choiceforfait
+  resource: Time\TrackerBundle\Controller\ForfaitController
+  methods:   [Get]
 
 affiche_statistique:
   pattern:  /statistique
