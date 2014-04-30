@@ -38,5 +38,42 @@ class ForfaitController extends Controller
         return array('entities' => $entities);
     }
 
+    /**
+     * @Template("TimeTrackerBundle:Agent:forfait.html.twig")
+     */
+    public function Save_forfaitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $forfait = $em->getRepository('TimeTrackerBundle:Forfait')->find($id);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $user->setIdforfait($forfait);
+
+        $em->flush();
+
+
+        return $this->redirect($this->generateUrl('choiceforfait'));
+    }
+
+
+    /**
+     * @Route("choiceforfait", name="choiceforfait")
+     * @Method("GET")
+     * @Template("TimeTrackerBundle:Agent:choice_forfait.html.twig")
+     */
+    public function choiceforfaitAction()
+    {
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        $em = $this->getDoctrine()
+            ->getRepository('TimeTrackerBundle:User')
+            ->find($user);
+
+        $forfait = $user->getIdforfait();
+
+        return array('forfait' => $forfait);
+
+
+    }
 
 }

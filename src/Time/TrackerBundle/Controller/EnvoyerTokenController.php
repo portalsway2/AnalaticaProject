@@ -23,10 +23,10 @@ class EnvoyerTokenController extends Controller
     /**
      * Get token Envoyer
      * @ApiDoc(
-     *   description = "Gets a token for a given id",
+     *  description = "Get a token",
      *  requirements={
      *      {
-     *          "name"="lll",
+     *          "name"="limit",
      *          "dataType"="string",
      *          "description"=" return token"
      *      }
@@ -62,7 +62,7 @@ class EnvoyerTokenController extends Controller
      *      }
      *  },
      *  parameters={
-     *      {"name"="token", "dataType"="string", "required"=true, "description"="category token"}
+     *      {"name"="profile", "dataType"="string", "required"=true, "description"="category token"}
      *  }
      * )
      */
