@@ -39,19 +39,26 @@ class ForfaitController extends Controller
     }
 
     /**
-     * @Template("TimeTrackerBundle:Agent:forfait.html.twig")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function Save_forfaitAction($id)
     {
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
         $em = $this->getDoctrine()->getManager();
         $forfait = $em->getRepository('TimeTrackerBundle:Forfait')->find($id);
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        $user->setIdforfait($forfait);
 
-        $em->flush();
+        if (($user->getIdforfait()) == NULL) {
+            $user->setIdforfait($forfait);
+            $em->flush();
+            return $this->redirect($this->generateUrl('choiceforfait'));
+        } else {
+            return $this->redirect($this->generateUrl('choiceforfait'));
 
+        }
 
-        return $this->redirect($this->generateUrl('choiceforfait'));
     }
 
 
@@ -70,9 +77,9 @@ class ForfaitController extends Controller
             ->find($user);
 
         $forfait = $user->getIdforfait();
+        if ($forfait)
 
-        return array('forfait' => $forfait);
-
+            return array('forfait' => $forfait);
 
     }
 

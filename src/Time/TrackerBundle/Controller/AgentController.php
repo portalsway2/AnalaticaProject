@@ -70,7 +70,7 @@ class AgentController extends Controller
         $ListNavigateur = $this->VerifierNavigateur($resultat['navigateur'], $resultat['version'], $user);
         $ListOS = $this->VerifierOS($result['systeme'], $result['version'], $user);
         $ListDevice = $this->VerifierDevice($mobile['name'], $mobile['version'], $user);
-        $ListAgent = $this->VerifierAgent($user);
+        $ListAgent = $this->VerifierAgent($user, $token, $ip);
 
 
         if ($user) {
@@ -78,11 +78,12 @@ class AgentController extends Controller
 
             // Enregistrer User Agent
 
+
             $UserAgent = new UserAgent();
             $UserAgent->setIdUser($user);
             $UserAgent->setUserAgent($urlparam['AGENT']);
             $UserAgent->setToken($token);
-            $UserAgent->setCount("setCount()");
+            $UserAgent->setCount(11);
             $UserAgent->setIp($urlparam["IP"]);
             $UserAgent->setDate(new \DateTime());
             $em = $this->getDoctrine()->getEntityManager();
@@ -378,28 +379,34 @@ class AgentController extends Controller
     }
 
 
-    private function VerifierAgent($idUser)
+    /**
+     * @param $idUser
+     * @param $token
+     * @param $ip
+     * @return ListAgent
+     */
+    private function VerifierAgent($token, $ip, $idUser)
     {
 
         {
             $em = $this->getDoctrine()->getManager();
 
-            $ListAgent = $em->getRepository('TimeTrackerBundle:UserAgent')->findBy(array("idUser" => $idUser,));
-
+            $ListAgent = $em->getRepository('TimeTrackerBundle:UserAgent')->findBy(array("token" => $token, "idUser" => $idUser));
 
             if ($ListAgent) {
                 $ListAgent[0]->setCount($ListAgent[0]->getCount() + 1);
                 $em->flush();
                 return $ListAgent[0];
             } else {
-                $newListAgent = new ListAgente();
-
-                $newListAgent->setIdUser($idUser);
-                $newListAgent->setCount(1);
-
-                $em->persist($newListAgent);
+                $UserAgent = new UserAgent();
+                $UserAgent->setIdUser($idUser);
+                $UserAgent->setToken($token);
+                $UserAgent->setIp($ip);
+                $UserAgent->setDate(new \DateTime());
+                $UserAgent->setCount(1);
+                $em->persist($UserAgent);
                 $em->flush();
-                return $newListAgent;
+                return $UserAgent;
             }
         }
     }
