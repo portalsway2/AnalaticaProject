@@ -22,7 +22,6 @@ class AppKernel extends Kernel
             new Acme\BlogBundle\AcmeBlogBundle(),
             new Time\TrackerBundle\TimeTrackerBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-        ,
             new Src\ApiBundle\SrcApiBundle(),
         );
 
