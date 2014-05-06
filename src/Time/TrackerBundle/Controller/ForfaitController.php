@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Time\TrackerBundle\Entity\ForfaitUser;
 use Time\TrackerBundle\Entity\User;
 use Time\TrackerBundle\Form\UserType;
 
@@ -48,13 +49,21 @@ class ForfaitController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         $forfait = $em->getRepository('TimeTrackerBundle:Forfait')->find($id);
+        $forfaituser = $em->getRepository('TimeTrackerBundle:ForfaitUser')->findBy(array('iduser' => $user));
 
-        if (($user->getIdforfait()) == NULL) {
-            $user->setIdforfait($forfait);
+        if (!$forfaituser) {
+            $forfaituser1 = new ForfaitUser();
+            $forfaituser1->setNbrRequest($forfait->getNbruseragent());
+            $forfaituser1->setIduser($user);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($forfaituser1);
             $em->flush();
-            return $this->redirect($this->generateUrl('choiceforfait'));
+            return $this->redirect($this->generateUrl('choiceforfait', array('id' => $forfait->getId())));
         } else {
-            return $this->redirect($this->generateUrl('choiceforfait'));
+            $forfaituser[0]->setNbrRequest($forfaituser[0]->getNbrRequest() + $forfait->getNbruseragent());
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('choiceforfait', array('id' => $forfait->getId())));
 
         }
 
@@ -62,23 +71,20 @@ class ForfaitController extends Controller
 
 
     /**
-     * @Route("choiceforfait", name="choiceforfait")
+     * @Route("choiceforfait/{id}", name="choiceforfait")
      * @Method("GET")
      * @Template("TimeTrackerBundle:Agent:choice_forfait.html.twig")
      */
-    public function choiceforfaitAction()
+    public function choiceforfaitAction($id)
     {
 
-        $user = $this->container->get('security.context')->getToken()->getUser();
 
-        $em = $this->getDoctrine()
-            ->getRepository('TimeTrackerBundle:User')
-            ->find($user);
+        $forfait = $this->getDoctrine()
+            ->getRepository('TimeTrackerBundle:Forfait')
+            ->find($id);
 
-        $forfait = $user->getIdforfait();
-        if ($forfait)
 
-            return array('forfait' => $forfait);
+        return array('forfait' => $forfait);
 
     }
 

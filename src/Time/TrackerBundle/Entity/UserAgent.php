@@ -52,13 +52,6 @@ class UserAgent
 
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="count", type="integer")
-     */
-    private $count;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="ip", type="string", length=255)
@@ -81,25 +74,6 @@ class UserAgent
     {
         return $this->ip;
     }
-
-
-
-    /**
-     * @param int $count
-     */
-    public function setCount($count)
-    {
-        $this->count = $count;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
 
 
     /**
@@ -198,8 +172,6 @@ class UserAgent
     {
         return $this->idUser;
     }
-
-
 
 
 }
