@@ -21,62 +21,42 @@ class EnvoyerTokenController extends Controller
 {
 
     /**
-     * Get token Envoyer
+     *
+     * Get user
+     *
      * @ApiDoc(
-     *  description = "Get a token",
      *  requirements={
      *      {
-     *          "name"="limit",
-     *          "dataType"="string",
-     *          "description"=" return token"
-     *      }
-     *  },
-     *  parameters={
-     *      {"name"="token", "dataType"="string", "required"=true, "description"="category token"}
-     *  }
+     *     "name"=" token ",
+     *     "dataType"="string",
+     *     "requirement"="Header",
+     *     "description"=" findBy token"
+     *   }
+     * },
+     *   resource = true,
+     *   statusCodes = {
+     *     204 = "Returned when successful",
+     *     400 = "Returned when the form has errors"
+     *   }
      * )
+     *
+     * @param $token
+     * @return array
      */
 
 
-    public function getEnvoyerTokenAction($id)
+    public function getUserAction($token)
     {
 
-        $em = $this->getDoctrine()->getManager($id);
+        $em = $this->getDoctrine()->getManager();
 
-        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("id" => $id));
+        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("token" => $token));
 
-        return ($user);
+        return array("user" => $user);
 
     }
 
 
-    /**
-     * Get user Profile
-     * @ApiDoc(
-     *   description = "Get profile ",
-     *  requirements={
-     *      {
-     *          "name"="profile",
-     *          "dataType"="string",
-     *          "description"=" return token"
-     *      }
-     *  },
-     *  parameters={
-     *      {"name"="profile", "dataType"="string", "required"=true, "description"="category token"}
-     *  }
-     * )
-     */
-
-    public function getProfileAction($id)
-    {
-
-        $em = $this->getDoctrine()->getManager($id);
-
-        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("id" => $id));
-
-        return ($user);
-
-    }
 
 
 }
