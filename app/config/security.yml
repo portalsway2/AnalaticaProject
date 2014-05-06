@@ -30,7 +30,6 @@ security:
         - { path: ^/device, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/forfait, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/useragent, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/doc, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
 
 

@@ -46,7 +46,6 @@ class ForfaitController extends Controller
     {
 
         $user = $this->container->get('security.context')->getToken()->getUser();
-
         $em = $this->getDoctrine()->getManager();
         $forfait = $em->getRepository('TimeTrackerBundle:Forfait')->find($id);
 

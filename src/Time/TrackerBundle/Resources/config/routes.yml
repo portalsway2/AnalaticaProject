@@ -10,10 +10,6 @@ userss:
   type: rest
   resource: Time\TrackerBundle\Controller\AfficheController
 
-usersss:
-  type: rest
-  resource: Time\TrackerBundle\Controller\EnvoyerTokenController
-
 user:
     type: rest
     resource: Time\TrackerBundle\Controller\UserController
