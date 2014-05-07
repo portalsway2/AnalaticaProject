@@ -35,8 +35,7 @@ class EnvoyerTokenController extends Controller
      * },
      *   resource = true,
      *   statusCodes = {
-     *     204 = "Returned when successful",
-     *     400 = "Returned when the form has errors"
+     *
      *   }
      * )
      *
@@ -54,9 +53,43 @@ class EnvoyerTokenController extends Controller
 
         return array("user" => $user);
 
+
     }
 
 
+    /**
+     *
+     * Get User Agent
+     *
+     * @ApiDoc(
+     *  requirements={
+     *      {
+     *     "name"=" token ",
+     *     "dataType"="string",
+     *     "requirement"="Header",
+     *     "description"=" findBy token"
+     *   }
+     * },
+     *   resource = true,
+     *   statusCodes = {
+     *
+     *   }
+     * )
+     *
+     * @param $token
+     * @return array
+     */
+    public function getUserAgentAction($token)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $useragent = $em->getRepository('TimeTrackerBundle:UserAgent')->findBy(array("token" => $token));
+
+        return array("useragent" => $useragent);
+
+
+    }
 
 
 }

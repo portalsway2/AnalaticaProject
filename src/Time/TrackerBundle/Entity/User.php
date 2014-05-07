@@ -43,30 +43,6 @@ class User extends BaseUser
      */
     private $last_name;
 
-    /**
-     * @param int $idforfait
-     */
-    public function setIdforfait($idforfait)
-    {
-        $this->idforfait = $idforfait;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdforfait()
-    {
-        return $this->idforfait;
-    }
-
-
-    /**
-     * @var integer
-     * @ORM\ManyToOne(targetEntity="Time\TrackerBundle\Entity\Forfait")
-     * @@ORM\JoinColumn
-     */
-    private $idforfait;
-
 
     /**
      * Get id

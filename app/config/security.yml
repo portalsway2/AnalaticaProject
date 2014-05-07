@@ -25,10 +25,10 @@ security:
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/navigateur, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/os, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/device, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/forfait, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/showBrowsers, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/showOS, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/showDevice, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/showForfait, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/useragent, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
 

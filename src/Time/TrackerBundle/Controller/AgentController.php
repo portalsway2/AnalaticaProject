@@ -87,66 +87,79 @@ class AgentController extends Controller
 
 
         if ($user) {
+            $forfait = $this->FindForfaituser($user);
+            if ($forfait->getNbrRequest() > 0) {
+                $em1 = $this->getDoctrine()->getManager();
+                $forfait->setNbrRequest($forfait->getNbrRequest() - 1);
+                $em1->flush();
+                // Enregistrer User Agent
+
+                $UserAgent = new UserAgent();
+                $UserAgent->setIdUser($user);
+                $UserAgent->setUserAgent($urlparam['AGENT']);
+                $UserAgent->setToken($token);
+                $UserAgent->setIp($urlparam["IP"]);
+                $UserAgent->setDate(new \DateTime());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($UserAgent);
+                $em->flush();
+
+                // Enregistrer Systeme d'exploitation
+
+                $OS = new OS();
+                $OS->setIdUserAgent($UserAgent);
+                $OS->setSystem($result['systeme']);
+                $OS->setVersion($result['version']);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($OS);
+                $em->flush();
 
 
-            // Enregistrer User Agent
+                // Enregistrer Device
 
-            $UserAgent = new UserAgent();
-            $UserAgent->setIdUser($user);
-            $UserAgent->setUserAgent($urlparam['AGENT']);
-            $UserAgent->setToken($token);
-            $UserAgent->setCount("9");
-            $UserAgent->setIp($urlparam["IP"]);
-            $UserAgent->setDate(new \DateTime());
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($UserAgent);
-            $em->flush();
+                $Device = new Device();
+                $Device->setIdUserAgent($UserAgent);
+                $Device->setName($mobile['name']);
+                $Device->setVersion($mobile['version']);
 
-            // Enregistrer Systeme d'exploitation
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($Device);
+                $em->flush();
 
-            $OS = new OS();
-            $OS->setIdUserAgent($UserAgent);
-            $OS->setSystem($result['systeme']);
-            $OS->setVersion($result['version']);
+                // Enregistrer Navigateur
 
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($OS);
-            $em->flush();
+                $Navigateur = new Navigateur();
+                $Navigateur->setIdUserAgent($UserAgent);
+                $Navigateur->setNavigateur($resultat['navigateur']);
+                $Navigateur->setVersion($resultat['version']);
 
 
-            // Enregistrer Device
-
-            $Device = new Device();
-            $Device->setIdUserAgent($UserAgent);
-            $Device->setName($mobile['name']);
-            $Device->setVersion($mobile['version']);
-
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($Device);
-            $em->flush();
-
-            // Enregistrer Navigateur
-
-            $Navigateur = new Navigateur();
-            $Navigateur->setIdUserAgent($UserAgent);
-            $Navigateur->setNavigateur($resultat['navigateur']);
-            $Navigateur->setVersion($resultat['version']);
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($Navigateur);
+                $em->flush();
 
 
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($Navigateur);
-            $em->flush();
+                return (array(
+
+                    "user" => $user->getUserName(),
+                    "ip" => $ip,
+                    "result" => $result,
+                    "resultat" => $resultat,
+                    "mobile" => $mobile,
+
+                ));
+
+            } else {
+                return (array(
+
+                    "result" => "500",
+                    "resultat" => "lll",
+                    "mobile" => "kkk",
+                ));
+            }
 
 
-            return (array(
-
-                "user" => $user->getUserName(),
-                "ip" => $ip,
-                "result" => $result,
-                "resultat" => $resultat,
-                "mobile" => $mobile,
-
-            ));
         } else {
             return (array(
 
@@ -286,6 +299,22 @@ class AgentController extends Controller
 
     }
 
+    /**
+     * @param $user
+     * @return mixed
+     */
+    private function FindForfaituser($user)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $forfait = $em->getRepository('TimeTrackerBundle:ForfaitUser')->findBy(array('iduser' => $user));
+
+        return $forfait[0];
+
+
+    }
 
     /**
      * @param $name

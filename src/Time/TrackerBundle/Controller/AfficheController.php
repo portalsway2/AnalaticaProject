@@ -31,20 +31,7 @@ use Time\TrackerBundle\Entity\Session;
 class AfficheController extends Controller
 {
 
-    /**
-     *
-     * Post user Affiche
-     * @ApiDoc(
-     *   resource = true,
-     *   statusCodes = {
-     *     204 = "Returned when successful",
-     *     400 = "Returned when the form has errors"
-     *   }
-     * )
-     *
-     * @param Request $request
-     * @return array
-     */
+
     public function postAfficheAction(Request $request)
     {
 
@@ -97,6 +84,7 @@ class AfficheController extends Controller
      * @Method("GET")
      * @Template("TimeTrackerBundle:Agent:os.html.twig")
      */
+
     public function osAction()
     {
 
