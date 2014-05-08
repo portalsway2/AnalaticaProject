@@ -207,6 +207,14 @@
             height: 105%
         }
 
+        .img1 {
+            position: absolute;
+            bottom: 0%;
+            width: 40%;
+            left: 0%;
+            height: 97%
+        }
+
         #header {
             box-shadow: 0 0 3px 0 #ccc inset;
             height: 130px;
@@ -228,14 +236,22 @@
 
 
     <div id="header">
+
         <div class="img"></a>
             {% image "bundles/timetracker/image/images.jpg" %}
             <img src="{{ asset_url }}"/>
             {% endimage %}
-            <div id="top_links">
-
-            </div>
         </div>
+
+        <div class="img1">
+            {% image "bundles/timetracker/image/Sans titre.png" %}
+            <img src="{{ asset_url }}"/>
+            {% endimage %}
+        </div>
+        <div id="top_links">
+
+        </div>
+    </div>
 
     </div>
 

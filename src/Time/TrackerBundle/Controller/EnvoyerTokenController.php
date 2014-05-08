@@ -22,25 +22,43 @@ class EnvoyerTokenController extends Controller
 
     /**
      *
-     * Get user
+     * This is a description of your API method Recover User by Token
+     *
+     * **Response format**
+     *
+     *    {
+     *
+     *       "user":[
+     *
+     *            "credentials_expired":"false",
+     *            "email":"emailgmail.com",
+     *            "email_canonical":"emailgmail.com",
+     *            "enabled":"true",
+     *            "expired": "false",
+     *            "first_name": "firstname",
+     *            "id": 1,
+     *            "last_login": "2014-05-08T00:40:40+0100",
+     *            "last_name": "lastname",
+     *            "locked": false,
+     *            "password": "password",
+     *            "roles": [],
+     *            "salt": "salt",
+     *            "token": "token",
+     *            "username": "usename",
+     *            "username_canonical": "usernamecanonical"
+     *
+     *        ]
+     *    }
      *
      * @ApiDoc(
-     *  requirements={
-     *      {
-     *     "name"=" token ",
-     *     "dataType"="string",
-     *     "requirement"="Header",
-     *     "description"=" findBy token"
-     *   }
-     * },
+     *   section = "user",
      *   resource = true,
      *   statusCodes = {
-     *
+     *     200 = "Returned when successful",
+     *     404 = "Returned when the page is not found"
      *   }
      * )
      *
-     * @param $token
-     * @return array
      */
 
 
@@ -60,25 +78,18 @@ class EnvoyerTokenController extends Controller
     /**
      *
      * Get User Agent
-     *
      * @ApiDoc(
-     *  requirements={
-     *      {
-     *     "name"=" token ",
-     *     "dataType"="string",
-     *     "requirement"="Header",
-     *     "description"=" findBy token"
-     *   }
-     * },
+     *   section = "user agent",
      *   resource = true,
-     *   statusCodes = {
-     *
-     *   }
+     *   output = "Time\TrackerBundle\Entity\UserAgent",
+     *   parameters={
+     *      {"name"="nbruseragent", "dataType"="integer", "required"=true, "description"="category id"}
+     *  }
      * )
-     *
-     * @param $token
+     * @param string $token the user id
      * @return array
      */
+
     public function getUserAgentAction($token)
     {
 
@@ -92,4 +103,29 @@ class EnvoyerTokenController extends Controller
     }
 
 
+    /**
+     *   Get Forfait
+     *
+     * @ApiDoc(
+     *   section = "forfait",
+     *   resource = true,
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     404 = "Returned when the page is not found"
+     *   }
+     * )
+     * @param $id
+     * @return array
+     */
+    public function getForfaitAction($id)
+    {
+
+
+        $forfaituser = $this->getDoctrine()
+            ->getRepository('TimeTrackerBundle:ForfaitUser')
+            ->find($id);
+
+        $userToken = $forfaituser->getUser()->getToken();
+
+    }
 }

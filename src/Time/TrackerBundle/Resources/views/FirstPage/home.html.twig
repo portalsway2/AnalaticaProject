@@ -125,7 +125,7 @@
 
         #header {
             box-shadow: 0 0 3px 0 #ccc inset;
-            height: 150px;
+            height: 140px;
             margin: 0 auto 5px;
             overflow: hidden;
             padding: 0;
@@ -139,12 +139,19 @@
             bottom: 0%;
             left: 70%;
             width: 30%;
-            height: 105%
+            height: 106%
         }
 
-
+        .img1 {
+            position: absolute;
+            bottom: 0%;
+            width: 40%;
+            left: 0%;
+            height: 97%
+        }
     </style>
 
+    <style></style>
 {% endblock %}
 
 {% block body -%}
@@ -154,9 +161,15 @@
             {% image "bundles/timetracker/image/images.jpg" %}
             <img src="{{ asset_url }}"/>
             {% endimage %}
-            <div id="top_links">
-            </div>
         </div>
+        <div class="img1">
+            {% image "bundles/timetracker/image/Sans titre.png" %}
+            <img src="{{ asset_url }}"/>
+            {% endimage %}
+        </div>
+        <div id="top_links">
+        </div>
+    </div>
 
     </div>
 
