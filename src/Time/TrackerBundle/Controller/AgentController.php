@@ -39,9 +39,9 @@ class AgentController extends Controller
 
     /**
      *
-     * Post user Agent
-     *
+     *This is a description of your API method how you can send the User Agent & Token
      * @ApiDoc(
+     *  section = "user agent",
      *  requirements={
      *   {
      *     "name"="token",

@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <meta charset="utf-8"/>
@@ -4909,7 +4908,8 @@ form .request-content {
             </span>
                         </h3>
                         <ul class="options">
-                            <li>Post user Agent</li>
+                            <li>This is a description of your API method how you can send the User Agent &amp; Token
+                            </li>
                         </ul>
                     </a>
 
@@ -4923,7 +4923,8 @@ form .request-content {
                             <div class="pane content selected">
                                 <h4>Documentation</h4>
 
-                                <div><p>Post user Agent</p>
+                                <div><p>This is a description of your API method how you can send the User Agent &amp;
+                                    Token</p>
                                 </div>
 
 
@@ -4955,6 +4956,35 @@ form .request-content {
                                         <td>xml|json|pdf|html</td>
                                         <td></td>
                                         <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <h4>Status Codes</h4>
+                                <table class="fullwidth">
+                                    <thead>
+                                    <tr>
+                                        <th>Status Code</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><a href="http://en.wikipedia.org/wiki/HTTP_204" target="_blank">204<a/></td>
+                                        <td>
+                                            <ul>
+                                                <li>Returned when successful</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="http://en.wikipedia.org/wiki/HTTP_400" target="_blank">400<a/></td>
+                                        <td>
+                                            <ul>
+                                                <li>Returned when the form has errors</li>
+                                            </ul>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -5058,13 +5088,13 @@ form .request-content {
 </li>
 <li class="resource">
     <div class="heading">
-        <h2>/os</h2>
+        <h2>/forfaits/{iduser}</h2>
     </div>
     <ul class="endpoints">
         <li class="endpoint">
             <ul class="operations">
-                <li class="get operation" id="get--os.{_format}">
-                    <a class="heading toggler" href="#get--os.{_format}">
+                <li class="get operation" id="get--forfaits-{iduser}.{_format}">
+                    <a class="heading toggler" href="#get--forfaits-{iduser}.{_format}">
                         <h3>
             <span class="http_method">
                 <i>GET</i>
@@ -5073,350 +5103,11 @@ form .request-content {
             
                         
             <span class="path">
-                /os.{_format}
+                /forfaits/{iduser}.{_format}
             </span>
                         </h3>
                         <ul class="options">
-                        </ul>
-                    </a>
-
-                    <div class="content" style="display: none;">
-                        <ul class="tabs">
-                            <li class="selected" data-pane="content">Documentation</li>
-                            <li data-pane="sandbox">Sandbox</li>
-                        </ul>
-
-                        <div class="panes">
-                            <div class="pane content selected">
-
-
-                                <h4>Requirements</h4>
-                                <table class="fullwidth">
-                                    <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Requirement</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>token</td>
-                                        <td>Header</td>
-                                        <td>string</td>
-                                        <td> return token</td>
-                                    </tr>
-                                    <tr>
-                                        <td>User Agent</td>
-                                        <td>Header</td>
-                                        <td>string</td>
-                                        <td> return token</td>
-                                    </tr>
-                                    <tr>
-                                        <td>_format</td>
-                                        <td>xml|json|pdf|html</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-
-                            </div>
-
-                            <div class="pane sandbox">
-                                <form method="GET" action="/os.{_format}">
-                                    <fieldset class="parameters">
-                                        <legend>Input</legend>
-                                        <h4>Requirements</h4>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="token" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=" return token"/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="User Agent" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=" return token"/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="_format" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=""/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                    </fieldset>
-
-                                    <fieldset class="headers">
-                                        <legend>Headers</legend>
-
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder="Value"/> <span class="remove">-</span>
-                                        </p>
-
-                                        <button class="add">New header</button>
-                                    </fieldset>
-
-                                    <fieldset class="request-content">
-                                        <legend>Content</legend>
-
-                                        <textarea class="content"
-                                                  placeholder="Content set here will override the parameters that do not match the url"></textarea>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key content-type" value="Content-Type"
-                                                   disabled="disabled"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder="Value"/>
-                                            <button class="set-content-type">Set header</button>
-                                            <small>Replaces header if set</small>
-                                        </p>
-                                    </fieldset>
-
-                                    <div class="buttons">
-                                        <input type="submit" value="Try!"/>
-                                    </div>
-                                </form>
-
-                                <script type="text/x-tmpl" class="tuple_template">
-                        <p class="tuple">
-                            <input type="text" class="key" placeholder="Key" />
-                            <span>=</span>
-                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
-                        </p>
-                        
-                                </script>
-
-                                <div class="result">
-                                    <h4>Request URL</h4>
-                                    <pre class="url"></pre>
-
-                                    <h4>Response Headers&nbsp;
-                                        <small>[<a href="" class="to-expand">Expand</a>]</small>
-                                    </h4>
-                                    <pre class="headers to-expand"></pre>
-
-                                    <h4>Response Body&nbsp;
-                                        <small>[<a href="" class="to-raw">Raw</a>]</small>
-                                    </h4>
-                                    <pre class="response prettyprint"></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</li>
-<li class="resource">
-    <div class="heading">
-        <h2>/showOS</h2>
-    </div>
-    <ul class="endpoints">
-        <li class="endpoint">
-            <ul class="operations">
-                <li class="get operation" id="get--showOS.{_format}">
-                    <a class="heading toggler" href="#get--showOS.{_format}">
-                        <h3>
-            <span class="http_method">
-                <i>GET</i>
-            </span>
-
-            
-                        
-            <span class="path">
-                /showOS.{_format}
-            </span>
-                        </h3>
-                        <ul class="options">
-                        </ul>
-                    </a>
-
-                    <div class="content" style="display: none;">
-                        <ul class="tabs">
-                            <li class="selected" data-pane="content">Documentation</li>
-                            <li data-pane="sandbox">Sandbox</li>
-                        </ul>
-
-                        <div class="panes">
-                            <div class="pane content selected">
-
-
-                                <h4>Requirements</h4>
-                                <table class="fullwidth">
-                                    <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Requirement</th>
-                                        <th>Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>token</td>
-                                        <td>Header</td>
-                                        <td>string</td>
-                                        <td> return token</td>
-                                    </tr>
-                                    <tr>
-                                        <td>User Agent</td>
-                                        <td>Header</td>
-                                        <td>string</td>
-                                        <td> return token</td>
-                                    </tr>
-                                    <tr>
-                                        <td>id</td>
-                                        <td>\d+</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>_format</td>
-                                        <td>xml|json|pdf|html</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-
-                            </div>
-
-                            <div class="pane sandbox">
-                                <form method="GET" action="/showOS.{_format}">
-                                    <fieldset class="parameters">
-                                        <legend>Input</legend>
-                                        <h4>Requirements</h4>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="token" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=" return token"/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="User Agent" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=" return token"/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="id" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=""/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" value="_format" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder=""/> <span
-                                                class="remove">-</span>
-                                        </p>
-
-                                    </fieldset>
-
-                                    <fieldset class="headers">
-                                        <legend>Headers</legend>
-
-
-                                        <p class="tuple">
-                                            <input type="text" class="key" placeholder="Key"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder="Value"/> <span class="remove">-</span>
-                                        </p>
-
-                                        <button class="add">New header</button>
-                                    </fieldset>
-
-                                    <fieldset class="request-content">
-                                        <legend>Content</legend>
-
-                                        <textarea class="content"
-                                                  placeholder="Content set here will override the parameters that do not match the url"></textarea>
-
-                                        <p class="tuple">
-                                            <input type="text" class="key content-type" value="Content-Type"
-                                                   disabled="disabled"/>
-                                            <span>=</span>
-                                            <input type="text" class="value" placeholder="Value"/>
-                                            <button class="set-content-type">Set header</button>
-                                            <small>Replaces header if set</small>
-                                        </p>
-                                    </fieldset>
-
-                                    <div class="buttons">
-                                        <input type="submit" value="Try!"/>
-                                    </div>
-                                </form>
-
-                                <script type="text/x-tmpl" class="tuple_template">
-                        <p class="tuple">
-                            <input type="text" class="key" placeholder="Key" />
-                            <span>=</span>
-                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
-                        </p>
-                        
-                                </script>
-
-                                <div class="result">
-                                    <h4>Request URL</h4>
-                                    <pre class="url"></pre>
-
-                                    <h4>Response Headers&nbsp;
-                                        <small>[<a href="" class="to-expand">Expand</a>]</small>
-                                    </h4>
-                                    <pre class="headers to-expand"></pre>
-
-                                    <h4>Response Body&nbsp;
-                                        <small>[<a href="" class="to-raw">Raw</a>]</small>
-                                    </h4>
-                                    <pre class="response prettyprint"></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</li>
-<li class="resource">
-    <div class="heading">
-        <h2>/users/{token}</h2>
-    </div>
-    <ul class="endpoints">
-        <li class="endpoint">
-            <ul class="operations">
-                <li class="get operation" id="get--users-{token}.{_format}">
-                    <a class="heading toggler" href="#get--users-{token}.{_format}">
-                        <h3>
-            <span class="http_method">
-                <i>GET</i>
-            </span>
-
-            
-                        
-            <span class="path">
-                /users/{token}.{_format}
-            </span>
-                        </h3>
-                        <ul class="options">
-                            <li>Get user</li>
+                            <li>Get Forfait</li>
                         </ul>
                     </a>
 
@@ -5430,7 +5121,7 @@ form .request-content {
                             <div class="pane content selected">
                                 <h4>Documentation</h4>
 
-                                <div><p>Get user</p>
+                                <div><p>Get Forfait</p>
                                 </div>
 
 
@@ -5458,7 +5149,7 @@ form .request-content {
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td>token</td>
+                                        <td>iduser</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -5470,7 +5161,7 @@ form .request-content {
                             </div>
 
                             <div class="pane sandbox">
-                                <form method="GET" action="/users/{token}.{_format}">
+                                <form method="GET" action="/forfaits/{iduser}.{_format}">
                                     <fieldset class="parameters">
                                         <legend>Input</legend>
                                         <h4>Requirements</h4>
@@ -5490,7 +5181,7 @@ form .request-content {
                                         </p>
 
                                         <p class="tuple">
-                                            <input type="text" class="key" value="token" placeholder="Key"/>
+                                            <input type="text" class="key" value="iduser" placeholder="Key"/>
                                             <span>=</span>
                                             <input type="text" class="value" placeholder=""/> <span
                                                 class="remove">-</span>
@@ -5563,10 +5254,601 @@ form .request-content {
         </li>
     </ul>
 </li>
+<div id="section">
+    <h1>user</h1>
+    <li class="resource">
+        <div class="heading">
+            <h2>/users/{token}</h2>
+        </div>
+        <ul class="endpoints">
+            <li class="endpoint">
+                <ul class="operations">
+                    <li class="get operation" id="get--users-{token}.{_format}">
+                        <a class="heading toggler" href="#get--users-{token}.{_format}">
+                            <h3>
+            <span class="http_method">
+                <i>GET</i>
+            </span>
+
+            
+                        
+            <span class="path">
+                /users/{token}.{_format}
+            </span>
+                            </h3>
+                            <ul class="options">
+                                <li>This is a description of your API method Recover User</li>
+                            </ul>
+                        </a>
+
+                        <div class="content" style="display: none;">
+                            <ul class="tabs">
+                                <li class="selected" data-pane="content">Documentation</li>
+                                <li data-pane="sandbox">Sandbox</li>
+                            </ul>
+
+                            <div class="panes">
+                                <div class="pane content selected">
+                                    <h4>Documentation</h4>
+
+                                    <div><p>This is a description of your API method Recover User</p>
+
+                                        <p><strong>Response format</strong></p>
+
+                                        <p>{</p>
+
+<pre><code> "user":[
+
+    "credentials_expired":"false",
+    "email":"emailgmail.com",
+    "email_canonical":"emailgmail.com",
+    "enabled":"true",
+    "expired": "false",
+    "first_name": "firstname",
+    "id": 1,
+    "last_login": "2014-05-08T00:40:40+0100",
+    "last_name": "lastname",
+    "locked": false,
+    "password": "password",
+    "roles": [],
+    "salt": "salt",
+    "token": "token",
+    "username": "usename",
+    "username_canonical": "usernamecanonical"
+
+    ]
+</code></pre>
+
+                                        <p>}</p>
+                                    </div>
+
+
+                                    <h4>Requirements</h4>
+                                    <table class="fullwidth">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Requirement</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>_format</td>
+                                            <td>xml|json|pdf|html</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>token</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <h4>Status Codes</h4>
+                                    <table class="fullwidth">
+                                        <thead>
+                                        <tr>
+                                            <th>Status Code</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><a href="http://en.wikipedia.org/wiki/HTTP_200" target="_blank">200<a/>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>OK</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+
+                                <div class="pane sandbox">
+                                    <form method="GET" action="/users/{token}.{_format}">
+                                        <fieldset class="parameters">
+                                            <legend>Input</legend>
+                                            <h4>Requirements</h4>
+
+                                            <p class="tuple">
+                                                <input type="text" class="key" value="_format" placeholder="Key"/>
+                                                <span>=</span>
+                                                <input type="text" class="value" placeholder=""/> <span
+                                                    class="remove">-</span>
+                                            </p>
+
+                                            <p class="tuple">
+                                                <input type="text" class="key" value="token" placeholder="Key"/>
+                                                <span>=</span>
+                                                <input type="text" class="value" placeholder=""/> <span
+                                                    class="remove">-</span>
+                                            </p>
+
+                                        </fieldset>
+
+                                        <fieldset class="headers">
+                                            <legend>Headers</legend>
+
+
+                                            <p class="tuple">
+                                                <input type="text" class="key" placeholder="Key"/>
+                                                <span>=</span>
+                                                <input type="text" class="value" placeholder="Value"/> <span
+                                                    class="remove">-</span>
+                                            </p>
+
+                                            <button class="add">New header</button>
+                                        </fieldset>
+
+                                        <fieldset class="request-content">
+                                            <legend>Content</legend>
+
+                                            <textarea class="content"
+                                                      placeholder="Content set here will override the parameters that do not match the url"></textarea>
+
+                                            <p class="tuple">
+                                                <input type="text" class="key content-type" value="Content-Type"
+                                                       disabled="disabled"/>
+                                                <span>=</span>
+                                                <input type="text" class="value" placeholder="Value"/>
+                                                <button class="set-content-type">Set header</button>
+                                                <small>Replaces header if set</small>
+                                            </p>
+                                        </fieldset>
+
+                                        <div class="buttons">
+                                            <input type="submit" value="Try!"/>
+                                        </div>
+                                    </form>
+
+                                    <script type="text/x-tmpl" class="tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        
+                                    </script>
+
+                                    <div class="result">
+                                        <h4>Request URL</h4>
+                                        <pre class="url"></pre>
+
+                                        <h4>Response Headers&nbsp;
+                                            <small>[<a href="" class="to-expand">Expand</a>]</small>
+                                        </h4>
+                                        <pre class="headers to-expand"></pre>
+
+                                        <h4>Response Body&nbsp;
+                                            <small>[<a href="" class="to-raw">Raw</a>]</small>
+                                        </h4>
+                                        <pre class="response prettyprint"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</div>
+<div id="section">
+<h1>user agent</h1>
+<li class="resource">
+<div class="heading">
+    <h2>/users/{token}/agent</h2>
+</div>
+<ul class="endpoints">
+<li class="endpoint">
+<ul class="operations">
+<li class="get operation" id="get--users-{token}-agent.{_format}">
+<a class="heading toggler" href="#get--users-{token}-agent.{_format}">
+    <h3>
+            <span class="http_method">
+                <i>GET</i>
+            </span>
+
+            
+                        
+            <span class="path">
+                /users/{token}/agent.{_format}
+            </span>
+    </h3>
+    <ul class="options">
+        <li>Get User Agent</li>
+    </ul>
+</a>
+
+<div class="content" style="display: none;">
+<ul class="tabs">
+    <li class="selected" data-pane="content">Documentation</li>
+    <li data-pane="sandbox">Sandbox</li>
+</ul>
+
+<div class="panes">
+<div class="pane content selected">
+<h4>Documentation</h4>
+
+<div><p>Get User Agent</p>
+</div>
+
+
+<h4>Requirements</h4>
+<table class="fullwidth">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Requirement</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>_format</td>
+        <td>xml|json|pdf|html</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>token</td>
+        <td></td>
+        <td>string</td>
+        <td>the user id</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h4>Parameters</h4>
+<table class='fullwidth'>
+    <thead>
+    <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Required?</th>
+        <th>Format</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>nbruseragent</td>
+        <td>integer</td>
+        <td>true</td>
+        <td></td>
+        <td>category id</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Return</h4>
+<table class='fullwidth'>
+    <thead>
+    <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Versions</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>id</td>
+        <td>integer</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user</td>
+        <td>object (User)</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[id]</td>
+        <td>integer</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[username]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[username_canonical]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[email]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[email_canonical]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[enabled]</td>
+        <td>boolean</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[salt]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td>The salt to use for hashing</td>
+    </tr>
+    <tr>
+        <td>id_user[password]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td>Encrypted password. Must be persisted.</td>
+    </tr>
+    <tr>
+        <td>id_user[last_login]</td>
+        <td>DateTime</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[confirmation_token]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td>Random string sent to the user email address in order to verify it</td>
+    </tr>
+    <tr>
+        <td>id_user[password_requested_at]</td>
+        <td>DateTime</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[locked]</td>
+        <td>boolean</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[expired]</td>
+        <td>boolean</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[expires_at]</td>
+        <td>DateTime</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[roles]</td>
+        <td>array</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[credentials_expired]</td>
+        <td>boolean</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[credentials_expire_at]</td>
+        <td>DateTime</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[token]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[first_name]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id_user[last_name]</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>user_agent</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>token</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>DateTime</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ip</td>
+        <td>string</td>
+        <td>*
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</div>
+
+<div class="pane sandbox">
+    <form method="GET" action="/users/{token}/agent.{_format}">
+        <fieldset class="parameters">
+            <legend>Input</legend>
+            <h4>Requirements</h4>
+
+            <p class="tuple">
+                <input type="text" class="key" value="_format" placeholder="Key"/>
+                <span>=</span>
+                <input type="text" class="value" placeholder=""/> <span class="remove">-</span>
+            </p>
+
+            <p class="tuple">
+                <input type="text" class="key" value="token" placeholder="Key"/>
+                <span>=</span>
+                <input type="text" class="value" placeholder="the user id"/> <span class="remove">-</span>
+            </p>
+            <h4>Parameters</h4>
+
+            <p class="tuple">
+                <input type="text" class="key" value="nbruseragent" placeholder="Key"/>
+                <span>=</span>
+                <input type="text" class="value" placeholder="[integer] category id"/> <span class="remove">-</span>
+            </p>
+            <button class="add">New parameter</button>
+
+        </fieldset>
+
+        <fieldset class="headers">
+            <legend>Headers</legend>
+
+
+            <p class="tuple">
+                <input type="text" class="key" placeholder="Key"/>
+                <span>=</span>
+                <input type="text" class="value" placeholder="Value"/> <span class="remove">-</span>
+            </p>
+
+            <button class="add">New header</button>
+        </fieldset>
+
+        <fieldset class="request-content">
+            <legend>Content</legend>
+
+            <textarea class="content"
+                      placeholder="Content set here will override the parameters that do not match the url"></textarea>
+
+            <p class="tuple">
+                <input type="text" class="key content-type" value="Content-Type" disabled="disabled"/>
+                <span>=</span>
+                <input type="text" class="value" placeholder="Value"/>
+                <button class="set-content-type">Set header</button>
+                <small>Replaces header if set</small>
+            </p>
+        </fieldset>
+
+        <div class="buttons">
+            <input type="submit" value="Try!"/>
+        </div>
+    </form>
+
+    <script type="text/x-tmpl" class="tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        
+    </script>
+
+    <div class="result">
+        <h4>Request URL</h4>
+        <pre class="url"></pre>
+
+        <h4>Response Headers&nbsp;
+            <small>[<a href="" class="to-expand">Expand</a>]</small>
+        </h4>
+        <pre class="headers to-expand"></pre>
+
+        <h4>Response Body&nbsp;
+            <small>[<a href="" class="to-raw">Raw</a>]</small>
+        </h4>
+        <pre class="response prettyprint"></pre>
+    </div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
 </ul>
 </div>
 <p id="colophon">
-    Documentation auto-generated on Tue, 06 May 14 17:30:29 +0100
+    Documentation auto-generated on Thu, 08 May 14 11:49:10 +0100
 </p>
 <script type="text/javascript">
 
