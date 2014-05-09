@@ -26,33 +26,6 @@ class EnvoyerTokenController extends Controller
     /**
      *
      * This is a description of your API method Recover User by Token
-     *
-     * **Response format**
-     *
-     *    {
-     *
-     *       "user":[
-     *
-     *            "credentials_expired":"false",
-     *            "email":" your e_mail",
-     *            "email_canonical":" your e_mail_canonical",
-     *            "enabled":"true",
-     *            "expired": "false",
-     *            "first_name": " you first name",
-     *            "id": 1,
-     *            "last_login": "2014-05-08T00:40:40+0100",
-     *            "last_name": " your last name",
-     *            "locked": false,
-     *            "password": "password",
-     *            "roles": [],
-     *            "salt": "salt",
-     *            "token": "token",
-     *            "username": "user name",
-     *            "username_canonical": "user_name_canonical"
-     *
-     *        ]
-     *    }
-     *
      * @ApiDoc(
      *   section = "user",
      *   resource = true,
@@ -64,8 +37,6 @@ class EnvoyerTokenController extends Controller
      * )
      *
      */
-
-
     public function getUserAction($token)
     {
 
@@ -75,13 +46,12 @@ class EnvoyerTokenController extends Controller
 
         return array("user" => $user);
 
-
     }
 
 
     /**
      *
-     * Get User Agent
+     * This is a description of your API method Recover User Agent by Token
      * @ApiDoc(
      *   section = "user agent",
      *   resource = true,
@@ -115,11 +85,13 @@ class EnvoyerTokenController extends Controller
 
 
     /**
-     *   Get Forfait
+     *
+     *   Get forfeit
      *
      * @ApiDoc(
-     *   section = "forfait",
+     *   section = "forfeit",
      *   resource = true,
+     *   output = "Time\TrackerBundle\Entity\Forfait",
      *   statusCodes = {
      *     200 = "Returned when successful",
      *     404 = "Returned when the page is not found"
@@ -127,7 +99,7 @@ class EnvoyerTokenController extends Controller
      * )
      * @return array
      */
-    public function getForfaitAction()
+    public function getForfeitAction()
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -139,11 +111,12 @@ class EnvoyerTokenController extends Controller
     }
 
     /**
-     *   Get Forfait User
+     *   Get forfeit User by Token
      *
      * @ApiDoc(
-     *   section = "forfait User",
+     *   section = "forfeit User",
      *   resource = true,
+     *   output = "Time\TrackerBundle\Entity\ForfaitUser",
      *   statusCodes = {
      *     200 = "Returned when successful",
      *     404 = "Returned when the page is not found"
@@ -153,18 +126,15 @@ class EnvoyerTokenController extends Controller
      * @param $token
      * @return array
      */
-
-
-    public function getForfaitUserAction($token)
+    public function getForfeitUserAction($token)
     {
 
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('TimeTrackerBundle:User')->find($token);
+        $user = $em->getRepository('TimeTrackerBundle:User')->findBy(array("token" => $token));
 
-        $userforfait = $em->getRepository('TimeTrackerBundle:ForfaitUser')->find($token);
+        $userforfait = $em->getRepository('TimeTrackerBundle:ForfaitUser')->findBy(array("iduser" => $user[0]));
 
         return array(
-            'user' => $user,
             'userforfait' => $userforfait
         );
     }
