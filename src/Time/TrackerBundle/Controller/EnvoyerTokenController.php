@@ -8,8 +8,11 @@
 
 namespace Time\TrackerBundle\Controller;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use FOS\RestBundle\Request\ParamFetcher;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\Routing\RouterInterface;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -31,21 +34,21 @@ class EnvoyerTokenController extends Controller
      *       "user":[
      *
      *            "credentials_expired":"false",
-     *            "email":"emailgmail.com",
-     *            "email_canonical":"emailgmail.com",
+     *            "email":" your e_mail",
+     *            "email_canonical":" your e_mail_canonical",
      *            "enabled":"true",
      *            "expired": "false",
-     *            "first_name": "firstname",
+     *            "first_name": " you first name",
      *            "id": 1,
      *            "last_login": "2014-05-08T00:40:40+0100",
-     *            "last_name": "lastname",
+     *            "last_name": " your last name",
      *            "locked": false,
      *            "password": "password",
      *            "roles": [],
      *            "salt": "salt",
      *            "token": "token",
-     *            "username": "usename",
-     *            "username_canonical": "usernamecanonical"
+     *            "username": "user name",
+     *            "username_canonical": "user_name_canonical"
      *
      *        ]
      *    }
@@ -53,6 +56,7 @@ class EnvoyerTokenController extends Controller
      * @ApiDoc(
      *   section = "user",
      *   resource = true,
+     *  output = "Time\TrackerBundle\Entity\User",
      *   statusCodes = {
      *     200 = "Returned when successful",
      *     404 = "Returned when the page is not found"
@@ -81,23 +85,30 @@ class EnvoyerTokenController extends Controller
      * @ApiDoc(
      *   section = "user agent",
      *   resource = true,
-     *   output = "Time\TrackerBundle\Entity\UserAgent",
-     *   parameters={
-     *      {"name"="nbruseragent", "dataType"="integer", "required"=true, "description"="category id"}
-     *  }
+     *   output = "Time\TrackerBundle\Entity\UserAgent"
      * )
-     * @param string $token the user id
+     *
+     * @QueryParam(name="max")
+     * @QueryParam(name="page")
+     * @param string $token
+     * @param ParamFetcher $paramFetcher
      * @return array
      */
-
-    public function getUserAgentAction($token)
+    public function getUserAgentAction(ParamFetcher $paramFetcher, $token)
     {
+        $max = $paramFetcher->get("max");
+        $page = $paramFetcher->get("page");
+        $fistResult = ($page - 1) * $max;
+        $repository = $this->getDoctrine()->getRepository('TimeTrackerBundle:UserAgent');
+        $query = $repository->createQueryBuilder('u')
+            ->where('u.token =:to')
+            ->setParameter('to', $token)
+            ->getQuery();
+        $pagination = new Paginator($query);
+        $ResultUserAgent = $query->setMaxResults($max)->setFirstResult($fistResult)->getResult();
 
-        $em = $this->getDoctrine()->getManager();
 
-        $useragent = $em->getRepository('TimeTrackerBundle:UserAgent')->findBy(array("token" => $token));
-
-        return array("useragent" => $useragent);
+        return array("useragent" => $ResultUserAgent);
 
 
     }
@@ -114,18 +125,48 @@ class EnvoyerTokenController extends Controller
      *     404 = "Returned when the page is not found"
      *   }
      * )
-     * @param $id
      * @return array
      */
-    public function getForfaitAction($id)
+    public function getForfaitAction()
     {
 
+        $em = $this->getDoctrine()->getManager();
 
-        $forfaituser = $this->getDoctrine()
-            ->getRepository('TimeTrackerBundle:ForfaitUser')
-            ->find($id);
+        $forfait = $em->getRepository('TimeTrackerBundle:Forfait')->findALL();
 
-        $userToken = $forfaituser->getUser()->getToken();
+        return array("forfait" => $forfait);
 
     }
+
+    /**
+     *   Get Forfait User
+     *
+     * @ApiDoc(
+     *   section = "forfait User",
+     *   resource = true,
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     404 = "Returned when the page is not found"
+     *   }
+     * )
+     *
+     * @param $token
+     * @return array
+     */
+
+
+    public function getForfaitUserAction($token)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('TimeTrackerBundle:User')->find($token);
+
+        $userforfait = $em->getRepository('TimeTrackerBundle:ForfaitUser')->find($token);
+
+        return array(
+            'user' => $user,
+            'userforfait' => $userforfait
+        );
+    }
+
 }
