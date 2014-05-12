@@ -198,21 +198,24 @@ class AfficheController extends Controller
 
     }
 
-    /**
-     * @Route("statistique", name="statistique")
-     * @Method("GET")
-     * @Template("TimeTrackerBundle:Agent:statistique.html.twig")
-     */
-    public function statistiqueAction()
-    {
-    }
 
     /**
      * @Route("useragent", name="useragent")
      * @Method("GET")
      * @Template("TimeTrackerBundle:Agent:useragent.html.twig")
      */
-    public function useragentAction()
+    public function UserAgentAction()
+    {
+
+    }
+
+
+    /**
+     * @Route("statistique", name="statistique")
+     * @Method("GET")
+     * @Template("TimeTrackerBundle:Agent:statistique.html.twig")
+     */
+    public function statistiqueAction()
     {
     }
 

@@ -38,6 +38,7 @@
             line-height: 20px;
             font-size: 14px;
             color: #888;
+            width: 305px;
 
         }
 
@@ -133,20 +134,20 @@
 
         <div class="span3 pro">
             <div class="pricing-table-header-pro">
-                <h2 style="text-align: center;">€ {{ forfait.price }}</h2>
 
-                <h3 style="text-align: center;"> {{ forfait.name }}</h3>
+                <h3 style="text-align: center;"> Personal Site</h3>
+
+                <h3 style="text-align: center;">€ {{ forfait.price }}</h3>
+
             </div>
             <div class="pricing-table-features">
-                <p><strong>{{ forfait.description }}</strong> Email Addresses</p>
 
-                <p><strong>120GB</strong> Disk Space</p>
+                <p><strong>Name Forfeit</strong>{{ forfait.name }}</p>
 
-                <p><strong>Unlimited</strong> MySQL Databases</p>
+                <p><strong>Numbre request</strong> {{ forfait.nbruseragent }}</p>
 
-                <p><strong>Unlimited</strong> Domains</p>
+                <p><strong>Description</strong>{{ forfait.description }}</p>
 
-                <p><strong>Free</strong> Billing Systems</p>
             </div>
             <div class="pricing-table-signup-pro">
 
