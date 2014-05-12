@@ -8,6 +8,7 @@
 
 namespace Time\TrackerBundle\Controller;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -207,6 +208,49 @@ class AfficheController extends Controller
     public function UserAgentAction()
     {
 
+
+        $key = array();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+
+        $repository = $this->getDoctrine()
+            ->getRepository('TimeTrackerBundle:UserAgent');
+
+        $query = $repository->createQueryBuilder('t')
+            ->where("t.idUser =:id ")
+            ->setParameter('id', $user)
+            ->getQuery();
+
+
+        $totalResults = new Paginator($query);
+
+        $date = new \DateTime('2014-01-01 00:00:00');
+        $dateF = new \DateTime('2014-01-01 23:59:59');
+
+        $counter = 0;
+        while ($counter < $totalResults->count()) {
+
+            $query = $repository->createQueryBuilder('t')
+                ->where("t.idUser =:id and t.date  between :date AND :dateF")
+                ->setParameter('date', $date)
+                ->setParameter('dateF', $dateF)
+                ->setParameter('id', $user)
+                ->getQuery();
+
+            $numberUserAgents = $query->getResult();
+            array_push($key, count($numberUserAgents));
+            $counter = $counter + count($numberUserAgents);
+            $date->modify('+1 day');
+            $dateF->modify('+1 day');
+
+
+        }
+        return array(
+
+            'key' => $key
+
+
+        );
     }
 
 
@@ -220,28 +264,7 @@ class AfficheController extends Controller
     }
 
 
-    /**
-     * @Route("statistique", name="statistique")
-     * @Method("GET")
-     * @Template("TimeTrackerBundle:Agent:statistique.html.twig")
-     */
-    public function statosAction()
-    {
 
-        $user = $this->container->get('security.context')->getToken()->getUser();
-
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('TimeTrackerBundle:ListOS')->findBy(array("idUser" => $user));
-        $listStat = array();
-        foreach ($entities as $stat) {
-            $statArray[0] = $stat->getCount();
-            array_push($listStat, $statArray);
-
-        }
-
-
-    }
 
 }
 

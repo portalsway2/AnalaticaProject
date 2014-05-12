@@ -57,7 +57,7 @@ affiche_statistique:
 
 affiche_useragent:
   pattern:  /useragent
-  resource: Time\TrackerBundle\Controller\AfficheController
+  defaults: { _controller: TimeTrackerBundle:Affiche:UserAgent, _format: json }
   methods:   [Get]
 
 profile_home:
