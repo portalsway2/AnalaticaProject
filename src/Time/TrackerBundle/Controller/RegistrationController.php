@@ -46,6 +46,7 @@ class RegistrationController extends BaseController
         $user = $userManager->createUser();
         $user->setEnabled(true);
 
+
         $event = new GetResponseUserEvent($user, $request);
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
 
@@ -58,6 +59,7 @@ class RegistrationController extends BaseController
         $form->setData($user);
 
         if ('POST' === $request->getMethod()) {
+
             $form->bind($request);
 
 
@@ -65,8 +67,18 @@ class RegistrationController extends BaseController
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-            $userManager->updateUser($user);
+            if ($userManager->findUserByUsername($user->getUsername())) {
+                echo "
+                <br><marquee>An exception occurred</marquee><br>";
+                exit;
+            }
+            if ($userManager->findUserByEmail($user->getEmail())) {
+                echo "
+                <br><marquee>An exception occurred</marquee><br>";
+                exit;
+            }
 
+            $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
                 $url = $this->container->get('router')->generate('forfait');
@@ -76,6 +88,8 @@ class RegistrationController extends BaseController
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
             return $response;
+
+
         }
 
 
@@ -84,6 +98,22 @@ class RegistrationController extends BaseController
 
         ));
 
+    }
+
+    private function verifyExistedUser($user)
+    {
+
+        $result = false;
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('TimeTrackerBundle:User')->findBy($user->getId());
+        if ($user) {
+            $result = true;
+        }
+        $user = $em->getRepository('TimeTrackerBundle:User')->find($user->getId());
+        //TODO kdjkd
+
+
+        return $result;
     }
 
 
